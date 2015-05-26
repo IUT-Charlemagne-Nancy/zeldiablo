@@ -1,10 +1,11 @@
 package personnage;
 
+
 public class Heros{
 	private int posX;
 	private int posY;
 
-	public Heros(int x, int y) {
+	public Heros() {
 		this.posX = 0;
 		this.posY = 0;
 	}

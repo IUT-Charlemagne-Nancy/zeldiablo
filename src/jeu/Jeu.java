@@ -13,7 +13,7 @@ public class Jeu {
 		run=true;
 		Scanner sc=new Scanner(System.in);
 		Labyrinthe laby = new Labyrinthe();
-		Heros perso = new Heros(0,0);
+		Heros perso = new Heros();
 		System.out.println(perso.toString());
 		while(run){
 		System.out.println("Veuillez vous deplacer haut/droite/bas/gauche");
