@@ -4,7 +4,7 @@ public class Jeu {
 
 	public static void main(String[]args){
 		Labyrinthe laby = new Labyrinthe();
-		Personnage perso = new Personnage(0,0);
+		Personnage perso = new Heros(0,0);
 		perso.seDeplacer("haut");
 		perso.toString();
 		perso.seDeplacer("bas");

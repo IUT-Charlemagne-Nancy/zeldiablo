@@ -11,5 +11,6 @@ public abstract class  Personnage {
 	
 	public String toString(){
 		System.out.println("Le personnage est en position"+posX+";"+posY);
+		return null;
 	}
 }
