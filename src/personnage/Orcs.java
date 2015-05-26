@@ -6,5 +6,4 @@ public class Orcs extends Monstre{
 		super();
 		this.traverser = false;
 	}
-
 }

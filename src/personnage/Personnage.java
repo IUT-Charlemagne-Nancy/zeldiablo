@@ -7,19 +7,7 @@ public abstract class  Personnage {
 	boolean traverser; 
 
 
-	public void seDeplacer(int choix){
-		if (choix == 1){
-			this.posX = this.posX+10;
-		}
-		if (choix == 2){
-			this.posX = this.posX-10;
-		}
-		if (choix == 3){
-			this.posY = this.posY+10;
-		}
-		if (choix == 4){
-			this.posY = this.posY-10;
-		}
+	public abstract void seDeplacer(String choix);
 	}
 
-}
+
