@@ -36,25 +36,4 @@ public class Heros extends Personnage{
 	public String toString(){
 		return("le personnage est en position: x:"+this.posX+" y: "+this.posY);
 	}
-	public void attaquer(Personnage victime){
-		if(!this.etreMort()){
-			if (!victime.etreMort()){
-
-				if(this.etreAPortee(victime)){
-					victime.subirDegat(this.attaque);
-				}
-			}
-		}
-	}
-
-	@Override
-	public void subirDegat(int x) {
-		if (!this.etreMort()){
-			this.vie=this.vie-x;
-			if (this.vie<0){
-				this.vie=0;
-			}
-		}
-		
-	}
 }
