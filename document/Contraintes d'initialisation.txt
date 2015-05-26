@@ -1,13 +1,13 @@
 Initialiser le joueur :
 
 - déterminer sa position de base (0,0)
-
+-sa vie de base:10
+-se portee:1
+-son attaque:1;
 
 Interface texte :
-
-- déterminer sa position à l'écran (posX=0,posY=0)
 - déterminer sa cohérance
-- 
+- celui ci renvoir la vie,la portee,l'attaque,et la position du joueur
 
 Se déplacer :
 
@@ -17,9 +17,9 @@ Se déplacer :
 - déterminer des touches de déplacements (clavier)
 - 
 
-Initialiser les monstres : 
+attaquer:
+-ne peut pas attaquer si pas a portee ou mort
+-un personnage mort ne peut plus perdre de vie
+-on ne peut pas rajouter de la vie en attaquant
 
-- déterminer le type du monstre (orc ou fantome)
--la position du monstre est aléatoire
-- déterminer leurs positions (x;y)
-- 
+:
