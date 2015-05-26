@@ -3,13 +3,11 @@ package personnage;
 public class Heros extends Personnage{
 
 	public Heros(int x, int y) {
-		super(x,y);
+		super();
+		this.posX = 0;
+		this.posY = 0;
+		this.traverser = false;
 	}
 
-	@Override
-	public void seDeplacer() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
