@@ -1,41 +1,17 @@
 package personnage;
 
-public class Heros extends Personnage{
-
-	public Heros() {
-		super(0,0,1,1,10);
+public class Personnage {
+	protected int posX,poxY,attaque,portee,vie;
+	public Heros(int x,int y,int attack,int porte,int pv) {
+		this.posX=x;
+		this.posY=y;
+		this.attaque=attack;
+		this.portee=porte;
+		this.vie=pv;
 	}
 
-	public void seDeplacer(String  choix){
-		if (choix.equals("droite")){
-			this.posX++;
-		}
-		if (choix.equals("gauche") ){
-			this.posX--;
-		}
-		if (choix.equals("haut")){
-			this.posY++;
-		}
-		if (choix.equals("bas")){
-			this.posY--;
-		}
-		if (this.posX<0){
-			this.posX = 0;
-		}
-		if (this.posX>Labyrinthe.tailleX){
-			this.posX =Labyrinthe.tailleX;
-		}
-		if (this.posY<0){
-			this.posY = 0;
-		}
-		if (this.posY>Labyrinthe.tailleY){
-			this.posY =Labyrinthe.tailleY;
-		}
-
-	}
-	public String toString(){
-		return("le personnage est en position: x:"+this.posX+" y: "+this.posY);
-	}
+	public abstract void seDeplacer(String  choix);
+	public abstract String toString();
 	public void attaquer(Personnage victime){
 		if(!this.etreMort()){
 			if (!victime.etreMort()){
