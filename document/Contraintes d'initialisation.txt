@@ -1,20 +1,17 @@
 Initialiser le joueur :
 
-- déterminer sa position de base (x;y)
-- déterminer ses points de vie
-- déterminer son nom
--
+- déterminer sa position de base (0,0)
+
 
 Interface texte :
 
-- déterminer sa position à l'écran
+- déterminer sa position à l'écran (posX=0,posY=0)
 - déterminer sa cohérance
 - 
 
 Se déplacer :
 
 - ne pas sortir de l'écran
-- ne pas pouvoir se déplacer quand le personnage est mort
 - ne pas pouvoir se déplacer dans un mur
 - pouvoir se déplacer dans une case vide
 - déterminer des touches de déplacements (clavier)
@@ -23,7 +20,6 @@ Se déplacer :
 Initialiser les monstres : 
 
 - déterminer le type du monstre (orc ou fantome)
-- déterminer leurs points de vie
-- déterminer leurs points d'attaque
+-la position du monstre est aléatoire
 - déterminer leurs positions (x;y)
 - 
