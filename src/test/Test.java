@@ -153,4 +153,12 @@ public class Test {
 		h1.attaquer(h2);
 		assertEquals("h2 doit avoir 0pv",0,h2.getVie());
 	}
+	
+	@org.junit.Test
+	public void test_toString(){
+		Heros h1=new Heros();
+		String b = h1.toString();
+		h1.seDeplacer("droite");
+		assertEquals("Le toString doit être différent",false,h1.toString()==b);
+	}
 }
