@@ -153,3 +153,4 @@ public class Test {
 		h1.attaquer(h2);
 		assertEquals("h2 doit avoir 0pv",0,h2.getVie());
 	}
+}
