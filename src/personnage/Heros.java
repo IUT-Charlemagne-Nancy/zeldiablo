@@ -34,6 +34,6 @@ public class Heros extends Personnage{
 
 	}
 	public String toString(){
-		return("le personnage est en position: x:"+this.posX+" y: "+this.posY);
+		return("vie: "+this.vie+" portee: "+this.portee+" Degats: "+this.attaque+" le personnage est en position: x:"+this.posX+" y: "+this.posY);
 	}
 }
