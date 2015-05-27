@@ -1,37 +1,36 @@
 package personnage;
-
+import moteurJeu.Commande;
 public class Heros extends Personnage{
 
 	public Heros() {
 		super(0,0,1,1,10);
 	}
 
-	public void seDeplacer(String  choix){
-		if (choix.equals("droite")){
-			this.posX++;
+	public void seDeplacer(Commande c){
+		if (c.gauche){
+			posX--;
+			if (this.posX<0){
+				posX=0;
+			}
 		}
-		if (choix.equals("gauche") ){
+		if (c.droite ){
 			this.posX--;
+			if(this.posX>Personnage.LIMIT_X){
+				this.posX=LIMIT_X;
+			}
 		}
-		if (choix.equals("haut")){
+		if (c.haut){
 			this.posY++;
+			if(this.posY>Personnage.LIMIT_Y){
+				this.posX=LIMIT_Y;
+			}
 		}
-		if (choix.equals("bas")){
+		if (c.bas){
 			this.posY--;
+			if(this.posY<0){
+				this.posY=0;
+			}
 		}
-		if (this.posX<0){
-			this.posX = 0;
-		}
-		if (this.posX>Labyrinthe.tailleX){
-			this.posX =Labyrinthe.tailleX;
-		}
-		if (this.posY<0){
-			this.posY = 0;
-		}
-		if (this.posY>Labyrinthe.tailleY){
-			this.posY =Labyrinthe.tailleY;
-		}
-
 	}
 	public String toString(){
 		return("vie: "+this.vie+" portee: "+this.portee+" Degats: "+this.attaque+" le personnage est en position: x:"+this.posX+" y: "+this.posY);
