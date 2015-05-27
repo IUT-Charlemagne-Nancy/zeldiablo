@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import monJeu.Personnage;
+import personnage.Heros;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 
