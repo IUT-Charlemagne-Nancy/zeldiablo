@@ -4,8 +4,8 @@ import moteurJeu.Commande;
 
 public abstract class Personnage {
 	protected int posX,posY,attaque,portee,vie;
-	final static int LIMIT_X=15;
-	final static int LIMIT_Y=15; 
+	public final static int LIMIT_X=15;
+	public final static int LIMIT_Y=15; 
 	public Personnage(int x,int y,int attack,int porte,int pv) {
 		this.posX=x;
 		this.posY=y;
