@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
 import personnage.Heros;
+import personnage.Personnage;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 
@@ -64,8 +65,8 @@ public class DessinMonJeu implements DessinJeu {
 	public void dessiner(BufferedImage im) {
 		// no sait que c'est un jeuTest
 		MonJeu j = (MonJeu) jeu;
-		Heros pj = j.getPj();
-		this.dessinerObjet("PJ", pj.x, pj.y, im);
+		Personnage pj = j.getPj();
+		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
 	}
 
 }
