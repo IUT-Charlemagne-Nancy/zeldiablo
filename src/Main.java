@@ -1,5 +1,5 @@
-import monJeu.DessinMonJeu;
-import monJeu.MonJeu;
+import jeu.DessinMonJeu;
+import jeu.MonJeu;
 import moteurJeu.MoteurGraphique;
 
 /**
