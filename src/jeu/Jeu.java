@@ -8,7 +8,7 @@ import personnage.Labyrinthe;
 
 
 public class Jeu {
-	public boolean run;
+	private boolean run;
 	public Jeu(){
 		run=true;
 		Scanner sc=new Scanner(System.in);
