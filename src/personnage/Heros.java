@@ -21,13 +21,13 @@ public class Heros extends Personnage{
 			}
 		}
 		if (c.haut){
-			this.posY++;
+			this.posY--;
 			if(this.posY>Personnage.LIMIT_Y){
 				this.posX=LIMIT_Y;
 			}
 		}
 		if (c.bas){
-			this.posY--;
+			this.posY++;
 			if(this.posY<0){
 				this.posY=0;
 			}
