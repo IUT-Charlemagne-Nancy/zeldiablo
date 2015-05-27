@@ -9,7 +9,6 @@ import personnage.Heros;
 import personnage.Personnage;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
-import jeu.MonJeu;
 
 /**
  * un afficheur graphique associe au JeuTest fourni
