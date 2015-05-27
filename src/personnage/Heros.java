@@ -15,7 +15,7 @@ public class Heros extends Personnage{
 			}
 		}
 		if (c.droite ){
-			this.posX--;
+			this.posX++;
 			if(this.posX>Personnage.LIMIT_X){
 				this.posX=LIMIT_X;
 			}
