@@ -1,5 +1,7 @@
 package jeu;
 
+import personnage.Heros;
+import personnage.Personnage;
 import moteurJeu.Commande;
 import moteurJeu.Jeu;
 
@@ -19,7 +21,7 @@ public class MonJeu implements Jeu {
 	 * constructeur de jeu avec un Personnage
 	 */
 	public MonJeu() {
-		this.pj=new Personnage();
+		this.pj=new Heros();
 	}
 
 	/**
@@ -36,7 +38,7 @@ public class MonJeu implements Jeu {
 	 *            chaine qui donne ordre
 	 */
 	public void evoluer(Commande commande) {
-		this.getPj().deplacer(commande);
+		this.getPj().seDeplacer(commande);
 
 	}
 
