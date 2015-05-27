@@ -22,15 +22,17 @@ public class Heros extends Personnage{
 		}
 		if (c.haut){
 			this.posY--;
-			if(this.posY>Personnage.LIMIT_Y){
-				this.posX=LIMIT_Y;
-			}
-		}
-		if (c.bas){
-			this.posY++;
 			if(this.posY<0){
 				this.posY=0;
 			}
+			
+		}
+		if (c.bas){
+			this.posY++;
+			if(this.posY>Personnage.LIMIT_Y){
+				this.posY=LIMIT_Y;
+			}
+			
 		}
 	}
 	public String toString(){
