@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import personnage.Barre_de_vie;
 import personnage.Heros;
 import personnage.Personnage;
 import moteurJeu.DessinJeu;
@@ -66,6 +67,7 @@ public class DessinMonJeu implements DessinJeu {
 		// no sait que c'est un jeuTest
 		MonJeu j = (MonJeu) jeu;
 		Personnage pj = j.getPj();
+		
 		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
 		this.dessinerObjet("MUR",0,0,im);
 	}

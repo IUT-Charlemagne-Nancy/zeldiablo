@@ -1,3 +1,6 @@
+import javax.swing.JPanel;
+
+import personnage.Barre_de_vie;
 import jeu.DessinMonJeu;
 import jeu.MonJeu;
 import moteurJeu.MoteurGraphique;
@@ -5,7 +8,7 @@ import moteurJeu.MoteurGraphique;
 /**
  * lancement du moteur avec le jeu
  */
-public class Main {
+public class Main extends JPanel {
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -16,6 +19,7 @@ public class Main {
 		// classe qui lance le moteur de jeu generique
 		MoteurGraphique moteur = new MoteurGraphique(jeu, aff);
 		moteur.lancerJeu(400,400);
+		
 	}
 
 }
