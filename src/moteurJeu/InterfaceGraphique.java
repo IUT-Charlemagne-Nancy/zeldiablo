@@ -97,10 +97,9 @@ public class InterfaceGraphique  {
 		Jambono.addKeyListener(controlleurGraph);
 		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
 		Jambono.setBorder(border);
-		barre_vie.setSize(300,400);
-		Jambono.add(this.panel);
+		Jambono.add(this.panel, BorderLayout.WEST);
 		Tchoupi.add(ecriture, BorderLayout.NORTH);
-		Tchoupi.add(barre_vie, BorderLayout.SOUTH);
+		Tchoupi.add(barre_vie, BorderLayout.CENTER);
 		Jambono.add(Tchoupi);
 		f.setContentPane(Jambono);
 		f.pack();
