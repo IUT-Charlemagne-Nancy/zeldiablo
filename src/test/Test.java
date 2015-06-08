@@ -4,8 +4,9 @@ import static org.junit.Assert.*;
 import jeu.MonJeu;
 import jeu.Mur;
 import moteurJeu.Commande;
+import personnage.Ghost;
 import personnage.Heros;
-import personnage.Personnage;
+import personnage.Orcs;
 
 public class Test {
 
@@ -17,7 +18,7 @@ public class Test {
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 		assertEquals("le heros doit avoir 100 de vie",100,h.getVie() );
 		assertEquals("le heros doit avoir 1 de portee",1,h.getPortee());
-		assertEquals("le heros doit avoir 1 de dégat",1,h.getDegat());
+		assertEquals("le heros doit avoir 1 de degat",1,h.getDegat());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_1(){
@@ -323,8 +324,23 @@ public class Test {
 		h.seDeplacer(c);
 		h.seDeplacer(c);
 		assertEquals ("Le heros doit se trouver en x = 1", 1, h.getPosX());
-		assertEquals ("Le heros doit se trouver en y=3", 3, h.getPosY());
+		assertEquals ("Le heros doit se trouver en y = 3", 3, h.getPosY());
+	}
+	@org.junit.Test
+	public void test_Constructeur_Orc(){
+		MonJeu j = new MonJeu();
+		Orcs o = new Orcs(j);
+		assertEquals("l'orc doit avoir 50 de vie",50,o.getVie() );
+		assertEquals("l'orc doit avoir 1 de portee",1,o.getPortee());
+		assertEquals("l'orc doit avoir 25 de degat",25,o.getDegat());
 	}
 	
-	
+	@org.junit.Test
+	public void test_Constructeur_Fantome(){
+		MonJeu j = new MonJeu();
+		Ghost g = new Ghost(j);
+		assertEquals("le fantome doit avoir 30 de vie",30,g.getVie() );
+		assertEquals("le fantome doit avoir 3 de portee",3,g.getPortee());
+		assertEquals("le fantome doit avoir 10 de degat",10,g.getDegat());
+	}
 }
