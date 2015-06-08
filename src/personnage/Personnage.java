@@ -6,13 +6,13 @@ public abstract class Personnage {
 	protected int posX,posY,attaque,portee,vie;
 	public final static int LIMIT_X=15;
 	public final static int LIMIT_Y=15; 
+	public boolean traverse;
 	public Personnage(int x,int y,int attack,int porte,int pv) {
 		this.posX=x;
 		this.posY=y;
 		this.attaque=attack;
 		this.portee=porte;
 		this.vie=pv;
-		
 	}
 
 	public abstract void seDeplacer(Commande c);
