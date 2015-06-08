@@ -22,6 +22,8 @@ import jeu.DessinMonJeu;
  */
 public class InterfaceGraphique  {
 
+	
+	protected boolean valide = true;
 	/**
 	 * le Panel lie a la JFrame
 	 */
@@ -47,10 +49,13 @@ public class InterfaceGraphique  {
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		while(valide == true){
+		valide = false;
 		
 	    final JProgressBar barre_vie;
 		int MINIMUM=0;
 		int MAXIMUM=100;
+		
 		final int vie;
 		vie = dessin.jeu.getPj().getVie();
 		int attaque = dessin.jeu.getPj().getDegat();
@@ -95,7 +100,6 @@ public class InterfaceGraphique  {
 		JPanel Total = new JPanel();
 		JPanel Informations = new JPanel();
 		Total.setPreferredSize(new Dimension(600,450));
-		String n = "ok";
 	
 		
 		Total.setLayout(new BorderLayout());
@@ -156,6 +160,11 @@ public class InterfaceGraphique  {
 		f.getContentPane().setFocusable(true);
 		f.getContentPane().requestFocus();
 		}
+		
+		}
+		
+		
+		
 	
 	
 	
@@ -171,7 +180,7 @@ public class InterfaceGraphique  {
 	 * demande la mise a jour du dessin
 	 */
 	public void dessiner() {
-		this.panel.dessinerJeu();	
+		this.panel.dessinerJeu();
 	}
 	
 }
