@@ -7,8 +7,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-
+import personnage.Ghost;
 import personnage.Heros;
+import personnage.Orcs;
 import personnage.Personnage;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
@@ -48,6 +49,16 @@ public class DessinMonJeu implements DessinJeu {
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 		switch (s) {
 		case "PJ":
+			crayon.setColor(Color.green);
+			crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+					TAILLE_CASE);
+			break;
+		case "ORCS":
+			crayon.setColor(Color.red);
+			crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+					TAILLE_CASE);
+			break;
+		case "GHOST":
 			crayon.setColor(Color.blue);
 			crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
 					TAILLE_CASE);
@@ -69,6 +80,7 @@ public class DessinMonJeu implements DessinJeu {
 		// no sait que c'est un jeuTest
 		MonJeu j = (MonJeu) jeu;
 		Personnage pj = j.getPj();
+		Orcs orc = new Orcs(j);
 		
 		for (int i = 0 ;i<j.LIMIT_X;i++){
 			for (int k = 0; k<j.LIMIT_Y; k++){
@@ -79,14 +91,17 @@ public class DessinMonJeu implements DessinJeu {
 			}
 			
 		}
-		Case c = new Mur(12,11);
-		j.modifierCase(c, 12, 11);
-		this.dessinerObjet("MUR",12,11,im);
-		j.modifierCase(c, 12, 10);
-		this.dessinerObjet("MUR",12,10,im);
-		j.modifierCase(c, 12, 9);
-		this.dessinerObjet("MUR",12,9,im);
+		for (int i = 0 ; i < j.monstres.size() ; i++){
+			if (j.monstres.get(i) instanceof Orcs){
+				this.dessinerObjet("ORCS",j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+			}
+			if (j.monstres.get(i) instanceof Ghost){
+				this.dessinerObjet("GHOST", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+			}
+		}
+		
 		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
+		
 	}
 
 }

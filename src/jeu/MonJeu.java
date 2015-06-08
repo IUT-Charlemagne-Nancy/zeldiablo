@@ -1,6 +1,11 @@
 
 package jeu;
+import java.util.ArrayList;
+import java.util.List;
+
+import personnage.Ghost;
 import personnage.Heros;
+import personnage.Orcs;
 import personnage.Personnage;
 import moteurJeu.Commande;
 import moteurJeu.Jeu;
@@ -16,7 +21,7 @@ public class MonJeu implements Jeu {
 	 * le personnage du jeu
 	 */
 	private Personnage pj;
-	
+	protected List<Personnage> monstres;
 	/**
 	 * liste des cases du murs
 	 */
@@ -44,6 +49,9 @@ public class MonJeu implements Jeu {
 				}
 			}
 		}
+		this.monstres=new ArrayList<Personnage>();
+		this.monstres.add(new Ghost(this));
+		this.monstres.add(new Orcs(this));
 	}
 	public Case recupererCase(int x,int y){
 		return this.labyrinthe[x][y];
@@ -72,6 +80,10 @@ public class MonJeu implements Jeu {
 	 */
 	public void evoluer(Commande commande) {
 		this.getPj().seDeplacer(commande);
+		for (int i = 0 ; i<this.monstres.size();i++){
+			Commande c = new Commande((int)Math.round(Math.random()*8));
+			monstres.get(i).seDeplacer(c);
+		}
 	}
 
 	@Override
