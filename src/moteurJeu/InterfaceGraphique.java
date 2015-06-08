@@ -4,11 +4,7 @@ package moteurJeu;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
-import javafx.scene.layout.Border;
-
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,7 +12,7 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 
-import personnage.Barre_de_vie;
+
 
 
 /**
