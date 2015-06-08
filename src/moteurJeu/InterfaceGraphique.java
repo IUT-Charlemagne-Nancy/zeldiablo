@@ -6,6 +6,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
 
 import personnage.Barre_de_vie;
 
@@ -37,18 +39,48 @@ public class InterfaceGraphique  {
 	 */
 	public InterfaceGraphique(DessinJeu afficheurUtil,int x,int y)
 	{
-		//creation JFrame
+
 		JFrame f=new JFrame();
-		//ajout du controleur	
 		
-		Barre_de_vie barre = new Barre_de_vie();
+		
+		JProgressBar barre_vie;
+		int MINIMUM=0;
+		int MAXIMUM=100;
+		int vie;
+		vie = 100;
+		
+		
+		
+		 // Créer un objet de la Barre de progression
+	     barre_vie = new JProgressBar( );
+	 
+	     // Définir la valeur initiale de la barre de progression
+	     barre_vie.setMinimum(MINIMUM);
+	     // Définir la valeur maximale de la barre de progression
+	     barre_vie.setMaximum(MAXIMUM);
+	     
+	     try
+	      {
+	         SwingUtilities.invokeLater(new Runnable( ) {
+	             public void run( ) {
+	            	 barre_vie.setValue(vie);
+	             }
+	         });
+	         java.lang.Thread.sleep(100);
+	       } catch (InterruptedException e) {;}
+	     
+	     
+	 
+		
 		f.setLayout(new BorderLayout());
+		
 		this.panel=new PanelDessin(x, y,afficheurUtil);
 		Controleur controlleurGraph=new Controleur();
 		this.controleur=controlleurGraph;
-		this.panel.addKeyListener(controlleurGraph);
+		
+		this.panel.addKeyListener(controlleurGraph);	
 		f.add(this.panel, BorderLayout.NORTH);
-		f.add(barre, BorderLayout.EAST);
+		f.add(barre_vie, BorderLayout.EAST);
 		
 		
 		//recuperation du focus
