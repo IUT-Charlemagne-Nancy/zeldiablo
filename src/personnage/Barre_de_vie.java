@@ -1,8 +1,9 @@
 package personnage;
 
 	import java.awt.*;
-	import java.awt.event.*;
-	import javax.swing.*;
+import java.awt.event.*;
+
+import javax.swing.*;
 	 
 	public class Barre_de_vie extends JPanel
 	 {

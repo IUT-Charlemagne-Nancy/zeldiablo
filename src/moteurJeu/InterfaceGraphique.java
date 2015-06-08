@@ -1,8 +1,20 @@
 package moteurJeu;
 
-import javax.swing.JFrame;
 
+
+import java.awt.BorderLayout;
+
+import javafx.scene.layout.Border;
+
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
+
+import personnage.Barre_de_vie;
 
 
 /**
@@ -32,20 +44,50 @@ public class InterfaceGraphique  {
 	 */
 	public InterfaceGraphique(DessinJeu afficheurUtil,int x,int y)
 	{
-		//creation JFrame
+
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		// creation panel
-		this.panel=new PanelDessin(x, y,afficheurUtil);
-		f.setContentPane(this.panel);
 		
-		//ajout du controleur
+	    final JProgressBar barre_vie;
+		int MINIMUM=0;
+		int MAXIMUM=100;
+		final int vie;
+		vie = 100;
+		
+		
+		
+		 // Créer un objet de la Barre de progression
+	     barre_vie = new JProgressBar( );
+	 
+	     // Définir la valeur initiale de la barre de progression
+	     barre_vie.setMinimum(MINIMUM);
+	     // Définir la valeur maximale de la barre de progression
+	     barre_vie.setMaximum(MAXIMUM);
+	     
+	     try
+	      {
+	         SwingUtilities.invokeLater(new Runnable( ) {
+	             public void run( ) {
+	            	 barre_vie.setValue(vie);
+	             }
+	         });
+	         Thread.sleep(1000);
+	       } catch (InterruptedException e) {;}
+	     
+		
+		JPanel Jambono = new JPanel();
+		
+		this.panel=new PanelDessin(x, y,afficheurUtil);
 		Controleur controlleurGraph=new Controleur();
 		this.controleur=controlleurGraph;
-		this.panel.addKeyListener(controlleurGraph);	
-		
-		//recuperation du focus
+		Jambono.addKeyListener(controlleurGraph);
+		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
+		Jambono.setBorder(border);
+		barre_vie.setSize(300,400);
+		Jambono.add(this.panel);
+		Jambono.add(barre_vie);
+		f.setContentPane(Jambono);
 		f.pack();
 		f.setVisible(true);
 		f.getContentPane().setFocusable(true);
