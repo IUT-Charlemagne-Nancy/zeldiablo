@@ -26,7 +26,7 @@ public class DessinMonJeu implements DessinJeu {
 	/**
 	 * lien vers le jeu a afficher
 	 */
-	private MonJeu jeu;
+	public MonJeu jeu;
 
 	/**
 	 * appelle constructeur parent
