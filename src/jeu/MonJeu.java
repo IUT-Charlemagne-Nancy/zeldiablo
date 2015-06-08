@@ -93,8 +93,27 @@ public class MonJeu implements Jeu {
 		if (commande.bas){
 			if (this.labyrinthe[pj.getPosX()][pj.getPosY()+1].etreTraversable()==true){
 				this.getPj().seDeplacer(commande);
+			}	
+		}
+		if (commande.gauche && commande.bas){
+			if (this.labyrinthe[pj.getPosX()-1][pj.getPosY()].etreTraversable()==true && this.labyrinthe[pj.getPosX()][pj.getPosY()+1].etreTraversable()==true ){
+				this.getPj().seDeplacer(commande);
 			}
-			
+		}
+		if (commande.gauche && commande.haut){
+			if (this.labyrinthe[pj.getPosX()-1][pj.getPosY()].etreTraversable()==true && this.labyrinthe[pj.getPosX()][pj.getPosY()-1].etreTraversable()==true){
+				this.getPj().seDeplacer(commande);
+			}
+		}
+		if (commande.droite && commande.bas){
+			if (this.labyrinthe[pj.getPosX()+1][pj.getPosY()].etreTraversable()==true && this.labyrinthe[pj.getPosX()][pj.getPosY()+1].etreTraversable()==true){
+				this.getPj().seDeplacer(commande);
+			}
+		}
+		if (commande.droite && commande.haut){
+			if (this.labyrinthe[pj.getPosX()+1][pj.getPosY()].etreTraversable()==true && this.labyrinthe[pj.getPosX()][pj.getPosY()-1].etreTraversable()==true){
+				this.getPj().seDeplacer(commande);
+			}
 		}
 
 	}

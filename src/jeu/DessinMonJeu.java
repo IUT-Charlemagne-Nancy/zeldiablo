@@ -80,6 +80,10 @@ public class DessinMonJeu implements DessinJeu {
 		Case c = new Mur(12,11);
 		j.modifierCase(c, 12, 11);
 		this.dessinerObjet("MUR",12,11,im);
+		j.modifierCase(c, 12, 10);
+		this.dessinerObjet("MUR",12,10,im);
+		j.modifierCase(c, 12, 9);
+		this.dessinerObjet("MUR",12,9,im);
 		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
 	}
 
