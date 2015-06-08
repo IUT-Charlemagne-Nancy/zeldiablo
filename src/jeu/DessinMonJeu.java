@@ -67,6 +67,7 @@ public class DessinMonJeu implements DessinJeu {
 		MonJeu j = (MonJeu) jeu;
 		Personnage pj = j.getPj();
 		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
+		this.dessinerObjet("MUR",0,0,im);
 	}
 
 }

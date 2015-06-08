@@ -6,7 +6,6 @@ public class Heros extends Personnage{
 	public Heros() {
 		super(0,0,1,1,10);
 	}
-
 	public void seDeplacer(Commande c){
 		if (c.gauche){
 			posX--;
