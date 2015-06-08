@@ -1,5 +1,7 @@
 package moteurJeu;
 
+import javax.swing.JPanel;
+
 import jeu.DessinMonJeu;
 import jeu.MonJeu;
 
@@ -8,7 +10,7 @@ import jeu.MonJeu;
  * 
  * On lui passe un jeu et un afficheur et il permet d'executer un jeu.
  */
-public class MoteurGraphique {
+public class MoteurGraphique extends JPanel {
 
 	/**
 	 * le jeu a executer
