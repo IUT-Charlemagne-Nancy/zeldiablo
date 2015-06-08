@@ -12,29 +12,31 @@ public class Ghost extends Personnage {
 
 	@Override
 	public void seDeplacer(Commande c) {
-		if (c.gauche){
+		if (this.etreMort() == false){
+			if (c.gauche){
 				posX--;
 				if (this.posX<0){
 					posX=0;
 				}
-		}
-		if (c.droite ){
+			}
+			if (c.droite ){
 				this.posX++;
 				if(this.posX>Personnage.LIMIT_X){
 					this.posX=LIMIT_X;
 				}
-		}
-		if (c.haut){
+			}
+			if (c.haut){
 				this.posY--;
 				if(this.posY<0){
 					this.posY=0;
+				}
 			}
-		}
-		if (c.bas){
+			if (c.bas){
 				this.posY++;
 				if(this.posY>Personnage.LIMIT_Y){
 					this.posY=LIMIT_Y;
 				}
+			}
 		}
 	}
 

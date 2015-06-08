@@ -1,10 +1,8 @@
 package moteurJeu;
 
 
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.*;
+import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -44,9 +42,6 @@ public class InterfaceGraphique  {
 	 */
 	public InterfaceGraphique(DessinMonJeu dessin,int x,int y)
 	{
-
-		
-		Personnage p = dessin.jeu.getPj();
 		
 		
 		JFrame f=new JFrame();
@@ -57,7 +52,12 @@ public class InterfaceGraphique  {
 		int MINIMUM=0;
 		int MAXIMUM=100;
 		final int vie;
-		vie = p.getVie();
+		vie = dessin.jeu.getPj().getVie();
+		int attaque = dessin.jeu.getPj().getDegat();
+		int portee = dessin.jeu.getPj().getPortee();
+		int posx = dessin.jeu.getPj().getPosX();
+		int posy = dessin.jeu.getPj().getPosY();
+		
 		
 		
 		
@@ -85,6 +85,7 @@ public class InterfaceGraphique  {
 	         SwingUtilities.invokeLater(new Runnable( ) {
 	             public void run( ) {
 	            		 barre_vie.setValue(vie); 
+	            		 
 	             }
 	         });
 	         Thread.sleep(1000);
@@ -94,36 +95,68 @@ public class InterfaceGraphique  {
 		JPanel Total = new JPanel();
 		JPanel Informations = new JPanel();
 		Total.setPreferredSize(new Dimension(600,450));
+		String n = "ok";
 	
 		
 		Total.setLayout(new BorderLayout());
 		
 		JLabel ecriture = new JLabel();
-		ecriture.setText("Points de vie");
+		ecriture.setText("Points de vie : " + vie);
 		
 		JLabel pointA = new JLabel();
-		pointA.setText("Points d'attaque");
+		pointA.setText("Points d'attaque : " + attaque);
+		
+		JLabel po = new JLabel();
+		po.setText("Portee : " + portee);
+		
+		JLabel vide = new JLabel();
+		vide.setText("                    ");
+		
+		JLabel vide2 = new JLabel();
+		vide2.setText("                                                        ");
+		
+		JLabel vide1 = new JLabel();
+		vide1.setText("                                                        ");
+		
+		JLabel control = new JLabel();
+		control.setText("Controle : Haut --> Z    Bas --> S ");
+		
+		JLabel control2 = new JLabel();
+		control2.setText("Gauche --> Q   Droite --> D");
+		
+		JLabel boussole = new JLabel();
+		boussole.setText("Boussole : " + " Position en x : " + posx );
+		
+		JLabel boussole1 = new JLabel();
+		
+		boussole1.setText(" Position en y : " + posy);
 		
 		this.panel=new PanelDessin(x, y,dessin);
-		
 		Controleur controlleurGraph=new Controleur();
 		this.controleur=controlleurGraph;
 		Total.addKeyListener(controlleurGraph);
-		
 		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
 		Total.setBorder(border);
 		Total.add(this.panel, BorderLayout.WEST);
 		Informations.add(ecriture, BorderLayout.WEST);
 		Informations.add(barre_vie, BorderLayout.CENTER);
+		Informations.add(vide2);
 		Informations.add(pointA, BorderLayout.SOUTH);
+		Informations.add(po,BorderLayout.SOUTH);
+		Informations.add(vide);
+		Informations.add(control, BorderLayout.SOUTH);
+		Informations.add(control2, BorderLayout.SOUTH);
+		Informations.add(vide1);
+		Informations.add(boussole);
+		Informations.add(boussole1);
 		Total.add(Informations);
-		
 		f.setContentPane(Total);
 		f.pack();
 		f.setVisible(true);
 		f.getContentPane().setFocusable(true);
 		f.getContentPane().requestFocus();
-	}
+		}
+	
 	
 	
 	/**
