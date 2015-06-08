@@ -1,9 +1,5 @@
 
 package jeu;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import personnage.Heros;
 import personnage.Personnage;
 import moteurJeu.Commande;
@@ -37,9 +33,10 @@ public class MonJeu implements Jeu {
 		this.labyrinthe = new Case[LIMIT_X][LIMIT_Y];
 		for (int i = 0 ;i<this.labyrinthe.length;i++){
 			for (int j = 0; j<this.labyrinthe[i].length; j++){
-				if(i == 0 || j == 0 || i == this.LIMIT_X-1 || j == (this.LIMIT_Y-1)){
+				if(i == 0 || j == 0 || i == this.LIMIT_X-1 || j == (this.LIMIT_Y-1)||(i!=10 && i!=11 && i!=12 && j==4)||(j==7 && (i<=14 && i>=9))||(i==9 && (j>=8 && j<=12))||(j==12 &&(i>=12 && i<=14))||j==9&&(i>=3&&i<=8)||j==12&&(i>=1 && i<=6 )){
 					Case c = new Mur(i,j);
 					this.labyrinthe[i][j]=c;
+					modifierCase(c,i,j);
 				}
 				else{
 				Case c = new Case(i,j);

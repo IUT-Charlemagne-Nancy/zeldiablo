@@ -4,6 +4,9 @@ package moteurJeu;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+
+
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,7 +51,7 @@ public class InterfaceGraphique  {
 		int MINIMUM=0;
 		int MAXIMUM=100;
 		final int vie;
-		vie = 99;
+		vie = 100;
 		
 		
 		
@@ -82,26 +85,34 @@ public class InterfaceGraphique  {
 	       } catch (InterruptedException e) {;}
 	     
 		
-		JPanel Jambono = new JPanel();
+		JPanel Total = new JPanel();
+		JPanel Informations = new JPanel();
+		Total.setPreferredSize(new Dimension(600,450));
+	
 		
-		JPanel Tchoupi = new JPanel();
-		Tchoupi.setLayout(new BorderLayout());
+		Total.setLayout(new BorderLayout());
 		
 		JLabel ecriture = new JLabel();
 		ecriture.setText("Points de vie");
 		
+		JLabel pointA = new JLabel();
+		pointA.setText("Points d'attaque");
+		
 		this.panel=new PanelDessin(x, y,afficheurUtil);
+		
 		Controleur controlleurGraph=new Controleur();
 		this.controleur=controlleurGraph;
-		Jambono.addKeyListener(controlleurGraph);
+		Total.addKeyListener(controlleurGraph);
+		
 		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
-		Jambono.setBorder(border);
-		barre_vie.setSize(300,400);
-		Jambono.add(this.panel);
-		Tchoupi.add(ecriture, BorderLayout.NORTH);
-		Tchoupi.add(barre_vie, BorderLayout.SOUTH);
-		Jambono.add(Tchoupi);
-		f.setContentPane(Jambono);
+		Total.setBorder(border);
+		Total.add(this.panel, BorderLayout.WEST);
+		Informations.add(ecriture, BorderLayout.WEST);
+		Informations.add(barre_vie, BorderLayout.CENTER);
+		Informations.add(pointA, BorderLayout.SOUTH);
+		Total.add(Informations);
+		
+		f.setContentPane(Total);
 		f.pack();
 		f.setVisible(true);
 		f.getContentPane().setFocusable(true);
