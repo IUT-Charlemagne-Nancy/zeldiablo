@@ -71,71 +71,7 @@ public class MonJeu implements Jeu {
 	 *            chaine qui donne ordre
 	 */
 	public void evoluer(Commande commande) {
-		if (commande.gauche){
-			if (this.labyrinthe[pj.getPosX()-1][pj.getPosY()].etreTraversable()==true){
-				this.getPj().seDeplacer(commande);
-			}
-		}
-		else {if (commande.droite){
-			if (this.labyrinthe[pj.getPosX()+1][pj.getPosY()].etreTraversable()==true){
-				this.getPj().seDeplacer(commande);
-			}
-		}
-		else {if (commande.haut){
-			if (this.labyrinthe[pj.getPosX()][pj.getPosY()-1].etreTraversable()==true){
-				this.getPj().seDeplacer(commande);
-			}	
-		}
-		else{
-			if (commande.bas){
-				if (this.labyrinthe[pj.getPosX()][pj.getPosY()+1].etreTraversable()==true){
-					this.getPj().seDeplacer(commande);
-				}	
-			}
-			else{
-				if (commande.gauche && commande.haut){
-					if (this.labyrinthe[pj.getPosX()-1][pj.getPosY()].etreTraversable()==true && this.labyrinthe[pj.getPosX()][pj.getPosY()-1].etreTraversable()==true){
-						this.getPj().seDeplacer(commande);
-					}
-				}
-				else {
-					if (commande.gauche && commande.bas){
-						if (this.labyrinthe[pj.getPosX()-1][pj.getPosY()+1].etreTraversable()==true ){
-							this.getPj().seDeplacer(commande);
-						}
-					}
-					else{
-						if (commande.droite && commande.bas){
-							if (this.labyrinthe[pj.getPosX()+1][pj.getPosY()+1].etreTraversable()==true){
-								this.getPj().seDeplacer(commande);
-							}
-						}
-						else{
-							if (commande.droite && commande.haut){
-								if (this.labyrinthe[pj.getPosX()+1][pj.getPosY()-1].etreTraversable()==true){
-									this.getPj().seDeplacer(commande);
-								}
-							}
-							else{
-								if (commande.droite && commande.haut && commande.gauche){
-									if (this.labyrinthe[pj.getPosX()][pj.getPosY()-1].etreTraversable()==true){
-										this.getPj().seDeplacer(commande);
-									}
-								}
-								if (commande.gauche && commande.haut && commande.droite){
-									if (this.labyrinthe[pj.getPosX()][pj.getPosY()+1].etreTraversable()==true){
-										this.getPj().seDeplacer(commande);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		}
-		}
-
+		this.getPj().seDeplacer(commande);
 	}
 
 	@Override

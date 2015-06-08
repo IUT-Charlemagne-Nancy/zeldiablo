@@ -4,7 +4,7 @@ import moteurJeu.Commande;
 import jeu.MonJeu;
 
 public abstract class Personnage {
-	private MonJeu jeu;
+	protected MonJeu jeu;
 	protected int posX,posY,attaque,portee,vie;
 	public final static int LIMIT_X=15;
 	public final static int LIMIT_Y=15; 
