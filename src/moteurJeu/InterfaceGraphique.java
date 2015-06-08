@@ -46,7 +46,7 @@ public class InterfaceGraphique  {
 		
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		f.setPreferredSize(new Dimension(1000,1000));
 		
 	    final JProgressBar barre_vie;
 		int MINIMUM=0;

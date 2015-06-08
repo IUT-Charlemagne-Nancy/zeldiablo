@@ -18,7 +18,7 @@ public class Main extends JPanel {
 
 		// classe qui lance le moteur de jeu generique
 		MoteurGraphique moteur = new MoteurGraphique(jeu, aff);
-		moteur.lancerJeu(400,400);
+		moteur.lancerJeu(800,800);
 		
 	}
 
