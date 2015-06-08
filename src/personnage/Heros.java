@@ -9,36 +9,37 @@ public class Heros extends Personnage{
 		super(1,1,1,1,100,j);
 	}
 	public void seDeplacer(Commande c){
-
-		if (c.gauche){
-			if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable()){
-				posX--;
-				if (this.posX<1){
-					posX=1;
+		if(this.etreMort()==false){
+			if (c.gauche){
+				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable()){
+					posX--;
+					if (this.posX<1){
+						posX=1;
+					}
 				}
 			}
-		}
-		if (c.droite ){
-			if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()){
-				this.posX++;
-				if(this.posX>Personnage.LIMIT_X-1){
-					this.posX=LIMIT_X-1;
+			if (c.droite ){
+				if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()){
+					this.posX++;
+					if(this.posX>Personnage.LIMIT_X-1){
+						this.posX=LIMIT_X-1;
+					}
 				}
 			}
-		}
-		if (c.haut){
-			if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()){
-				this.posY--;
-				if(this.posY<1){
-					this.posY=1;
+			if (c.haut){
+				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()){
+					this.posY--;
+					if(this.posY<1){
+						this.posY=1;
+					}
 				}
 			}
-		}
-		if (c.bas){
-			if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()){
-				this.posY++;
-				if(this.posY>Personnage.LIMIT_Y-1){
-					this.posY=LIMIT_Y-1;
+			if (c.bas){
+				if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()){
+					this.posY++;
+					if(this.posY>Personnage.LIMIT_Y-1){
+						this.posY=LIMIT_Y-1;
+					}
 				}
 			}
 		}

@@ -12,8 +12,6 @@ public class Ghost extends Personnage {
 
 	@Override
 	public void seDeplacer(Commande c) {
-		int i=(int)Math.random()*4;
-		c= new Commande(i);
 		if (c.gauche){
 				posX--;
 				if (this.posX<0){
