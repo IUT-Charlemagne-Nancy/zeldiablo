@@ -4,12 +4,13 @@ import jeu.MonJeu;
 import moteurJeu.Commande;
 public class Heros extends Personnage{
 
-	public Heros() {
-		super(1,1,1,1,10);
+	public Heros(MonJeu j) {
+		super(1,1,1,1,10,j);
 	}
 	public void seDeplacer(Commande c){
 		
 		if (c.gauche){
+			
 			posX--;
 			if (this.posX<1){
 				posX=1;

@@ -24,7 +24,7 @@ public class MonJeu implements Jeu {
 	/**
 	 * liste des cases du murs
 	 */
-	private Case[][]labyrinthe;
+	protected Case[][]labyrinthe;
 	
 	public final static int LIMIT_X=16;
 	public final static int LIMIT_Y=16; 
@@ -33,7 +33,7 @@ public class MonJeu implements Jeu {
 	 * constructeur de jeu avec un Personnage
 	 */
 	public MonJeu() {
-		this.pj=new Heros();
+		this.pj=new Heros(this);
 		this.labyrinthe = new Case[LIMIT_X][LIMIT_Y];
 		for (int i = 0 ;i<this.labyrinthe.length;i++){
 			for (int j = 0; j<this.labyrinthe[i].length; j++){

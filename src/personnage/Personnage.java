@@ -9,12 +9,13 @@ public abstract class Personnage {
 	public final static int LIMIT_X=15;
 	public final static int LIMIT_Y=15; 
 	
-	public Personnage(int x, int y, int attack, int porte, int pv) {
+	public Personnage(int x, int y, int attack, int porte, int pv, MonJeu j) {
 		this.posX=x;
 		this.posY=y;
 		this.attaque=attack;
 		this.portee=porte;
 		this.vie=pv;
+		this.jeu =j;
 	}
 
 	public abstract void seDeplacer(Commande c);
