@@ -4,10 +4,15 @@ package moteurJeu;
 
 import java.awt.BorderLayout;
 
+import javafx.scene.layout.Border;
+
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
 
 import personnage.Barre_de_vie;
 
@@ -41,12 +46,13 @@ public class InterfaceGraphique  {
 	{
 
 		JFrame f=new JFrame();
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
-		JProgressBar barre_vie;
+	    final JProgressBar barre_vie;
 		int MINIMUM=0;
 		int MAXIMUM=100;
-		int vie;
+		final int vie;
 		vie = 100;
 		
 		
@@ -66,24 +72,22 @@ public class InterfaceGraphique  {
 	            	 barre_vie.setValue(vie);
 	             }
 	         });
-	         java.lang.Thread.sleep(100);
+	         Thread.sleep(1000);
 	       } catch (InterruptedException e) {;}
 	     
-	     
-	 
 		
-		f.setLayout(new BorderLayout());
+		JPanel Jambono = new JPanel();
 		
 		this.panel=new PanelDessin(x, y,afficheurUtil);
 		Controleur controlleurGraph=new Controleur();
 		this.controleur=controlleurGraph;
-		
-		this.panel.addKeyListener(controlleurGraph);	
-		f.add(this.panel, BorderLayout.NORTH);
-		f.add(barre_vie, BorderLayout.EAST);
-		
-		
-		//recuperation du focus
+		Jambono.addKeyListener(controlleurGraph);
+		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
+		Jambono.setBorder(border);
+		barre_vie.setSize(300,400);
+		Jambono.add(this.panel);
+		Jambono.add(barre_vie);
+		f.setContentPane(Jambono);
 		f.pack();
 		f.setVisible(true);
 		f.getContentPane().setFocusable(true);
