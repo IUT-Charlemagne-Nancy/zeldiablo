@@ -3,12 +3,14 @@ package moteurJeu;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javafx.scene.layout.Border;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
@@ -53,12 +55,17 @@ public class InterfaceGraphique  {
 		int MINIMUM=0;
 		int MAXIMUM=100;
 		final int vie;
-		vie = 100;
+		vie = 75;
 		
 		
 		
 		 // Créer un objet de la Barre de progression
-	     barre_vie = new JProgressBar( );
+	     barre_vie = new JProgressBar();
+	     barre_vie.setBackground(Color.BLACK);
+	     barre_vie.setForeground(Color.GREEN);
+	     if(vie <= 20) {
+	    	 barre_vie.setForeground(Color.RED);
+	     }
 	 
 	     // Définir la valeur initiale de la barre de progression
 	     barre_vie.setMinimum(MINIMUM);
@@ -69,7 +76,7 @@ public class InterfaceGraphique  {
 	      {
 	         SwingUtilities.invokeLater(new Runnable( ) {
 	             public void run( ) {
-	            	 barre_vie.setValue(vie);
+	            		 barre_vie.setValue(vie); 
 	             }
 	         });
 	         Thread.sleep(1000);
@@ -77,6 +84,12 @@ public class InterfaceGraphique  {
 	     
 		
 		JPanel Jambono = new JPanel();
+		
+		JPanel Tchoupi = new JPanel();
+		Tchoupi.setLayout(new BorderLayout());
+		
+		JLabel ecriture = new JLabel();
+		ecriture.setText("Points de vie");
 		
 		this.panel=new PanelDessin(x, y,afficheurUtil);
 		Controleur controlleurGraph=new Controleur();
@@ -86,7 +99,9 @@ public class InterfaceGraphique  {
 		Jambono.setBorder(border);
 		barre_vie.setSize(300,400);
 		Jambono.add(this.panel);
-		Jambono.add(barre_vie);
+		Tchoupi.add(ecriture, BorderLayout.NORTH);
+		Tchoupi.add(barre_vie, BorderLayout.SOUTH);
+		Jambono.add(Tchoupi);
 		f.setContentPane(Jambono);
 		f.pack();
 		f.setVisible(true);
