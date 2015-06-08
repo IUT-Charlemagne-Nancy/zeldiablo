@@ -1,6 +1,3 @@
-import java.awt.BorderLayout;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import personnage.Barre_de_vie;
@@ -21,15 +18,6 @@ public class Main extends JPanel {
 
 		// classe qui lance le moteur de jeu generique
 		MoteurGraphique moteur = new MoteurGraphique(jeu, aff);
-		Barre_de_vie barre = new Barre_de_vie();
-		Main fenetre = new Main();
-		fenetre.setLayout(new BorderLayout());
-		fenetre.add(moteur,BorderLayout.NORTH);
-		fenetre.add(barre, BorderLayout.EAST);
-		JFrame vue = new JFrame();
-		vue.setContentPane(fenetre);
-		vue.pack();
-		vue.setVisible(true);
 		moteur.lancerJeu(400,400);
 		
 	}
