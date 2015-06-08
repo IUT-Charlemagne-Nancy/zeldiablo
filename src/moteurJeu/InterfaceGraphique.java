@@ -12,9 +12,6 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 
-
-
-
 /**
  * cree une interface graphique avec son controleur et son afficheur
  * @author Graou
@@ -51,14 +48,20 @@ public class InterfaceGraphique  {
 		int MINIMUM=0;
 		int MAXIMUM=100;
 		final int vie;
-		vie = 75;
+		vie = 99;
 		
 		
 		
 		 // Créer un objet de la Barre de progression
 	     barre_vie = new JProgressBar();
-	     barre_vie.setBackground(Color.BLACK);
-	     barre_vie.setForeground(Color.GREEN);
+	     barre_vie.setBackground(Color.WHITE);
+	     barre_vie.setForeground(Color.green);
+	     if(vie < 80){
+	    	 barre_vie.setForeground(Color.yellow);
+	     }
+	     if(vie<50){
+	    	 barre_vie.setForeground(Color.orange);
+	     }
 	     if(vie <= 20) {
 	    	 barre_vie.setForeground(Color.RED);
 	     }
