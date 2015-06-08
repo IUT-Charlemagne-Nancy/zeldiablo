@@ -11,6 +11,9 @@ import java.awt.event.KeyListener;
  */
 public class Controleur implements KeyListener {
 
+	
+	InterfaceGraphique interf;
+	
 	/**
 	 * commande en cours
 	 */
@@ -24,9 +27,10 @@ public class Controleur implements KeyListener {
 	/**
 	 * construction du controleur par defaut le controleur n'a pas de commande
 	 */
-	public Controleur() {
+	public Controleur(InterfaceGraphique inter) {
 		this.commandeEnCours = new Commande();
 		this.commandeARetourner = new Commande();
+		interf = inter;
 	}
 
 	/**
@@ -52,21 +56,25 @@ public class Controleur implements KeyListener {
 		case 'q':
 			this.commandeEnCours.gauche = true;
 			this.commandeARetourner.gauche = true;
+			interf.valide = true;
 			break;
 		// si on appuie sur 'd',commande joueur est droite
 		case 'd':
 			this.commandeEnCours.droite = true;
 			this.commandeARetourner.droite = true;
+			interf.valide = true;
 			break;
 		// si on appuie sur 'z',commande joueur est haut
 		case 'z':
 			this.commandeEnCours.haut = true;
 			this.commandeARetourner.haut = true;
+			interf.valide = true;
 			break;
 		// si on appuie sur 's',commande joueur est bas
 		case 's':
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
+			interf.valide = true;
 			break;
 		}
 
@@ -80,15 +88,19 @@ public class Controleur implements KeyListener {
 		switch (e.getKeyChar()) {
 		case 'q':
 			this.commandeEnCours.gauche = false;
+			interf.valide = true;
 			break;
 		case 'd':
 			this.commandeEnCours.droite = false;
+			interf.valide = true;
 			break;
 		case 'z':
 			this.commandeEnCours.haut = false;
+			interf.valide = true;
 			break;
 		case 's':
 			this.commandeEnCours.bas = false;
+			interf.valide = true;
 			break;
 		}
 

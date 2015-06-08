@@ -1,5 +1,8 @@
 package personnage;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import moteurJeu.Commande;
 import jeu.MonJeu;
 
@@ -19,9 +22,21 @@ public abstract class Personnage {
 	}
 
 	public void seDeplacer(Commande c){
+		Object o = null;
+		if(this instanceof Orcs){
+			o=jeu.getPj();
+		}
+		if(this instanceof Heros){
+			List<Personnage> perso=jeu.getMonstres();
+			for(int i=0;i<perso.size();i++){
+				if(perso.get(i) instanceof Orcs){
+					o=(Orcs)perso.get(i);
+				}
+			}
+		}
 		if(this.etreMort()==false){
 			if (c.gauche){
-				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable()){
+				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && (this.posX-1!=((Personnage) o).getPosX() || this.posY!=((Personnage) o).getPosY()) ){
 					posX--;
 					if (this.posX<1){
 						posX=1;
@@ -29,7 +44,7 @@ public abstract class Personnage {
 				}
 			}
 			if (c.droite ){
-				if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()){
+				if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()&& (this.posX+1!=((Personnage) o).getPosX() || this.posY!=((Personnage) o).getPosY())){
 					this.posX++;
 					if(this.posX>Personnage.LIMIT_X-1){
 						this.posX=LIMIT_X-1;
@@ -37,7 +52,7 @@ public abstract class Personnage {
 				}
 			}
 			if (c.haut){
-				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()){
+				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& (this.posX!=((Personnage) o).getPosX() || this.posY-1!=((Personnage) o).getPosY())){
 					this.posY--;
 					if(this.posY<1){
 						this.posY=1;
@@ -45,7 +60,7 @@ public abstract class Personnage {
 				}
 			}
 			if (c.bas){
-				if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()){
+				if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()&&(this.posX!=((Personnage) o).getPosX() || this.posY+1!=((Personnage) o).getPosY())){
 					this.posY++;
 					if(this.posY>Personnage.LIMIT_Y-1){
 						this.posY=LIMIT_Y-1;

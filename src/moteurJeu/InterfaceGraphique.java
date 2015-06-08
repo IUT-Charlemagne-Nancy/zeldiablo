@@ -23,7 +23,7 @@ import jeu.DessinMonJeu;
 public class InterfaceGraphique  {
 
 	
-	protected boolean valide = true;
+	protected boolean valide = false;
 	/**
 	 * le Panel lie a la JFrame
 	 */
@@ -44,13 +44,13 @@ public class InterfaceGraphique  {
 	 */
 	public InterfaceGraphique(DessinMonJeu dessin,int x,int y)
 	{
-		
-		
+		this.valide = true;
+		while(this.valide == true) {
+			this.valide = false;
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		while(valide == true){
-		valide = false;
+		f.setPreferredSize(new Dimension(1000,1000));
+
 		
 	    final JProgressBar barre_vie;
 		int MINIMUM=0;
@@ -136,7 +136,7 @@ public class InterfaceGraphique  {
 		boussole1.setText(" Position en y : " + posy);
 		
 		this.panel=new PanelDessin(x, y,dessin);
-		Controleur controlleurGraph=new Controleur();
+		Controleur controlleurGraph=new Controleur(this);
 		this.controleur=controlleurGraph;
 		Total.addKeyListener(controlleurGraph);
 		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
@@ -160,11 +160,9 @@ public class InterfaceGraphique  {
 		f.getContentPane().setFocusable(true);
 		f.getContentPane().requestFocus();
 		}
-		
-		}
-		
-		
-		
+	}
+	
+	
 	
 	
 	

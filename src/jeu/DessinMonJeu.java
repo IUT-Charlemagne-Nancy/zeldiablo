@@ -2,9 +2,11 @@ package jeu;
 
 
 import java.awt.*;
-
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import personnage.Ghost;
@@ -24,12 +26,12 @@ public class DessinMonJeu implements DessinJeu {
 	/**
 	 * constante pour gerer la taille des cases
 	 */
-	private static int TAILLE_CASE = 25;
+	private static int TAILLE_CASE = 50;
 
 	/**
 	 * lien vers le jeu a afficher
 	 */
-	public MonJeu jeu;
+	public static MonJeu jeu;
 
 	/**
 	 * appelle constructeur parent
@@ -46,22 +48,22 @@ public class DessinMonJeu implements DessinJeu {
 	 * redefinie de Afficheur
 	 */
 	private void dessinerObjet(String s, int x, int y, BufferedImage im) {
-		Graphics2D crayon = (Graphics2D) im.getGraphics();
+		try{
+			Graphics2D crayon = (Graphics2D) im.getGraphics();
+		
+		Image img =null;
 		switch (s) {
 		case "PJ":
-			crayon.setColor(Color.green);
-			crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
-					TAILLE_CASE);
+			img = ImageIO.read(new File("photo/heros.png"));
+			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "ORCS":
-			crayon.setColor(Color.red);
-			crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
-					TAILLE_CASE);
+				img = ImageIO.read(new File("photo/orc.png"));
+				crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "GHOST":
-			crayon.setColor(Color.blue);
-			crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
-					TAILLE_CASE);
+			img = ImageIO.read(new File("photo/ghost.png"));
+			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "MUR":
 			crayon.setColor(Color.gray);
@@ -70,6 +72,10 @@ public class DessinMonJeu implements DessinJeu {
 			break;
 		default:
 			throw new AssertionError("objet inexistant");
+		}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
