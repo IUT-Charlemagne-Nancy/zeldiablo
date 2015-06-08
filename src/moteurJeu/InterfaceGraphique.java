@@ -1,8 +1,13 @@
 package moteurJeu;
 
-import javax.swing.JFrame;
+
+
+import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JFrame;
+
+import personnage.Barre_de_vie;
 
 
 /**
@@ -34,16 +39,17 @@ public class InterfaceGraphique  {
 	{
 		//creation JFrame
 		JFrame f=new JFrame();
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//ajout du controleur	
 		
-		// creation panel
+		Barre_de_vie barre = new Barre_de_vie();
+		f.setLayout(new BorderLayout());
 		this.panel=new PanelDessin(x, y,afficheurUtil);
-		f.setContentPane(this.panel);
-		
-		//ajout du controleur
 		Controleur controlleurGraph=new Controleur();
 		this.controleur=controlleurGraph;
-		this.panel.addKeyListener(controlleurGraph);	
+		this.panel.addKeyListener(controlleurGraph);
+		f.add(this.panel, BorderLayout.NORTH);
+		f.add(barre, BorderLayout.EAST);
+		
 		
 		//recuperation du focus
 		f.pack();
