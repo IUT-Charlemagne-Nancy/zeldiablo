@@ -33,5 +33,21 @@ public class Commande {
 		this.gauche=commandeACopier.gauche;
 		this.droite=commandeACopier.droite;		
 	}
+	public  Commande (int i){
+		switch(i){
+		case 0:
+			this.haut=true;
+			break;
+		case 1:
+			this.bas=true;
+			break;
+		case 3:
+			this.gauche=true;
+		case 4:
+			this.droite=true;
+		}
+
+		
+	}
 	
 }

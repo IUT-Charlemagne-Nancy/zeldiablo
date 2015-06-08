@@ -1,5 +1,6 @@
 
 package jeu;
+import personnage.Ghost;
 import personnage.Heros;
 import personnage.Personnage;
 import moteurJeu.Commande;
@@ -16,7 +17,7 @@ public class MonJeu implements Jeu {
 	 * le personnage du jeu
 	 */
 	private Personnage pj;
-	
+	private Personnage[] monstres;
 	/**
 	 * liste des cases du murs
 	 */
@@ -44,6 +45,9 @@ public class MonJeu implements Jeu {
 				}
 			}
 		}
+		this.monstres=new Personnage[2];
+		this.monstres[0]=new Ghost(this);
+		this.monstres[1]=new Orcs(this);
 	}
 	public Case recupererCase(int x,int y){
 		return this.labyrinthe[x][y];
