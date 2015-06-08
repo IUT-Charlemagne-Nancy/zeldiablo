@@ -1,13 +1,15 @@
 package personnage;
 
 import moteurJeu.Commande;
+import jeu.MonJeu;
 
 public abstract class Personnage {
+	private MonJeu jeu;
 	protected int posX,posY,attaque,portee,vie;
 	public final static int LIMIT_X=15;
 	public final static int LIMIT_Y=15; 
-	public boolean traverse;
-	public Personnage(int x,int y,int attack,int porte,int pv) {
+	
+	public Personnage(int x, int y, int attack, int porte, int pv) {
 		this.posX=x;
 		this.posY=y;
 		this.attaque=attack;
@@ -54,6 +56,8 @@ public abstract class Personnage {
 		}
 		return res;
 	}
+
+
 	public int getPosX(){
 		return this.posX;
 	}

@@ -1,4 +1,4 @@
-package moteurJeu;
+package jeu;
 
 
 public class Case {
@@ -8,6 +8,10 @@ public class Case {
 	public Case(int x,int y){
 		posX=x;
 		posY=y;
+	}
+	@Override
+	public String toString() {
+		return "Case [posX=" + posX + ", posY=" + posY + "]";
 	}
 	public boolean etreTraversable(){
 		return true;
