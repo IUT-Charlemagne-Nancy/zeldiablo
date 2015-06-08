@@ -1,9 +1,5 @@
 
 package jeu;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import personnage.Heros;
 import personnage.Personnage;
 import moteurJeu.Commande;
