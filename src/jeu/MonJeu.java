@@ -100,5 +100,8 @@ public class MonJeu implements Jeu {
 	public Personnage getPj() {
 		return pj;
 	}
+	public List<Personnage> getMonstres(){
+		return this.monstres;
+	}
 
 }
