@@ -10,8 +10,8 @@ public class Test {
 	@org.junit.Test
 	public void test_Heros_Constructeur() {
 		Heros h = new Heros();
-		assertEquals("Le héros doit se trouver en x = 0",0,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 0",0,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
 		assertEquals("le héros doit avoir 10 de vie",10,h.getVie() );
 		assertEquals("le héros doit avoir 1 de portee",1,h.getPortee());
 		assertEquals("le héros doit avoir 1 de dégat",1,h.getDegat());
@@ -22,8 +22,8 @@ public class Test {
 		Commande c = new Commande();
 		c.bas = true;
 		h.seDeplacer(c);
-		assertEquals("Le héros doit se trouver en x = 0",0,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 2",2,h.getPosY());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_2(){
@@ -35,8 +35,8 @@ public class Test {
 		c.haut = true;
 		
 		h.seDeplacer(c);
-		assertEquals("Le héros doit se trouver en x = 0",0,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 0",0,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_3(){
@@ -44,8 +44,8 @@ public class Test {
 		Commande c = new Commande();
 		c.droite = true;
 		h.seDeplacer(c);
-		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 0",0,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 2",2,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_4(){
@@ -56,8 +56,8 @@ public class Test {
 		c.droite = false;
 		c.gauche = true;
 		h.seDeplacer(c);
-		assertEquals("Le héros doit se trouver en x = 0",0,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 0",0,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_5(){
@@ -65,8 +65,8 @@ public class Test {
 		Commande c = new Commande();
 		c.haut = true;
 		h.seDeplacer(c);
-		assertEquals("Le héros doit se trouver en x = 0",0,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 0",0,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_6(){
@@ -74,8 +74,8 @@ public class Test {
 		Commande c = new Commande();
 		c.gauche = true;
 		h.seDeplacer(c);
-		assertEquals("Le héros doit se trouver en x = 0",0,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 0",0,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_7(){
@@ -85,8 +85,8 @@ public class Test {
 		for (int i = 0 ; i<20 ; i++){
 			h.seDeplacer(c);
 		}
-		assertEquals("Le héros doit se trouver en x = 0",0,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 15",15,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 1",1,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 14",14,h.getPosY());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_8(){
@@ -96,8 +96,8 @@ public class Test {
 		for (int i = 0 ; i<20 ; i++){
 			h.seDeplacer(c);
 		}
-		assertEquals("Le héros doit se trouver en x = 15",15,h.getPosX());
-		assertEquals("Le héros doit se trouver en y = 0",0,h.getPosY());
+		assertEquals("Le héros doit se trouver en x = 14",14,h.getPosX());
+		assertEquals("Le héros doit se trouver en y = 1",1,h.getPosY());
 	}
 	
 	@org.junit.Test

@@ -1,4 +1,5 @@
-package moteurJeu;
+package jeu;
+
 
 
 public class Mur extends Case {
@@ -9,5 +10,9 @@ public class Mur extends Case {
 	}
 	public boolean etreTraversable(){
 		return false;
+	}
+	@Override
+	public String toString() {
+		return "Mur [etreTraversable()=" + etreTraversable() + "]";
 	}
 }

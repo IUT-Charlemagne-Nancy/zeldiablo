@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
-import personnage.Barre_de_vie;
+
 import personnage.Heros;
 import personnage.Personnage;
 import moteurJeu.DessinJeu;
@@ -68,8 +68,19 @@ public class DessinMonJeu implements DessinJeu {
 		MonJeu j = (MonJeu) jeu;
 		Personnage pj = j.getPj();
 		
+		for (int i = 0 ;i<j.LIMIT_X;i++){
+			for (int k = 0; k<j.LIMIT_Y; k++){
+				Case c = j.recupererCase(i,k);
+				if (c instanceof Mur){
+					this.dessinerObjet("MUR",i,k,im);
+				}
+			}
+			
+		}
+		Case c = new Mur(12,11);
+		j.modifierCase(c, 12, 11);
+		this.dessinerObjet("MUR",12,11,im);
 		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
-		this.dessinerObjet("MUR",0,0,im);
 	}
 
 }

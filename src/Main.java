@@ -1,6 +1,6 @@
 import javax.swing.JPanel;
 
-import personnage.Barre_de_vie;
+
 import jeu.DessinMonJeu;
 import jeu.MonJeu;
 import moteurJeu.MoteurGraphique;
