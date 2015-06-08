@@ -25,7 +25,7 @@ public class MoteurGraphique extends JPanel {
 	/**
 	 * l'afficheur a utiliser pour le rendu
 	 */
-	private DessinJeu dessin;
+	private DessinMonJeu dessin;
 
 	/**
 	 * construit un moteur
@@ -35,7 +35,7 @@ public class MoteurGraphique extends JPanel {
 	 * @param pAffiche
 	 *            afficheur a utiliser
 	 */
-	public MoteurGraphique(Jeu pJeu, DessinJeu pAffiche) {
+	public MoteurGraphique(Jeu pJeu, DessinMonJeu pAffiche) {
 		// creation du jeu
 		this.jeu = pJeu;
 		this.dessin = pAffiche;

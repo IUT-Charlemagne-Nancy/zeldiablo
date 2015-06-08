@@ -6,7 +6,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
-
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
+
+import personnage.Personnage;
+import jeu.DessinMonJeu;
 
 /**
  * cree une interface graphique avec son controleur et son afficheur
@@ -37,12 +39,16 @@ public class InterfaceGraphique  {
 	 * - construit la JFrame
 	 * - construit les Attributs
 	 * 
-	 * @param afficheurUtil l'afficheur a utiliser dans le moteur
+	 * @param dessin l'afficheur a utiliser dans le moteur
 	 * 
 	 */
-	public InterfaceGraphique(DessinJeu afficheurUtil,int x,int y)
+	public InterfaceGraphique(DessinMonJeu dessin,int x,int y)
 	{
 
+		
+		Personnage p = dessin.jeu.getPj();
+		
+		
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -51,7 +57,7 @@ public class InterfaceGraphique  {
 		int MINIMUM=0;
 		int MAXIMUM=100;
 		final int vie;
-		vie = 100;
+		vie = p.getVie();
 		
 		
 		
@@ -98,7 +104,7 @@ public class InterfaceGraphique  {
 		JLabel pointA = new JLabel();
 		pointA.setText("Points d'attaque");
 		
-		this.panel=new PanelDessin(x, y,afficheurUtil);
+		this.panel=new PanelDessin(x, y,dessin);
 		
 		Controleur controlleurGraph=new Controleur();
 		this.controleur=controlleurGraph;

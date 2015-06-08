@@ -3,9 +3,10 @@ package personnage;
 import jeu.MonJeu;
 import moteurJeu.Commande;
 public class Heros extends Personnage{
+
 	
 	public Heros(MonJeu j) {
-		super(1,1,1,1,10,j);
+		super(1,1,1,1,100,j);
 	}
 	public void seDeplacer(Commande c){
 
