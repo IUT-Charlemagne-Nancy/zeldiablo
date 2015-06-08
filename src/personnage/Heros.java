@@ -5,7 +5,7 @@ import moteurJeu.Commande;
 public class Heros extends Personnage{
 
 	public Heros() {
-		super(1,1,1,1,10);
+		super(1,1,1,1,100);
 	}
 	public void seDeplacer(Commande c){
 		
