@@ -1,25 +1,48 @@
-Initialiser le joueur :
-
-- d�terminer sa position de base (0,0)
--sa vie de base:10
--se portee:1
--son attaque:1;
-
-Interface texte :
-- d�terminer sa coh�rance
-- celui ci renvoir la vie,la portee,l'attaque,et la position du joueur
-
-Se d�placer :
-
-- ne pas sortir de l'�cran
-- ne pas pouvoir se d�placer dans un mur
-- pouvoir se d�placer dans une case vide
-- d�terminer des touches de d�placements (clavier)
-- 
-
-attaquer:
--ne peut pas attaquer si pas a portee ou mort
--un personnage mort ne peut plus perdre de vie
--on ne peut pas rajouter de la vie en attaquant
-
-:
++Initialisation du jeu:
++-le jeu cree un joueur et des monstres
++-le jeu gĂŠnĂŠre un labyrinthe
++-le jeu tourne tant que le hero n'as pas gagner ou n'est pas mort
++
+ Initialiser le joueur :
+ 
++- dĂŠterminer sa position de base (1,1)
+ -sa vie de base:10
+ -se portee:1
+ -son attaque:1;
+-
+ Interface texte :
+-- déterminer sa cohérance
++- dĂŠterminer sa cohĂŠrance
+ - celui ci renvoir la vie,la portee,l'attaque,et la position du joueur
++-l'interface texte deviend un interface dans la version graphique 
+ 
+-Se déplacer : 
++- ne pas sortir de l'ĂŠcran
++- ne pas pouvoir se dĂŠplacer dans un mur
++- pouvoir se dĂŠplacer dans une case vide
++- dĂŠterminer des touches de dĂŠplacements (clavier)
+ - 
+ 
++case:
++-une case vide peut etre traverser
++-une case de type mur ne peut etre traverser que par un fantome
++
+ attaquer:
++-espace dĂŠclenche l'attaque
++-ne peut pas attaquer si mort
++-n'inflige pas de degat si pas a portee 
+ -un personnage mort ne peut plus perdre de vie
+ -on ne peut pas rajouter de la vie en attaquant
+ 
+-:
++initialisation des monstres:
++-position alĂŠotoire
++-les fantomes peuvent etre dans les murs
++
++deplacement:
+Add a comment to this line
++-se dĂŠplace avec zqsd
++-ne peuvent pas traverser les murs sauf fantomes
++-un orc et un personnage ne peuvent pas se traverser
++-deux orcs ne peuvent pas se traverser
++-les monstre se dĂŠplace alĂŠatoirement

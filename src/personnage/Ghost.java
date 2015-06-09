@@ -6,7 +6,7 @@ import moteurJeu.Commande;
 public class Ghost extends Personnage {
 	
 	public Ghost(MonJeu j) {
-		super((int)Math.random()*15,(int)Math.random()*(-15),10,3,30,j);
+		super((int)Math.random()*15,(int)Math.random()*(-15),2,3,30,j);
 		// TODO Auto-generated constructor stub
 	}
 

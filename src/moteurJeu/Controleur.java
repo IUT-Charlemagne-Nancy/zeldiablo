@@ -76,6 +76,12 @@ public class Controleur implements KeyListener {
 			this.commandeARetourner.bas = true;
 			interf.valide = true;
 			break;
+		// si on appuie sur la touche espace, le joueur attaque
+		case KeyEvent.VK_SPACE :
+			this.commandeEnCours.attaque = true;
+			this.commandeARetourner.attaque = true;
+			interf.valide = true;
+			break;
 		}
 
 	}

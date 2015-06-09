@@ -9,7 +9,7 @@ import jeu.MonJeu;
 public class Orcs extends Personnage{
 
 	public Orcs(MonJeu j) {
-		super((int)Math.random()*15,  (int)Math.random()*15, 25, 1, 50, j);
+		super((int)Math.random()*15,  (int)Math.random()*15, 5, 1, 50, j);
 		while (jeu.recupererCase(this.posX, this.posY).etreTraversable()==false){
 			this.posX = (int)(Math.random()*15);
 			this.posY = (int)(Math.random()*15);
