@@ -5,6 +5,7 @@ import java.util.List;
 
 import personnage.Ghost;
 import personnage.Heros;
+import personnage.Monstre;
 import personnage.Orcs;
 import personnage.Personnage;
 import moteurJeu.Commande;
@@ -21,7 +22,7 @@ public class MonJeu implements Jeu {
 	 * le personnage du jeu
 	 */
 	private Personnage pj;
-	protected List<Personnage> monstres;
+	protected List<Monstre> monstres;
 	/**
 	 * liste des cases du murs
 	 */
@@ -49,7 +50,7 @@ public class MonJeu implements Jeu {
 				}
 			}
 		}
-		this.monstres=new ArrayList<Personnage>();
+		this.monstres=new ArrayList<Monstre>();
 		this.monstres.add(new Ghost(this));
 		this.monstres.add(new Orcs(this));
 		this.monstres.add(new Orcs(this));
@@ -105,7 +106,7 @@ public class MonJeu implements Jeu {
 	public Personnage getPj() {
 		return pj;
 	}
-	public List<Personnage> getMonstres(){
+	public List<Monstre> getMonstres(){
 		return this.monstres;
 	}
 	public boolean caseOccuper(int x,int y){
