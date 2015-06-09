@@ -66,6 +66,10 @@ public class DessinMonJeu implements DessinJeu {
 			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "MUR":
+			img = ImageIO.read(new File("photo/mur.png"));
+			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
+		case"SOL":
 			crayon.setColor(Color.gray);
 			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
 					TAILLE_CASE);
@@ -93,6 +97,9 @@ public class DessinMonJeu implements DessinJeu {
 				Case c = j.recupererCase(i,k);
 				if (c instanceof Mur){
 					this.dessinerObjet("MUR",i,k,im);
+				}
+				else{
+					this.dessinerObjet("SOL",i,k,im);
 				}
 			}
 			
