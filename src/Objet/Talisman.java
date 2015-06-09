@@ -5,8 +5,8 @@ import jeu.MonJeu;
 
 public class Talisman extends Objet{
 
-	public Talisman() {
-		super("Talisman magique",14,9);
+	public Talisman(int x,int y) {
+		super("Talisman magique",x,y);
 	}
 
 	@Override
@@ -15,6 +15,6 @@ public class Talisman extends Objet{
 		heros.setAttaque(heros.getAttaque()*2);
 		heros.setPortee(heros.getPortee()*2);
 		
-	}
+	} 
 
 }
