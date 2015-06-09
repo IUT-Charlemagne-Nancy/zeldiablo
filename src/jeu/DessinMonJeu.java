@@ -50,6 +50,8 @@ public class DessinMonJeu implements DessinJeu {
 	private void dessinerObjet(String s, int x, int y, BufferedImage im) {
 		try{
 			Graphics2D crayon = (Graphics2D) im.getGraphics();
+			crayon.setColor(Color.DARK_GRAY);
+			crayon.drawLine(200,150, 150,120);
 		
 		Image img =null;
 		switch (s) {
