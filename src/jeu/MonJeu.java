@@ -45,21 +45,6 @@ public class MonJeu implements Jeu {
 	public MonJeu() {
 		this.pj=new Heros(this);
 		this.labyrinthe = new Case[LIMIT_X][LIMIT_Y];
-		/**
-		for (int i = 0 ;i<this.labyrinthe.length;i++){
-			for (int j = 0; j<this.labyrinthe[i].length; j++){
-				if(i == 0 || j == 0 || i == this.LIMIT_X-1 || j == (this.LIMIT_Y-1)||(i!=10 && i!=11 && i!=12 && j==4)||(j==7 && (i<=14 && i>=9))||(i==9 && (j>=8 && j<=12))||(j==12 &&(i>=12 && i<=14))||j==9&&(i>=3&&i<=8)||j==12&&(i>=1 && i<=6 )||(i==4 &&(j<=2 && j>=1))){
-					Case c = new Mur(i,j);
-					this.labyrinthe[i][j]=c;
-					modifierCase(c,i,j);
-				}
-				else{
-				Case c = new Case(i,j);
-				this.labyrinthe[i][j]=c;
-				}
-			}
-		}
-		*/
 		this.objets=new ArrayList<Objet>();
 		genererNiveau(1);
 		this.monstres=new ArrayList<Monstre>();
@@ -197,22 +182,22 @@ public class MonJeu implements Jeu {
 		}
 		try{
 		BufferedReader fichier=new BufferedReader(new FileReader(res));
-		for(int i=0;i<labyrinthe.length;i++){
+		for(int i=0;i<LIMIT_Y;i++){
 			String line= fichier.readLine();
-			for(int j=0 ;j<labyrinthe[i].length;j++){
+			for(int j=0 ;j<LIMIT_X;j++){
 				char la_case=(char)fichier.read();
 				Case c=null;
 				if(la_case=='M'){
-					c= new Mur(i,j);
+					c= new Mur(j,i);
 				}
 				if(la_case=='C'){
-					c=new Case(i,j);
+					c=new Case(j,i);
 				}
 				if(la_case=='G'){
-					c=new Case(i,j);
-					this.objets.add(new Talisman(i,j));
+					c=new Case(j,i);
+					this.objets.add(new Talisman(j,i));
 				}
-				labyrinthe[i][j]=c;
+				labyrinthe[j][i]=c;
 			}
 			
 		}
