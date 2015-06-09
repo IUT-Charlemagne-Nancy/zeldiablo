@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
@@ -30,6 +29,8 @@ import jeu.DessinMonJeu;
  */
 
 public class InterfaceGraphique {
+	
+	private JPanel Total;
 
 	public double secondes = 0.00;
 	/**
@@ -100,8 +101,8 @@ public class InterfaceGraphique {
 
 
 
-
-		final JPanel Total = new JPanel();
+		
+		Total = new JPanel();
 		final JPanel Informations = new JPanel();
 		Total.setPreferredSize(new Dimension(600,450));
 
@@ -197,12 +198,11 @@ public class InterfaceGraphique {
 			@Override
 			public void keyPressed(KeyEvent e) {
 
-
-
-
-				if (e.getKeyChar() == 'q' || e.getKeyChar() == 'z' || e.getKeyChar() == 'd' || e.getKeyChar() == 's') {
+				if (e.getKeyChar() == 'q' || e.getKeyChar() == 'z' || e.getKeyChar() == 'd' || e.getKeyChar() == 's' || secondes >= 0.00) {
 					Informations.removeAll();
 					Informations.repaint();
+					
+				
 					
 					
 					final JLabel temps = new JLabel();
@@ -267,6 +267,9 @@ public class InterfaceGraphique {
 					Total.add(Informations);
 					Total.revalidate();
 					Total.repaint();
+					
+					
+					
 				}
 			}
 
@@ -298,6 +301,7 @@ public class InterfaceGraphique {
 	 */
 	public void dessiner() {
 		this.panel.dessinerJeu();
+		Total.repaint();
 	}
 
 }
