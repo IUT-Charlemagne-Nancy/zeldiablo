@@ -28,11 +28,7 @@ public abstract class Objet {
 	public String getNomObjet() {
 		return nomObjet;
 	}
-
-	public void setNomObjet(String nomObjet) {
-		this.nomObjet = nomObjet;
-	}
-
+	
 	public int getPosX() {
 		return posX;
 	}

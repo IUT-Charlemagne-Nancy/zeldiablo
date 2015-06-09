@@ -25,7 +25,7 @@ public class MonJeu implements Jeu {
 	 */
 	private Heros pj;
 	protected List<Monstre> monstres;
-	private  List<Objet> objets;
+	protected List<Objet> objets;
 	/**
 	 * liste des cases du murs
 	 */
@@ -105,8 +105,11 @@ public class MonJeu implements Jeu {
 
 	@Override
 	public boolean etreFini() {
-		// le jeu n'est jamais fini
-		return false;
+		boolean res=false;
+		if(pj.etreMort()||(pj.avoirTalisman() &&(pj.getPosX()<4 && pj.getPosY()<4)) ){
+			res=true;
+		}
+		return res;
 	}
 
 	/**

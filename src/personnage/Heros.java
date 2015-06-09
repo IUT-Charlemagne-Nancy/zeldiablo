@@ -45,5 +45,8 @@ public class Heros extends Personnage{
 		inventaire.remove(i);
 		}
 	}
+	public boolean avoirTalisman(){
+		return avoirTalisman;
+	}
 	
 }
