@@ -73,7 +73,7 @@ public class MoteurGraphique extends JPanel {
 			win.setText("Vous avez gagnez OMG YOUHOU");
 			a.add(win);
 			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			a.setPreferredSize(new Dimension(150,70));
+			a.setPreferredSize(new Dimension(250,70));
 			a.setContentPane(win);
 			a.pack();
 			a.setVisible(true);
@@ -84,7 +84,7 @@ public class MoteurGraphique extends JPanel {
 			win.setText("Vous avez perdu OMG petite merde");
 			a.add(win);
 			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			a.setPreferredSize(new Dimension(150,70));
+			a.setPreferredSize(new Dimension(250,70));
 			a.setContentPane(win);
 			a.pack();
 			a.setVisible(true);
