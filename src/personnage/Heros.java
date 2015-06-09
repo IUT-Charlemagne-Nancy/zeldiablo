@@ -9,7 +9,8 @@ public class Heros extends Personnage{
 
 	
 	public Heros(MonJeu j) {
-		super(14,14,5,1,10000,j);
+			super(1,1,5,1,100,j);
+
 	}
 	public String toString(){
 		return("vie: "+this.vie+" portee: "+this.portee+" Degats: "+this.attaque+" le personnage est en position: x:"+this.posX+" y: "+this.posY);
