@@ -57,6 +57,7 @@ public class PanelDessin extends JPanel {
 	 * nouvelle image vide sur laquelle dessiner
 	 */
 	public void dessinerJeu() {
+		
 		// generer la nouvelle image
 		this.dessin.dessiner(this.imageSuivante);
 

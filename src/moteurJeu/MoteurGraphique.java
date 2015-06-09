@@ -57,7 +57,6 @@ public class MoteurGraphique extends JPanel {
 			// fait evoluer le jeu
 			this.jeu.evoluer(c);
 			// affiche le jeu
-			this.gui.valide = true;
 			this.gui.dessiner();
 			
 			
