@@ -21,65 +21,7 @@ public abstract class Personnage {
 		this.jeu =j;
 	}
 
-	public void seDeplacer(Commande c){
-		Object o = null;
-		if(this instanceof Orcs){
-			o=jeu.getPj();
-		}
-		if(this instanceof Heros){
-			List<Personnage> perso=jeu.getMonstres();
-			for(int i=0;i<perso.size();i++){
-				if(perso.get(i) instanceof Orcs){
-					o=(Orcs)perso.get(i);
-				}
-			}
-		}
-		if(this.etreMort()==false){
-			if (c.gauche){
-				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && (this.posX-1!=((Personnage) o).getPosX() || this.posY!=((Personnage) o).getPosY()) ){
-					posX--;
-					if (this.posX<1){
-						posX=1;
-					}
-				}
-			}
-			if (c.droite ){
-				if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()&& (this.posX+1!=((Personnage) o).getPosX() || this.posY!=((Personnage) o).getPosY())){
-					this.posX++;
-					if(this.posX>Personnage.LIMIT_X-1){
-						this.posX=LIMIT_X-1;
-					}
-				}
-			}
-			if (c.haut){
-				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& (this.posX!=((Personnage) o).getPosX() || this.posY-1!=((Personnage) o).getPosY())){
-					this.posY--;
-					if(this.posY<1){
-						this.posY=1;
-					}
-				}
-			}
-			if (c.bas){
-				if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()&&(this.posX!=((Personnage) o).getPosX() || this.posY+1!=((Personnage) o).getPosY())){
-					this.posY++;
-					if(this.posY>Personnage.LIMIT_Y-1){
-						this.posY=LIMIT_Y-1;
-					}
-				}
-			}
-		}
-	}
-	public abstract String toString();
-	public void attaquer(Personnage victime){
-		if(!this.etreMort()){
-			if (!victime.etreMort()){
-
-				if(this.etreAPortee(victime)){
-					victime.subirDegat(this.attaque);
-				}
-			}
-		}
-	}
+	public abstract void seDeplacer(Commande c);
 
 	public void subirDegat(int x) {
 		if (!this.etreMort()){
