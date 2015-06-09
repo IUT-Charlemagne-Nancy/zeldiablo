@@ -106,9 +106,6 @@ public abstract class Personnage {
 		this.posY = posY;
 	}
 
-	public void attaquer(Commande c){
-		if(this.etreMort()==false){
-			jeu.etreAPortee(this);
-		}
-	}
+	public abstract void attaquer(Commande c);
+		
  }

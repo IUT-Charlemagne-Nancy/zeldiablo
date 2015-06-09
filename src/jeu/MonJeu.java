@@ -123,20 +123,16 @@ public class MonJeu implements Jeu {
 	}
 	
 	public void etreAPortee(Personnage p){
-		if (p instanceof Heros ){
 		for(int i = 0; i<this.monstres.size() ; i++ ){
 			if ((int)Math.abs(this.monstres.get(i).getPosX()-p.getPosX())<=p.getPortee() && (int) Math.abs(this.monstres.get(i).getPosY()- p.getPosY()) <= p.getPortee()){
 				this.monstres.get(i).subirDegat(p.getDegat());
 			}
 		}
 	}
-	else{
-		if (p instanceof Orcs || p instanceof Ghost){
+	public void etreAPorteeHeros(Personnage p){
 		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=p.getPortee() && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= p.getPortee()){
 			this.getPj().subirDegat(p.getDegat());
 		}
-
-		}
-	}
 	}
 }
+

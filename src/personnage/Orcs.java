@@ -6,7 +6,7 @@ import moteurJeu.Commande;
 import jeu.MonJeu;
 
 
-public class Orcs extends Personnage{
+public class Orcs extends Monstre{
 
 	public Orcs(MonJeu j) {
 		super((int)Math.random()*15,  (int)Math.random()*15, 5, 1, 50, j);
