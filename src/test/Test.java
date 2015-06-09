@@ -19,20 +19,23 @@ public class Test {
 	@org.junit.Test
 	public void test_Case_Occupee_Constructeur(){
 		MonJeu j = new MonJeu();
-		Heros h = new Heros (j);
 		boolean res = j.caseOccuper(1,1);
 		assertEquals("la case doit être occupée", true, res);
 	}
-	/**@org.junit.Test
-	public void test_Case_Occupee_Deplacement(){
+	@org.junit.Test
+	public void test_Fin_Jeu_Perdu(){
 		MonJeu j = new MonJeu();
-		Heros h = new Heros(j);
-		Commande c = new Commande();
-		c.bas=true;
-		h.seDeplacer(c);
-		boolean res = j.caseOccuper(1, 2);
-		//boolean res2 = j.caseOccuper(1, 1);
-		assertEquals("la case doit etre occupee", true, res);
-		//assertEquals("la case ne doit pas etre occupee", false, res2);	
-	}*/
+		j.getPj().subirDegat(100);  
+		assertEquals("le jeu doit etre fini", true, j.etreFini());
+	}
+	@org.junit.Test
+	public void test_Fin_Jeu_Gagne(){
+		MonJeu j = new MonJeu();
+		j.getPj().setPosX(14);
+		j.getPj().setPosY(9);
+		j.getPj().avoirPrisTalisman();
+		j.getPj().setPosX(1);
+		j.getPj().setPosY(1);
+		assertEquals("le jeu doit etre fini", true, j.etreFini());
+	}
 }
