@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import jeu.MonJeu;
 import moteurJeu.Commande;
 import personnage.Heros;
+import personnage.Orcs;
 
 public class TestHeros {
 
@@ -294,21 +295,23 @@ public class TestHeros {
 		Heros h2 = new Heros(j);
 		h1.attaquer(h2);
 		assertEquals("h2 doit avoir 99pv",99,h2.getVie());
-	}
+	}*/
 	@org.junit.Test
 	public void test_attaque_4(){
 		MonJeu j = new MonJeu();
-		Heros h1 = new Heros(j);
-		Commande c = new Commande();
-		c.droite = true;
-		h1.seDeplacer(c);
-		h1.subirDegat(10);
-		Heros h2 = new Heros(j);
-		h2.subirDegat(10);
-		h1.attaquer(h2);
-		assertEquals("h2 doit avoir 89pv",89,h2.getVie());
+		Heros h = new Heros(j);
+		Orcs o = new Orcs(j);
+		o.setPosX(2);
+		o.setPosY(2);
+		Commande c1 = new Commande();
+		Commande c2 = new Commande();
+		c1.droite = true;
+		c2.attaque=true;
+		h.seDeplacer(c1);
+		h.attaquer(c2);
+		assertEquals("l'orc doit avoir 45pv",45,o.getVie());
 	}
-*/	
+
 	@org.junit.Test
 	public void test_toString(){
 		MonJeu j = new MonJeu();
