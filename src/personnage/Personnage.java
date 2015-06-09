@@ -81,6 +81,22 @@ public abstract class Personnage {
 	
 
 
+	public int getAttaque() {
+		return attaque;
+	}
+
+	public void setAttaque(int attaque) {
+		this.attaque = attaque;
+	}
+
+	public void setPortee(int portee) {
+		this.portee = portee;
+	}
+
+	public void setVie(int vie) {
+		this.vie = vie;
+	}
+
 	public int getPosX(){
 		return this.posX;
 	}
