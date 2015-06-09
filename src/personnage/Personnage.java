@@ -49,6 +49,8 @@ public abstract class Personnage {
 		}
 		return res;
 	}
+	
+	
 
 
 	public int getPosX(){
