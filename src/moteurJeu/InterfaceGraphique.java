@@ -46,7 +46,7 @@ public class InterfaceGraphique {
 	 * @throws InterruptedException 
 	 * 
 	 */
-	public InterfaceGraphique(DessinMonJeu dessin,int x,int y) throws InterruptedException
+	public InterfaceGraphique(final DessinMonJeu dessin,int x,int y) throws InterruptedException
 	{
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,7 +99,7 @@ public class InterfaceGraphique {
 	       } catch (InterruptedException e) {;}
 	     
 		
-		JPanel Total = new JPanel();
+		final JPanel Total = new JPanel();
 		JPanel Informations = new JPanel();
 		Total.setPreferredSize(new Dimension(600,450));
 	
@@ -112,7 +112,7 @@ public class InterfaceGraphique {
 		JLabel pointA = new JLabel();
 		pointA.setText("Points d'attaque : " + attaque);
 		
-		JLabel po = new JLabel();
+		final JLabel po = new JLabel();
 		po.setText("Portee : " + portee);
 		
 		JLabel vide = new JLabel();
@@ -130,7 +130,7 @@ public class InterfaceGraphique {
 		JLabel control2 = new JLabel();
 		control2.setText("Gauche --> Q   Droite --> D");
 		
-		JLabel boussole = new JLabel();
+		final JLabel boussole = new JLabel();
 		boussole.setText("Boussole : " + " Position en x : " + posx );
 		
 		JLabel boussole1 = new JLabel();

@@ -18,7 +18,7 @@ public class Test {
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 		assertEquals("le heros doit avoir 100 de vie",100,h.getVie() );
 		assertEquals("le heros doit avoir 1 de portee",1,h.getPortee());
-		assertEquals("le heros doit avoir 1 de degat",1,h.getDegat());
+		assertEquals("le heros doit avoir 5 de degat",5,h.getDegat());
 	}
 	@org.junit.Test
 	public void test_Heros_Deplacement_1(){
@@ -231,7 +231,7 @@ public class Test {
 		assertEquals("Le heros ne doit pas bouger", 1, h.getPosX());
 		assertEquals("Le heros ne doit pas bouger", 1, h.getPosY());
 	}
-	@org.junit.Test
+	/**@org.junit.Test
 	public void test_etreAPortee_1(){
 		MonJeu j = new MonJeu();
 		Heros h1 = new Heros(j);
@@ -250,9 +250,9 @@ public class Test {
 		h1.seDeplacer(c);
 		h1.seDeplacer(c);
 		Heros h2=new Heros(j);
-		assertEquals("h2 ne doit pas etre a portee",false,h1.etreAPortee(h2));
+		assertEquals("h2 ne doit pas etre a portee",false,j.etreAPortee(h2));
 	}
-	/**@org.junit.Test
+	@org.junit.Test
 	public void test_attaque_1(){
 		MonJeu j = new MonJeu();
 		Heros h1 = new Heros(j);
@@ -337,7 +337,7 @@ public class Test {
 		Orcs o = new Orcs(j);
 		assertEquals("l'orc doit avoir 50 de vie",50,o.getVie() );
 		assertEquals("l'orc doit avoir 1 de portee",1,o.getPortee());
-		assertEquals("l'orc doit avoir 25 de degat",25,o.getDegat());
+		assertEquals("l'orc doit avoir 5 de degat",5,o.getDegat());
 	}
 	
 	@org.junit.Test
@@ -346,7 +346,7 @@ public class Test {
 		Ghost g = new Ghost(j);
 		assertEquals("le fantome doit avoir 30 de vie",30,g.getVie() );
 		assertEquals("le fantome doit avoir 3 de portee",3,g.getPortee());
-		assertEquals("le fantome doit avoir 10 de degat",10,g.getDegat());
+		assertEquals("le fantome doit avoir 2 de degat",2,g.getDegat());
 	}
 	
 	@org.junit.Test
@@ -607,9 +607,9 @@ public class Test {
 		c.bas=true;
 		h.seDeplacer(c);
 		boolean res = j.caseOccuper(1, 2);
-		boolean res2 = j.caseOccuper(1, 1);
-		//assertEquals("la case doit etre occupee", true, res);
-		assertEquals("la case ne doit pas etre occupee", false, res2);
+		//boolean res2 = j.caseOccuper(1, 1);
+		assertEquals("la case doit etre occupee", true, res);
+		//assertEquals("la case ne doit pas etre occupee", false, res2);
 		
 	}
 }
