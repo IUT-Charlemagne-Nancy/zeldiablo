@@ -2,6 +2,8 @@ package moteurJeu;
 
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Scanner;
 
 import javax.swing.BorderFactory;
@@ -20,10 +22,10 @@ import jeu.DessinMonJeu;
  * @author Graou
  *
  */
-public class InterfaceGraphique  {
+public class InterfaceGraphique {
 
 	
-	protected boolean valide = false;
+	protected boolean ok = false;
 	/**
 	 * le Panel lie a la JFrame
 	 */
@@ -40,13 +42,11 @@ public class InterfaceGraphique  {
 	 * - construit les Attributs
 	 * 
 	 * @param dessin l'afficheur a utiliser dans le moteur
+	 * @throws InterruptedException 
 	 * 
 	 */
-	public InterfaceGraphique(DessinMonJeu dessin,int x,int y)
+	public InterfaceGraphique(DessinMonJeu dessin,int x,int y) throws InterruptedException
 	{
-		this.valide = true;
-		while(this.valide == true) {
-			this.valide = false;
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setPreferredSize(new Dimension(1000,1000));
@@ -90,6 +90,7 @@ public class InterfaceGraphique  {
 	         SwingUtilities.invokeLater(new Runnable( ) {
 	             public void run( ) {
 	            		 barre_vie.setValue(vie); 
+	            		 
 	            		 
 	             }
 	         });
@@ -139,6 +140,9 @@ public class InterfaceGraphique  {
 		Controleur controlleurGraph=new Controleur(this);
 		this.controleur=controlleurGraph;
 		Total.addKeyListener(controlleurGraph);
+		
+		
+		
 		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
 		Total.setBorder(border);
 		Total.add(this.panel, BorderLayout.WEST);
@@ -153,13 +157,88 @@ public class InterfaceGraphique  {
 		Informations.add(vide1);
 		Informations.add(boussole);
 		Informations.add(boussole1);
+		Informations.setBackground(Color.gray);
 		Total.add(Informations);
 		f.setContentPane(Total);
 		f.pack();
 		f.setVisible(true);
 		f.getContentPane().setFocusable(true);
 		f.getContentPane().requestFocus();
-		}
+		
+		
+		
+		
+		
+		
+		KeyListener kl = new KeyListener() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				
+				
+				
+				
+				if (e.getKeyChar() == 'q' || e.getKeyChar() == 'z' || e.getKeyChar() == 'd' || e.getKeyChar() == 's') {
+				Informations.removeAll();
+				Informations.repaint();
+				
+				int vie = dessin.jeu.getPj().getVie();
+				int attaque = dessin.jeu.getPj().getDegat();
+				int portee = dessin.jeu.getPj().getPortee();
+				int posx = dessin.jeu.getPj().getPosX();
+				int posy = dessin.jeu.getPj().getPosY();
+			     		
+				ecriture.setText("Points de vie : " + vie);
+				
+				pointA.setText("Points d'attaque : " + attaque);
+				
+				po.setText("Portee : " + portee);
+				
+				vide.setText("                    ");
+				
+				vide2.setText("                                                        ");
+				
+				vide1.setText("                                                        ");
+				
+				boussole.setText("Boussole : " + " Position en x : " + posx );
+				
+				boussole1.setText(" Position en y : " + posy);
+				
+				Total.setBorder(border);
+		
+				Informations.add(ecriture, BorderLayout.WEST);
+				Informations.add(barre_vie, BorderLayout.CENTER);
+				Informations.add(vide2);
+				Informations.add(pointA, BorderLayout.SOUTH);
+				Informations.add(po,BorderLayout.SOUTH);
+				Informations.add(vide);
+				Informations.add(control, BorderLayout.SOUTH);
+				Informations.add(control2, BorderLayout.SOUTH);
+				Informations.add(vide1);
+				Informations.add(boussole);
+				Informations.add(boussole1);
+				Informations.repaint();
+				Total.add(Informations);
+				Total.revalidate();
+				Total.repaint();
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+	
+		};
+		Total.addKeyListener(kl);
+	
 	}
 	
 	
