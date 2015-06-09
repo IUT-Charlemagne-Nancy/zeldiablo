@@ -105,22 +105,15 @@ public class MonJeu implements Jeu {
 	public List<Personnage> getMonstres(){
 		return this.monstres;
 	}
-	public boolean casePossedeMonstre(int x,int y){
+	public boolean caseOccuper(int x,int y){
 		boolean res=false;
 		for(int i=0;i<monstres.size();i++){
-			if(monstres.get(i) instanceof Orcs &&(monstres.get(i).getPosX()==x && monstres.get(i).getPosY()==y)){
+			if((monstres.get(i) instanceof Orcs &&(monstres.get(i).getPosX()==x && monstres.get(i).getPosY()==y))||(pj.getPosX()==x && pj.getPosY()==y)){
 				res=true;
 			}
+			
 		}
 		return res;
 	}
-	public boolean casePossedeHeros(int x,int y){
-		boolean res=false;
-		if(pj.getPosX()==x && pj.getPosY()==y){
-			res=true;
-		}
-		return res;
-	}
-
 	
 }
