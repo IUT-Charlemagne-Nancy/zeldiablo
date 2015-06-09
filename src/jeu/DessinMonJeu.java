@@ -74,6 +74,14 @@ public class DessinMonJeu implements DessinJeu {
 			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
 					TAILLE_CASE);
 			break;
+		case"MORT":
+			img = ImageIO.read(new File("photo/mort.png"));
+			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
+		case"MORTPJ":
+			img = ImageIO.read(new File("photo/mortpj.png"));
+			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
 		default:
 			throw new AssertionError("objet inexistant");
 		}
@@ -105,16 +113,23 @@ public class DessinMonJeu implements DessinJeu {
 			
 		}
 		for (int i = 0 ; i < j.monstres.size() ; i++){
-			if (j.monstres.get(i) instanceof Orcs){
+			if (j.monstres.get(i) instanceof Orcs && !j.monstres.get(i).etreMort()){
 				this.dessinerObjet("ORCS",j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
 			}
-			if (j.monstres.get(i) instanceof Ghost){
+			if (j.monstres.get(i) instanceof Ghost && !j.monstres.get(i).etreMort()){
 				this.dessinerObjet("GHOST", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
 			}
+			if(j.monstres.get(i).etreMort() == true) {
+				this.dessinerObjet("MORT", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+			}
 		}
-		
+		if(!pj.etreMort()){
 		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
-		
+		}
+		if(pj.etreMort() == true) {
+			this.dessinerObjet("MORTPJ",pj.getPosX(), pj.getPosY(), im);
+			
+		}
 	}
 
 }
