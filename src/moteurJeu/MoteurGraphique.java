@@ -1,5 +1,6 @@
 package moteurJeu;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
 
@@ -68,9 +69,10 @@ public class MoteurGraphique extends JPanel {
 			Thread.sleep(100);
 		}
 		JFrame a = new JFrame();
+		a.setBackground(Color.black);
 		JLabel win = new JLabel();
-		if(this.gui.nombremonstre == 0){
-			win.setText("Vous avez gagnez OMG YOUHOU");
+		if(this.gui.nombremonstre == 0 || this.jeu.etreFini() && !dessin.jeu.getPj().etreMort()){
+			win.setText("Vous avez gagné un TOSTYBURGER");
 			a.add(win);
 			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			a.setPreferredSize(new Dimension(250,70));
