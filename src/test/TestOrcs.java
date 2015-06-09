@@ -60,12 +60,12 @@ public class TestOrcs {
 	public void test_Deplacement_Orcs_4(){
 		MonJeu j = new MonJeu();
 		Orcs o = new Orcs(j);
-		o.setPosX(2);
+		o.setPosX(8);
 		o.setPosY(2);
 		Commande c = new Commande();
 		c.gauche=true;
 		o.seDeplacer(c);
-		assertEquals("l'orc doit etre en position x = 1", 1, o.getPosX());
+		assertEquals("l'orc doit etre en position x = 7", 7, o.getPosX());
 		assertEquals("l'orc doit etre en position y = 2", 2, o.getPosY());
 	}
 	@org.junit.Test
@@ -85,14 +85,14 @@ public class TestOrcs {
 	public void test_Deplacement_Orcs_6(){
 		MonJeu j = new MonJeu();
 		Orcs o = new Orcs(j);
-		o.setPosX(3);
-		o.setPosY(3);
+		o.setPosX(8);
+		o.setPosY(7);
 		Commande c = new Commande();
 		c.gauche=true;
 		c.haut=true;
 		o.seDeplacer(c);
-		assertEquals("l'orc doit etre en position x = 2", 2, o.getPosX());
-		assertEquals("l'orc doit etre en position y = 2", 2 , o.getPosY());
+		assertEquals("l'orc doit etre en position x = 7", 7, o.getPosX());
+		assertEquals("l'orc doit etre en position y = 6", 6, o.getPosY());
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_7(){
@@ -111,13 +111,13 @@ public class TestOrcs {
 	public void test_Deplacement_Orcs_8(){
 		MonJeu j = new MonJeu();
 		Orcs o = new Orcs(j);
-		o.setPosX(2);
+		o.setPosX(8);
 		o.setPosY(2);
 		Commande c = new Commande();
 		c.bas=true;
 		c.gauche=true;
 		o.seDeplacer(c);
-		assertEquals("l'orc doit etre en position x = 1", 1, o.getPosX());
+		assertEquals("l'orc doit etre en position x = 7", 7, o.getPosX());
 		assertEquals("l'orc doit etre en position y = 3", 3, o.getPosY());
 	}
 	@org.junit.Test
