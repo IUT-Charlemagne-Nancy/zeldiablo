@@ -49,7 +49,7 @@ public class MoteurGraphique extends JPanel {
 		// creation de l'interface graphique
 		this.gui = new InterfaceGraphique(this.dessin,width,height);
 		Controleur controle = this.gui.getControleur();
-
+		
 		// boucle de jeu
 		while (!this.jeu.etreFini()) {
 			// demande controle utilisateur
@@ -58,6 +58,7 @@ public class MoteurGraphique extends JPanel {
 			this.jeu.evoluer(c);
 			// affiche le jeu
 			this.gui.dessiner();
+			this.gui.secondes = this.gui.secondes + 0.1;
 			
 			
 			// met en attente

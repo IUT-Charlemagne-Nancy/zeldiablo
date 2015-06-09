@@ -31,13 +31,7 @@ import jeu.DessinMonJeu;
 
 public class InterfaceGraphique {
 
-
-
-
-
-
-
-	protected boolean ok = false;
+	public double secondes = 0.00;
 	/**
 	 * le Panel lie a la JFrame
 	 */
@@ -144,6 +138,9 @@ public class InterfaceGraphique {
 		final JLabel boussole1 = new JLabel();
 
 		boussole1.setText(" Position en y : " + posy);
+		
+		final JLabel temps = new JLabel();
+		temps.setText("Temps :" + secondes);
 
 
 		this.panel=new PanelDessin(x, y,dessin);
@@ -167,6 +164,7 @@ public class InterfaceGraphique {
 		Informations.add(vide1);
 		Informations.add(boussole);
 		Informations.add(boussole1);
+		Informations.add(temps);
 
 
 
@@ -205,6 +203,10 @@ public class InterfaceGraphique {
 				if (e.getKeyChar() == 'q' || e.getKeyChar() == 'z' || e.getKeyChar() == 'd' || e.getKeyChar() == 's') {
 					Informations.removeAll();
 					Informations.repaint();
+					
+					
+					final JLabel temps = new JLabel();
+					temps.setText("Temps :" + secondes);
 
 
 
@@ -247,6 +249,7 @@ public class InterfaceGraphique {
 					Informations.add(vide1);
 					Informations.add(boussole);
 					Informations.add(boussole1);
+					Informations.add(temps);
 					Informations.repaint();
 					Total.add(Informations);
 					Total.revalidate();
