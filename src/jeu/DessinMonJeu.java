@@ -27,7 +27,7 @@ public class DessinMonJeu implements DessinJeu {
 	/**
 	 * constante pour gerer la taille des cases
 	 */
-	private static int TAILLE_CASE = 50;
+	private static int TAILLE_CASE = 25;
 
 	/**
 	 * lien vers le jeu a afficher

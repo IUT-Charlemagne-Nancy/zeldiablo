@@ -71,6 +71,7 @@ public class MoteurGraphique extends JPanel {
 		JFrame a = new JFrame();
 		a.setBackground(Color.black);
 		JLabel win = new JLabel();
+		a.setAlwaysOnTop(true);
 		if(this.gui.nombremonstre == 0 || this.jeu.etreFini() && !dessin.jeu.getPj().etreMort()){
 			win.setText("Vous avez gagné un TOSTYBURGER");
 			a.add(win);

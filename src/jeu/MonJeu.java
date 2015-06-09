@@ -42,11 +42,11 @@ public class MonJeu implements Jeu {
 	 * constructeur de jeu avec un Personnage
 	 * @throws IOException 
 	 */
-	public MonJeu() {
+	public MonJeu(int i) {
 		this.pj=new Heros(this);
 		this.labyrinthe = new Case[LIMIT_X][LIMIT_Y];
 		this.objets=new ArrayList<Objet>();
-		genererNiveau(1);
+		genererNiveau(i);
 		this.monstres=new ArrayList<Monstre>();
 		this.monstres.add(new Ghost(this));
 		this.monstres.add(new Orcs(this));
