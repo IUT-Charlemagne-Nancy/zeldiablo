@@ -122,7 +122,7 @@ public class MonJeu implements Jeu {
 			res=true;
 		}
 		for(int i=0;i<monstres.size();i++){
-			if((monstres.get(i) instanceof Orcs &&(monstres.get(i).getPosX()==x && monstres.get(i).getPosY()==y))){
+			if(!(monstres.get(i).etreMort())&&(monstres.get(i) instanceof Orcs &&(monstres.get(i).getPosX()==x && monstres.get(i).getPosY()==y))){
 				res=true;
 			}
 			
