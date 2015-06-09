@@ -3,7 +3,9 @@ package test;
 import static org.junit.Assert.assertEquals;
 import jeu.MonJeu;
 import moteurJeu.Commande;
+import personnage.Ghost;
 import personnage.Heros;
+import personnage.Orcs;
 
 public class TestHeros {
 
@@ -27,27 +29,9 @@ public class TestHeros {
 		assertEquals("Le heros doit se trouver en x = 1",1,h.getPosX());
 		assertEquals("Le heros doit se trouver en y = 2",2,h.getPosY());
 	}
-	/**@org.junit.Test
-	public void test_Heros_Deplacement_2(){
-		MonJeu j = new MonJeu();
-		Heros h = new Heros(j);
-		Commande c1 = new Commande();
-		Commande c2 = new Commande();
-		Commande c3 = new Commande();
-		Commande c4 = new Commande();
-		c1.bas=true;
-		c2.droite=true;
-		c3.haut=true;
-		c4.gauche=true;
-		h.seDeplacer(c1);
-		h.seDeplacer(c2);
-		h.seDeplacer(c3);
-		h.seDeplacer(c4);
-		assertEquals("Le heros doit se trouver en x = 1",1,h.getPosX());
-		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
-	}*/
+	
 	@org.junit.Test
-	public void test_Heros_Deplacement_3(){
+	public void test_Heros_Deplacement_2(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Commande c = new Commande();
@@ -56,21 +40,9 @@ public class TestHeros {
 		assertEquals("Le heros doit se trouver en x = 2",2,h.getPosX());
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 	}
-	/**@org.junit.Test
-	public void test_Heros_Deplacement_4(){
-		MonJeu j = new MonJeu();
-		Heros h = new Heros(j);
-		Commande c = new Commande();
-		c.droite= true;
-		h.seDeplacer(c);
-		c.droite = false;
-		c.gauche = true;
-		h.seDeplacer(c);
-		assertEquals("Le heros doit se trouver en x = 1",1,h.getPosX());
-		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
-	}*/
+	
 	@org.junit.Test
-	public void test_Heros_Deplacement_5(){
+	public void test_Heros_Deplacement_3(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Commande c = new Commande();
@@ -80,7 +52,7 @@ public class TestHeros {
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 	}
 	@org.junit.Test
-	public void test_Heros_Deplacement_6(){
+	public void test_Heros_Deplacement_4(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Commande c = new Commande();
@@ -90,7 +62,7 @@ public class TestHeros {
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 	}
 	@org.junit.Test
-	public void test_Heros_Deplacement_7(){
+	public void test_Heros_Deplacement_5(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Commande c = new Commande();
@@ -102,7 +74,7 @@ public class TestHeros {
 
 	}
 	@org.junit.Test
-	public void test_Heros_Deplacement_8(){
+	public void test_Heros_Deplacement_6(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Commande c = new Commande();
@@ -110,12 +82,12 @@ public class TestHeros {
 		for (int i = 0 ; i<20 ; i++){
 			h.seDeplacer(c);
 		}
-		assertEquals("Le heros doit se trouver en x = 14",14,h.getPosX());
+		assertEquals("Le heros doit se trouver en x = 3",3,h.getPosX());
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 	}
 	
 	@org.junit.Test
-	public void test_Heros_Deplacement_9(){
+	public void test_Heros_Deplacement_7(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Commande c1 = new Commande();
@@ -126,7 +98,7 @@ public class TestHeros {
 		assertEquals("Le heros doit se trouver en y = 2",2,h.getPosY());
 	}
 	@org.junit.Test
-	public void test_Heros_Deplacement_10(){
+	public void test_Heros_Deplacement_8(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Commande c1 = new Commande();
@@ -139,38 +111,7 @@ public class TestHeros {
 		assertEquals("Le heros doit se trouver en x = 2",2,h.getPosX());
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 	}
-	/**@org.junit.Test
-	public void test_Heros_Deplacement_11(){
-		MonJeu j = new MonJeu();
-		Heros h = new Heros(j);
-		Commande c1 = new Commande();
-		Commande c2 = new Commande();
-		c2.droite = true;
-		h.seDeplacer(c2);
-		c1.gauche = true;
-		c1.bas = true;
-		h.seDeplacer(c1);;
-		assertEquals("Le heros doit se trouver en x = 1",1,h.getPosX());
-		assertEquals("Le heros doit se trouver en y = 2",2,h.getPosY());
-	}
 	
-	@org.junit.Test
-	public void test_Heros_Deplacement_12(){
-		MonJeu j = new MonJeu();
-		Heros h = new Heros(j);
-		Commande c1 = new Commande();
-		Commande c2 = new Commande();
-		c2.droite = true;
-		h.seDeplacer(c2);
-		c2.droite = false;
-		c2.bas = true;
-		h.seDeplacer(c2);
-		c1.gauche = true;
-		c1.haut = true;
-		h.seDeplacer(c1);;
-		assertEquals("Le heros doit se trouver en x = 1",1,h.getPosX());
-		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
-	}*/
 	@org.junit.Test
 	public void test_Deplacement_Dans_Mur(){
 		MonJeu j = new MonJeu();
@@ -229,7 +170,7 @@ public class TestHeros {
 	}
 	
 	@org.junit.Test
-	public void test_etreMort_3(){
+	public void test_Deplacer_etreMort(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros (j);
 		h.subirDegat(100);
@@ -239,76 +180,35 @@ public class TestHeros {
 		assertEquals("Le heros ne doit pas bouger", 1, h.getPosX());
 		assertEquals("Le heros ne doit pas bouger", 1, h.getPosY());
 	}
-	/**@org.junit.Test
-	public void test_etreAPortee_1(){
-		MonJeu j = new MonJeu();
-		Heros h1 = new Heros(j);
-		Commande c = new Commande();
-		c.droite = true;
-		h1.seDeplacer(c);
-		Heros h2=new Heros(j);
-		assertEquals("h2 doit etre a portee",true,h1.etreAPortee(h2));
-	}
+
 	@org.junit.Test
-	public void test_etreAPortee_2(){
+	public void test_attaque_Fantome(){
 		MonJeu j = new MonJeu();
-		Heros h1 = new Heros(j);
+		Heros h = new Heros(j);
+		Ghost g = new Ghost(j);
+		j.ajouterMonstre(g);
+		g.setPosX(2);
+		g.setPosY(2);
 		Commande c = new Commande();
-		c.droite = true;
-		h1.seDeplacer(c);
-		h1.seDeplacer(c);
-		Heros h2=new Heros(j);
-		assertEquals("h2 ne doit pas etre a portee",false,j.etreAPortee(h2));
+		c.attaque = true;
+		h.attaquer(c);
+		assertEquals("le fantome doit avoir 25pv",25,g.getVie());
 	}
+	
 	@org.junit.Test
-	public void test_attaque_1(){
+	public void test_attaque_Orcs(){
 		MonJeu j = new MonJeu();
-		Heros h1 = new Heros(j);
+		Heros h = new Heros(j);
+		Orcs o = new Orcs(j);
+		j.ajouterMonstre(o);
+		o.setPosX(2);
+		o.setPosY(2);
 		Commande c = new Commande();
-		c.droite = true;
-		h1.seDeplacer(c);
-		Heros h2=new Heros(j);
-		h1.attaquer(h2);
-		assertEquals("h2 doit avoir 99pv",99,h2.getVie());
+		c.attaque=true;
+		h.attaquer(c);
+		assertEquals("l'orc doit avoir 45pv",45,o.getVie());
 	}
-	@org.junit.Test
-	public void test_attaque_2(){
-		MonJeu j = new MonJeu();
-		Heros h1 = new Heros(j);
-		Commande c = new Commande();
-		c.droite = true;
-		h1.seDeplacer(c);
-		h1.seDeplacer(c);
-		Heros h2 = new Heros(j);
-		h1.attaquer(h2);
-		assertEquals("h2 doit avoir 100pv",100,h2.getVie());
-	}
-	@org.junit.Test
-	public void test_attaque_3(){
-		MonJeu j = new MonJeu();
-		Heros h1 = new Heros(j);
-		Commande c = new Commande();
-		c.droite = true;
-		h1.seDeplacer(c);
-		h1.subirDegat(10);
-		Heros h2 = new Heros(j);
-		h1.attaquer(h2);
-		assertEquals("h2 doit avoir 99pv",99,h2.getVie());
-	}
-	@org.junit.Test
-	public void test_attaque_4(){
-		MonJeu j = new MonJeu();
-		Heros h1 = new Heros(j);
-		Commande c = new Commande();
-		c.droite = true;
-		h1.seDeplacer(c);
-		h1.subirDegat(10);
-		Heros h2 = new Heros(j);
-		h2.subirDegat(10);
-		h1.attaquer(h2);
-		assertEquals("h2 doit avoir 89pv",89,h2.getVie());
-	}
-*/	
+
 	@org.junit.Test
 	public void test_toString(){
 		MonJeu j = new MonJeu();
@@ -318,5 +218,50 @@ public class TestHeros {
 		c.droite = true;
 		h.seDeplacer(c);
 		assertEquals("Le toString doit être différent",false,h.toString()==b);
+	}
+	@org.junit.Test
+	public void test_attaquer_etreMort(){
+		MonJeu j = new MonJeu();
+		Orcs o = new Orcs(j);
+		Heros h = new Heros (j);
+		j.ajouterMonstre(o);
+		o.setPosX(2);
+		o.setPosY(2);
+		h.subirDegat(100);
+		Commande c = new Commande();
+		c.attaque=true;
+		h.attaquer(c);
+		assertEquals("l'orc doit avoir 50pdv", 50,o.getVie());
+	}
+	@org.junit.Test
+	public void test_attaquer_plusieurs_Monstres(){
+		MonJeu j = new MonJeu();
+		Orcs o = new Orcs(j);
+		Heros h = new Heros(j);
+		Ghost g = new Ghost(j);
+		j.ajouterMonstre(o);
+		j.ajouterMonstre(g);
+		o.setPosX(2);
+		o.setPosY(2);
+		g.setPosX(2);
+		g.setPosY(1);
+		Commande c = new Commande();
+		c.attaque=true;
+		h.attaquer(c);
+		assertEquals("l'orc doit avoir 45pdv", 45,o.getVie());
+		assertEquals("le fantome doit avoir 25pdv", 25, g.getVie());
+	}
+	@org.junit.Test
+	public void test_attaquer_Fantome_dans_Mur(){
+		MonJeu j = new MonJeu();
+		Ghost g = new Ghost(j);
+		Heros h = new Heros (j);
+		j.ajouterMonstre(g);
+		g.setPosX(0);
+		g.setPosY(0);
+		Commande c = new Commande();
+		c.attaque=true;
+		h.attaquer(c);
+		assertEquals("le fantome doit avoir 30pdv", 30,g.getVie());
 	}
 }

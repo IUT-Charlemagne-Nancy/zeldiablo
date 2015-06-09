@@ -3,6 +3,8 @@ package jeu;
 import java.util.ArrayList;
 import java.util.List;
 
+import Objet.Objet;
+import Objet.Talisman;
 import personnage.Ghost;
 import personnage.Heros;
 import personnage.Monstre;
@@ -21,8 +23,9 @@ public class MonJeu implements Jeu {
 	/**
 	 * le personnage du jeu
 	 */
-	private Personnage pj;
+	private Heros pj;
 	protected List<Monstre> monstres;
+	protected List<Objet> objets;
 	/**
 	 * liste des cases du murs
 	 */
@@ -55,6 +58,9 @@ public class MonJeu implements Jeu {
 		this.monstres.add(new Orcs(this));
 		this.monstres.add(new Orcs(this));
 		this.monstres.add(new Ghost(this));
+		
+		this.objets=new ArrayList<Objet>();
+		this.objets.add(new Talisman());
 	}
 	public Case recupererCase(int x,int y){
 		return this.labyrinthe[x][y];
@@ -92,12 +98,18 @@ public class MonJeu implements Jeu {
 		if (commande.attaque == true){
 		this.getPj().attaquer(commande);
 		}
+		if(commande.prendre == true){
+			this.getPj().prendre(commande);
+		}
 	}
 
 	@Override
 	public boolean etreFini() {
-		// le jeu n'est jamais fini
-		return false;
+		boolean res=false;
+		if(pj.etreMort()||(pj.avoirTalisman() &&(pj.getPosX()<4 && pj.getPosY()<4)) ){
+			res=true;
+		}
+		return res;
 	}
 
 	/**
@@ -105,7 +117,7 @@ public class MonJeu implements Jeu {
 	 * 
 	 * @return personnage du jeu
 	 */
-	public Personnage getPj() {
+	public Heros getPj() {
 		return pj;
 	}
 	public List<Monstre> getMonstres(){
@@ -153,6 +165,20 @@ public class MonJeu implements Jeu {
 	 */
 	public Monstre recupererMonstre(int i){
 		return this.monstres.get(i);
+	}
+	public void donnerObjet(Heros heros) {
+		boolean res=false;
+		for(int i=0;i<objets.size();i++){
+			if(objets.get(i).getPosX()==heros.getPosX() && objets.get(i).getPosY()==heros.getPosY() ){
+				heros.ajouterObjet(objets.get(i));
+				if(objets.get(i)  instanceof Talisman){
+					heros.avoirPrisTalisman();
+					objets.get(i).appliquerEffet(heros);
+				}
+				objets.remove(i);
+			
+			}
+		}
 	}
 }
 

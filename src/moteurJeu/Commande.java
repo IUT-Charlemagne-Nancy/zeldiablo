@@ -16,7 +16,7 @@ public class Commande {
 	public boolean haut;
 	public boolean bas;
 	public boolean attaque = false;
-
+	public boolean prendre =false;
 	public Commande()
 	{
 		
@@ -34,6 +34,7 @@ public class Commande {
 		this.gauche=commandeACopier.gauche;
 		this.droite=commandeACopier.droite;
 		this.attaque=commandeACopier.attaque;
+		this.prendre=commandeACopier.prendre;
 	}
 	public  Commande (int i){
 		switch(i){

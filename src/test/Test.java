@@ -23,7 +23,7 @@ public class Test {
 		boolean res = j.caseOccuper(1,1);
 		assertEquals("la case doit être occupée", true, res);
 	}
-	@org.junit.Test
+	/**@org.junit.Test
 	public void test_Case_Occupee_Deplacement(){
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
@@ -34,5 +34,5 @@ public class Test {
 		//boolean res2 = j.caseOccuper(1, 1);
 		assertEquals("la case doit etre occupee", true, res);
 		//assertEquals("la case ne doit pas etre occupee", false, res2);	
-	}
+	}*/
 }

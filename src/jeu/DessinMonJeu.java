@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import Objet.Talisman;
 import personnage.Ghost;
 import personnage.Heros;
 import personnage.Orcs;
@@ -50,6 +51,8 @@ public class DessinMonJeu implements DessinJeu {
 	private void dessinerObjet(String s, int x, int y, BufferedImage im) {
 		try{
 			Graphics2D crayon = (Graphics2D) im.getGraphics();
+			crayon.setColor(Color.DARK_GRAY);
+			crayon.drawLine(200,150, 150,120);
 		
 		Image img =null;
 		switch (s) {
@@ -84,6 +87,11 @@ public class DessinMonJeu implements DessinJeu {
 			break;
 		case "SPAWN":
 			crayon.setColor(new Color(200,140,0));
+			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+					TAILLE_CASE);
+			break;
+		case"TALISMAN":
+			crayon.setColor(new Color(0,0,0));
 			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
 					TAILLE_CASE);
 			break;
@@ -131,6 +139,11 @@ public class DessinMonJeu implements DessinJeu {
 			}
 			if(j.monstres.get(i).etreMort() == true) {
 				this.dessinerObjet("MORT", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+			}
+		}
+		for(int i=0;i<j.objets.size();i++){
+			if(j.objets.get(i) instanceof Talisman){
+				this.dessinerObjet("TALISMAN", j.objets.get(i).getPosX(), j.objets.get(i).getPosY(), im);
 			}
 		}
 		if(!pj.etreMort()){
