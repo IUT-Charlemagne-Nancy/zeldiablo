@@ -2,7 +2,6 @@ package moteurJeu;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 /**
  * classe qui represente un controleur en lien avec un KeyListener
  * 
@@ -56,34 +55,28 @@ public class Controleur implements KeyListener {
 		case 'q':
 			this.commandeEnCours.gauche = true;
 			this.commandeARetourner.gauche = true;
-			interf.valide = true;
 			break;
 		// si on appuie sur 'd',commande joueur est droite
 		case 'd':
 			this.commandeEnCours.droite = true;
 			this.commandeARetourner.droite = true;
-			interf.valide = true;
 			break;
 		// si on appuie sur 'z',commande joueur est haut
 		case 'z':
 			this.commandeEnCours.haut = true;
 			this.commandeARetourner.haut = true;
-			interf.valide = true;
 			break;
 		// si on appuie sur 's',commande joueur est bas
 		case 's':
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
-			interf.valide = true;
 			break;
 		// si on appuie sur la touche espace, le joueur attaque
 		case KeyEvent.VK_SPACE :
 			this.commandeEnCours.attaque = true;
 			this.commandeARetourner.attaque = true;
-			interf.valide = true;
 			break;
 		}
-
 	}
 
 	@Override
@@ -94,19 +87,15 @@ public class Controleur implements KeyListener {
 		switch (e.getKeyChar()) {
 		case 'q':
 			this.commandeEnCours.gauche = false;
-			interf.valide = true;
 			break;
 		case 'd':
 			this.commandeEnCours.droite = false;
-			interf.valide = true;
 			break;
 		case 'z':
 			this.commandeEnCours.haut = false;
-			interf.valide = true;
 			break;
 		case 's':
 			this.commandeEnCours.bas = false;
-			interf.valide = true;
 			break;
 		}
 
@@ -119,5 +108,6 @@ public class Controleur implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 
 	}
+	
 
 }

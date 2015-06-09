@@ -2,16 +2,22 @@ package moteurJeu;
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+
 import java.util.Scanner;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 import javax.swing.border.TitledBorder;
 
 import personnage.Personnage;
@@ -35,7 +41,6 @@ public class InterfaceGraphique {
 	 * le controleur lie a la JFrame
 	 */
 	private Controleur controleur;
-	public boolean valide;
 	
 	/**
 	 * la construction de l'interface grpahique
@@ -67,6 +72,8 @@ public class InterfaceGraphique {
 		
 		
 		
+		
+		
 		 // Créer un objet de la Barre de progression
 	     barre_vie = new JProgressBar();
 	     barre_vie.setBackground(Color.WHITE);
@@ -86,17 +93,12 @@ public class InterfaceGraphique {
 	     // Définir la valeur maximale de la barre de progression
 	     barre_vie.setMaximum(MAXIMUM);
 	     
-	     try
-	      {
-	         SwingUtilities.invokeLater(new Runnable( ) {
-	             public void run( ) {
-	            		 barre_vie.setValue(vie); 
+
+	     barre_vie.setValue(vie); 
+
 	            		 
 	            		 
-	             }
-	         });
-	         Thread.sleep(1000);
-	       } catch (InterruptedException e) {;}
+	        
 	     
 		
 		final JPanel Total = new JPanel();
@@ -137,6 +139,7 @@ public class InterfaceGraphique {
 		
 		boussole1.setText(" Position en y : " + posy);
 		
+		
 		this.panel=new PanelDessin(x, y,dessin);
 		Controleur controlleurGraph=new Controleur(this);
 		this.controleur=controlleurGraph;
@@ -158,13 +161,21 @@ public class InterfaceGraphique {
 		Informations.add(vide1);
 		Informations.add(boussole);
 		Informations.add(boussole1);
-		Informations.setBackground(Color.gray);
+
+		
+		
+		
+		Informations.setBackground(Color.LIGHT_GRAY);
+		
+		
+
 		Total.add(Informations);
 		f.setContentPane(Total);
 		f.pack();
 		f.setVisible(true);
 		f.getContentPane().setFocusable(true);
 		f.getContentPane().requestFocus();
+			
 		
 		
 		
@@ -189,11 +200,17 @@ public class InterfaceGraphique {
 				Informations.removeAll();
 				Informations.repaint();
 				
+				
+				
+
+				
 				int vie = dessin.jeu.getPj().getVie();
 				int attaque = dessin.jeu.getPj().getDegat();
 				int portee = dessin.jeu.getPj().getPortee();
 				int posx = dessin.jeu.getPj().getPosX();
 				int posy = dessin.jeu.getPj().getPosY();
+				barre_vie.setValue(vie);
+
 			     		
 				ecriture.setText("Points de vie : " + vie);
 				
