@@ -64,10 +64,6 @@ public class DessinMonJeu implements DessinJeu {
 				img = ImageIO.read(new File("photo/orc.png"));
 				crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
-		case "GHOST":
-			img = ImageIO.read(new File("photo/ghost.png"));
-			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
-			break;
 		case "MUR":
 			img = ImageIO.read(new File("photo/mur.png"));
 			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
@@ -94,6 +90,10 @@ public class DessinMonJeu implements DessinJeu {
 			img = ImageIO.read(new File("photo/Gemme.png"));
 			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			
+			break;
+		case"FANTOMEG":
+			img = ImageIO.read(new File("photo/FantomeGauche.png"));
+			crayon.drawImage(img, x*TAILLE_CASE, y*TAILLE_CASE, null);
 			break;
 		default:
 			throw new AssertionError("objet inexistant");
@@ -135,7 +135,7 @@ public class DessinMonJeu implements DessinJeu {
 				this.dessinerObjet("ORCS",j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
 			}
 			if (j.monstres.get(i) instanceof Ghost && !j.monstres.get(i).etreMort()){
-				this.dessinerObjet("GHOST", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+				this.dessinerObjet("FANTOMEG", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
 			}
 			if(j.monstres.get(i).etreMort() == true) {
 				this.dessinerObjet("MORT", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
@@ -153,6 +153,10 @@ public class DessinMonJeu implements DessinJeu {
 			this.dessinerObjet("MORTPJ",pj.getPosX(), pj.getPosY(), im);
 			
 		}
+		
+		
+		
+		
 	}
 
 }
