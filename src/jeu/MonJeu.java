@@ -128,7 +128,9 @@ public class MonJeu implements Jeu {
 	public void etreAPortee(Personnage p){
 		for(int i = 0; i<this.monstres.size() ; i++ ){
 			if ((int)Math.abs(this.monstres.get(i).getPosX()-p.getPosX())<=p.getPortee() && (int) Math.abs(this.monstres.get(i).getPosY()- p.getPosY()) <= p.getPortee()){
+				if (this.labyrinthe[this.monstres.get(i).getPosX()][this.monstres.get(i).getPosY()].etreTraversable()){
 				this.monstres.get(i).subirDegat(p.getDegat());
+				}
 			}
 		}
 	}
