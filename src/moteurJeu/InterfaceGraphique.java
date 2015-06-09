@@ -64,7 +64,7 @@ public class InterfaceGraphique {
 		f.setPreferredSize(new Dimension(1000,1000));
 
 
-		JProgressBar barre_vie;
+		final JProgressBar barre_vie;
 		int MINIMUM=0;
 		int MAXIMUM=100;
 
@@ -107,41 +107,41 @@ public class InterfaceGraphique {
 
 
 
-		JPanel Total = new JPanel();
-		JPanel Informations = new JPanel();
+		final JPanel Total = new JPanel();
+		final JPanel Informations = new JPanel();
 		Total.setPreferredSize(new Dimension(600,450));
 
 
 		Total.setLayout(new BorderLayout());
 
-		JLabel ecriture = new JLabel();
+		final JLabel ecriture = new JLabel();
 		ecriture.setText("Points de vie : " + vie);
 
-		JLabel pointA = new JLabel();
+		final JLabel pointA = new JLabel();
 		pointA.setText("Points d'attaque : " + attaque);
 
-		JLabel po = new JLabel();
+		final JLabel po = new JLabel();
 		po.setText("Portee : " + portee);
 
-		JLabel vide = new JLabel();
+		final JLabel vide = new JLabel();
 		vide.setText("                    ");
 
-		JLabel vide2 = new JLabel();
+		final JLabel vide2 = new JLabel();
 		vide2.setText("                                                        ");
 
-		JLabel vide1 = new JLabel();
+		final JLabel vide1 = new JLabel();
 		vide1.setText("                                                        ");
 
-		JLabel control = new JLabel();
+		final JLabel control = new JLabel();
 		control.setText("Controle : Haut --> Z    Bas --> S ");
 
-		JLabel control2 = new JLabel();
+		final JLabel control2 = new JLabel();
 		control2.setText("Gauche --> Q   Droite --> D");
 
-		JLabel boussole = new JLabel();
+		final JLabel boussole = new JLabel();
 		boussole.setText("Boussole : " + " Position en x : " + posx );
 
-		JLabel boussole1 = new JLabel();
+		final JLabel boussole1 = new JLabel();
 
 		boussole1.setText(" Position en y : " + posy);
 
@@ -153,7 +153,7 @@ public class InterfaceGraphique {
 
 
 
-		TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
+		final TitledBorder border = BorderFactory.createTitledBorder("Interface de jeu");
 		Total.setBorder(border);
 		Total.add(this.panel, BorderLayout.WEST);
 		Informations.add(ecriture, BorderLayout.WEST);
