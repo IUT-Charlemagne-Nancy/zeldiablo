@@ -25,34 +25,22 @@ public abstract class Personnage {
 		if(this.etreMort()==false){
 			if (c.gauche){
 				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && !jeu.caseOccuper(this.posX-1, this.posY) ){
-					posX--;
-					if (this.posX<0){
-						posX=0;
-					}
+					posX--;	
 				}
 			}
 			if (c.droite ){
 				if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()&& !jeu.caseOccuper(this.posX+1, this.posY)){
 					this.posX++;
-					if(this.posX>Personnage.LIMIT_X-1){
-						this.posX=LIMIT_X-1;
-					}
 				}
 			}
 			if (c.haut){
 				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& !jeu.caseOccuper(this.posX, this.posY-1)){
 					this.posY--;
-					if(this.posY<0){
-						this.posY=0;
-					}
-				}
+									}
 			}
 			if (c.bas){
 				if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()&&!jeu.caseOccuper(this.posX, this.posY+1)){
 					this.posY++;
-					if(this.posY>Personnage.LIMIT_Y-1){
-						this.posY=LIMIT_Y-1;
-					}
 				}
 			}
 		}

@@ -11,7 +11,7 @@ public class Talisman extends Objet{
 
 	@Override
 	public void appliquerEffet(Heros hero) {
-		hero.
+		hero.setVie(heros.);
 		
 	}
 
