@@ -225,6 +225,19 @@ public class TestOrcs {
 		assertEquals("le fantome doit etre en position y = 2", 2, o.getPosY());
 	}
 	@org.junit.Test
+	public void test_Deplacement_Sanctuaire(){
+		MonJeu j = new MonJeu();
+		Orcs o = new Orcs(j);
+		j.ajouterMonstre(o);
+		o.setPosX(6);
+		o.setPosY(3);
+		Commande c = new Commande();
+		c.gauche = true;
+		o.seDeplacer(c);
+		o.seDeplacer(c);
+		assertEquals("l'orc doit être en position x = 5", 5, j.recupererMonstre(0).getPosX());
+	}
+	@org.junit.Test
 	public void test_attaquer_etreMort(){
 		MonJeu j = new MonJeu();
 		Orcs o = new Orcs(j);
