@@ -53,6 +53,7 @@ public class MonJeu implements Jeu {
 		this.monstres.add(new Ghost(this));
 		this.monstres.add(new Orcs(this));
 		this.monstres.add(new Orcs(this));
+		this.monstres.add(new Ghost(this));
 	}
 	public Case recupererCase(int x,int y){
 		return this.labyrinthe[x][y];
