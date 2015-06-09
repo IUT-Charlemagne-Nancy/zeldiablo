@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
@@ -92,7 +93,9 @@ public class InterfaceGraphique {
 	     // Définir la valeur maximale de la barre de progression
 	     barre_vie.setMaximum(MAXIMUM);
 	     
+
 	     barre_vie.setValue(vie); 
+
 	            		 
 	            		 
 	        
@@ -158,12 +161,14 @@ public class InterfaceGraphique {
 		Informations.add(vide1);
 		Informations.add(boussole);
 		Informations.add(boussole1);
+
 		
 		
 		
 		Informations.setBackground(Color.LIGHT_GRAY);
 		
 		
+
 		Total.add(Informations);
 		f.setContentPane(Total);
 		f.pack();
@@ -205,6 +210,7 @@ public class InterfaceGraphique {
 				int posx = dessin.jeu.getPj().getPosX();
 				int posy = dessin.jeu.getPj().getPosY();
 				barre_vie.setValue(vie);
+
 			     		
 				ecriture.setText("Points de vie : " + vie);
 				

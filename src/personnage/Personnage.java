@@ -77,13 +77,8 @@ public abstract class Personnage {
 		}
 		return res;
 	}
-	public boolean etreAPortee(Personnage perso){
-		boolean res=false;
-		if(Math.abs(this.posX-perso.posX)<=portee&&Math.abs(this.posY-perso.posY)<=portee){
-			res=true;
-		}
-		return res;
-	}
+	
+	
 
 
 	public int getPosX(){
@@ -110,4 +105,10 @@ public abstract class Personnage {
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-}
+
+	public void attaquer(Commande c){
+		if(this.etreMort()==false){
+			jeu.etreAPortee(this);
+		}
+	}
+ }
