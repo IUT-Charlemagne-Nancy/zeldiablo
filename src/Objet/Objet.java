@@ -2,7 +2,11 @@ package Objet;
 
 import personnage.Heros;
 import jeu.MonJeu;
-
+/**
+ * 
+ * @author Benjamin
+ *
+ */
 public abstract class Objet {
 
 	private String nomObjet;
