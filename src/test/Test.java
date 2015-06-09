@@ -343,4 +343,10 @@ public class Test {
 		assertEquals("le fantome doit avoir 3 de portee",3,g.getPortee());
 		assertEquals("le fantome doit avoir 10 de degat",10,g.getDegat());
 	}
+	
+	@org.junit.Test
+	public void test_(){
+		MonJeu j = new MonJeu();
+		Orcs o = new Orcs(j);
+	}
 }
