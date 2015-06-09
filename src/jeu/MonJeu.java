@@ -22,7 +22,7 @@ public class MonJeu implements Jeu {
 	 * le personnage du jeu
 	 */
 	private Personnage pj;
-	protected List<Monstre> monstres;
+	public List<Monstre> monstres;
 	/**
 	 * liste des cases du murs
 	 */
