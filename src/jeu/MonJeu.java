@@ -86,6 +86,7 @@ public class MonJeu implements Jeu {
 			Commande c = new Commande((int)Math.round(Math.random()*8));
 			monstres.get(i).seDeplacer(c);
 		}
+		this.getPj().attaquer(commande);
 	}
 
 	@Override
@@ -114,6 +115,14 @@ public class MonJeu implements Jeu {
 			
 		}
 		return res;
+	}
+	
+	public void etreAPortee(Personnage heros){
+		for(int i = 0; i<this.monstres.size() ; i++ ){
+			if ((int)Math.abs(this.monstres.get(i).getPosX()-heros.getPosX())<=heros.getPortee() && (int) Math.abs(this.monstres.get(i).getPosY()- heros.getPosY()) <= heros.getPortee()){
+				this.monstres.get(i).subirDegat(heros.getDegat());
+			}
+		}
 	}
 	
 }

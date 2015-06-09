@@ -35,6 +35,7 @@ public class InterfaceGraphique {
 	 * le controleur lie a la JFrame
 	 */
 	private Controleur controleur;
+	public boolean valide;
 	
 	/**
 	 * la construction de l'interface grpahique

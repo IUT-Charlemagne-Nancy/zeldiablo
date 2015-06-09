@@ -1,5 +1,6 @@
 
 package personnage;
+import java.util.ArrayList;
 import java.util.List;
 
 import jeu.MonJeu;
@@ -13,5 +14,9 @@ public class Heros extends Personnage{
 	public String toString(){
 		return("vie: "+this.vie+" portee: "+this.portee+" Degats: "+this.attaque+" le personnage est en position: x:"+this.posX+" y: "+this.posY);
 	}
-	
+	public void attaquer(Commande c){
+		if(this.etreMort()==false){
+			jeu.etreAPortee(this);
+		}
+	}
 }
