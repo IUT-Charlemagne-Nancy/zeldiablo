@@ -91,9 +91,9 @@ public class DessinMonJeu implements DessinJeu {
 					TAILLE_CASE);
 			break;
 		case"TALISMAN":
-			crayon.setColor(new Color(0,0,0));
-			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
-					TAILLE_CASE);
+			img = ImageIO.read(new File("photo/Gemme.png"));
+			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			
 			break;
 		default:
 			throw new AssertionError("objet inexistant");
