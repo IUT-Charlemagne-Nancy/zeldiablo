@@ -111,7 +111,7 @@ public class TestHeros {
 		for (int i = 0 ; i<20 ; i++){
 			h.seDeplacer(c);
 		}
-		assertEquals("Le heros doit se trouver en x = 14",14,h.getPosX());
+		assertEquals("Le heros doit se trouver en x = 3",3,h.getPosX());
 		assertEquals("Le heros doit se trouver en y = 1",1,h.getPosY());
 	}
 	
@@ -301,14 +301,12 @@ public class TestHeros {
 		MonJeu j = new MonJeu();
 		Heros h = new Heros(j);
 		Orcs o = new Orcs(j);
+		MonJeu.getMonstres().add(o);
 		o.setPosX(2);
 		o.setPosY(2);
 		Commande c1 = new Commande();
-		Commande c2 = new Commande();
-		c1.droite = true;
-		c2.attaque=true;
-		h.seDeplacer(c1);
-		h.attaquer(c2);
+		c1.attaque=true;
+		h.attaquer(c1);
 		assertEquals("l'orc doit avoir 45pv",45,o.getVie());
 	}
 
