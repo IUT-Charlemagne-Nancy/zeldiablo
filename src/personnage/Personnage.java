@@ -26,8 +26,8 @@ public abstract class Personnage {
 			if (c.gauche){
 				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && !jeu.caseOccuper(this.posX-1, this.posY) ){
 					posX--;
-					if (this.posX<1){
-						posX=1;
+					if (this.posX<0){
+						posX=0;
 					}
 				}
 			}
@@ -42,8 +42,8 @@ public abstract class Personnage {
 			if (c.haut){
 				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& !jeu.caseOccuper(this.posX, this.posY-1)){
 					this.posY--;
-					if(this.posY<1){
-						this.posY=1;
+					if(this.posY<0){
+						this.posY=0;
 					}
 				}
 			}
