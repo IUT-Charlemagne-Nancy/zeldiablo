@@ -10,9 +10,9 @@ import java.awt.event.KeyListener;
  */
 public class Controleur implements KeyListener {
 
-	
+
 	InterfaceGraphique interf;
-	
+
 	/**
 	 * commande en cours
 	 */
@@ -56,25 +56,29 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.gauche = true;
 			this.commandeARetourner.gauche = true;
 			break;
-		// si on appuie sur 'd',commande joueur est droite
+			// si on appuie sur 'd',commande joueur est droite
 		case 'd':
 			this.commandeEnCours.droite = true;
 			this.commandeARetourner.droite = true;
 			break;
-		// si on appuie sur 'z',commande joueur est haut
+			// si on appuie sur 'z',commande joueur est haut
 		case 'z':
 			this.commandeEnCours.haut = true;
 			this.commandeARetourner.haut = true;
 			break;
-		// si on appuie sur 's',commande joueur est bas
+			// si on appuie sur 's',commande joueur est bas
 		case 's':
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
 			break;
-		// si on appuie sur la touche espace, le joueur attaque
+			// si on appuie sur la touche espace, le joueur attaque
 		case KeyEvent.VK_SPACE :
 			this.commandeEnCours.attaque = true;
 			this.commandeARetourner.attaque = true;
+			break;
+		case 'r':
+			this.commandeEnCours.prendre=true;
+			this.commandeARetourner.prendre=true;
 			break;
 		}
 	}
@@ -98,7 +102,10 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.bas = false;
 			break;
 		case KeyEvent.VK_SPACE :
-			this.commandeEnCours.attaque = true;
+			this.commandeEnCours.attaque = false;
+			break;
+		case 'r':
+			this.commandeEnCours.prendre=false;
 			break;
 		}
 
@@ -111,6 +118,6 @@ public class Controleur implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 
 	}
-	
+
 
 }

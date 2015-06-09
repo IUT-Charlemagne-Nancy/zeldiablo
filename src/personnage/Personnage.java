@@ -11,7 +11,6 @@ public abstract class Personnage {
 	protected int posX,posY,attaque,portee,vie;
 	public final static int LIMIT_X=15;
 	public final static int LIMIT_Y=15; 
-	
 	public Personnage(int x, int y, int attack, int porte, int pv, MonJeu j) {
 		this.posX=x;
 		this.posY=y;
@@ -19,6 +18,7 @@ public abstract class Personnage {
 		this.portee=porte;
 		this.vie=pv;
 		this.jeu =j;
+		
 	}
 
 	public void seDeplacer(Commande c){

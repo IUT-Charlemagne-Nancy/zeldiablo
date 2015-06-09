@@ -7,7 +7,6 @@ public abstract class Objet {
 
 	private String nomObjet;
 	private boolean estPris;
-	protected MonJeu jeu;
 	private int posX;
 	private int posY;
 	
@@ -16,10 +15,8 @@ public abstract class Objet {
 	 * @param nom
 	 * @param pris
 	 */
-	public Objet(String nom,MonJeu j,int x,int y) {
+	public Objet(String nom,int x,int y) {
 		this.nomObjet = nom;
-		this.jeu = j;
-		this.estPris = false;
 		this.posX = x;
 		this.posY = y;
 		}
@@ -27,27 +24,11 @@ public abstract class Objet {
 	/**
 	 * methode qui indique qu'un objet est pris.
 	 */
-	public void etrePris(Heros heros){
-		this.estPris = true;
-		this.appliquerEffet(heros);
-	}
 	
 	public String getNomObjet() {
 		return nomObjet;
 	}
-
-	public void setNomObjet(String nomObjet) {
-		this.nomObjet = nomObjet;
-	}
-
-	public boolean isEstPris() {
-		return estPris;
-	}
-
-	public void setEstPris(boolean estPris) {
-		this.estPris = estPris;
-	}
-
+	
 	public int getPosX() {
 		return posX;
 	}

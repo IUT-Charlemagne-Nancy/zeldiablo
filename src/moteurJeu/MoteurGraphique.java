@@ -1,5 +1,10 @@
 package moteurJeu;
 
+import java.awt.Dimension;
+import java.awt.Frame;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import jeu.DessinMonJeu;
@@ -61,6 +66,30 @@ public class MoteurGraphique extends JPanel {
 			this.gui.secondes = this.gui.secondes + 0.1;
 			// met en attente
 			Thread.sleep(100);
+		}
+		JFrame a = new JFrame();
+		JLabel win = new JLabel();
+		if(this.gui.nombremonstre == 0){
+			win.setText("Vous avez gagnez OMG YOUHOU");
+			a.add(win);
+			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			a.setPreferredSize(new Dimension(150,70));
+			a.setContentPane(win);
+			a.pack();
+			a.setVisible(true);
+			a.getContentPane().setFocusable(true);
+			a.getContentPane().requestFocus();
+		}
+		else {
+			win.setText("Vous avez perdu OMG petite merde");
+			a.add(win);
+			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			a.setPreferredSize(new Dimension(150,70));
+			a.setContentPane(win);
+			a.pack();
+			a.setVisible(true);
+			a.getContentPane().setFocusable(true);
+			a.getContentPane().requestFocus();
 		}
 	}
 
