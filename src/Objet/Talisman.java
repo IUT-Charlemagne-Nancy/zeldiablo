@@ -5,8 +5,8 @@ import jeu.MonJeu;
 
 public class Talisman extends Objet{
 
-	public Talisman(MonJeu j) {
-		super("Talisman magique",j,14,9);
+	public Talisman() {
+		super("Talisman magique",14,9);
 	}
 
 	@Override
