@@ -69,6 +69,7 @@ public class InterfaceGraphique {
 		int portee = dessin.jeu.getPj().getPortee();
 		int posx = dessin.jeu.getPj().getPosX();
 		int posy = dessin.jeu.getPj().getPosY();
+		int nbMonstre = dessin.jeu.getMonstres().size();
 
 
 
@@ -126,6 +127,12 @@ public class InterfaceGraphique {
 
 		final JLabel vide1 = new JLabel();
 		vide1.setText("                                                        ");
+		
+		final JLabel vide3 = new JLabel();
+		vide3.setText("                                                        ");
+		
+		final JLabel vide4 = new JLabel();
+		vide4.setText("                                                        ");
 
 		final JLabel control = new JLabel();
 		control.setText("Controle : Haut --> Z    Bas --> S ");
@@ -142,6 +149,13 @@ public class InterfaceGraphique {
 		
 		final JLabel temps = new JLabel();
 		temps.setText("Temps :" + secondes);
+		
+		final JLabel nbm = new JLabel(); 
+		
+		nbm.setText("Nombre de monstres ");
+		
+		JLabel nbm2 = new JLabel();
+		nbm2.setText("restants : " + nbMonstre);
 
 
 		this.panel=new PanelDessin(x, y,dessin);
@@ -165,7 +179,11 @@ public class InterfaceGraphique {
 		Informations.add(vide1);
 		Informations.add(boussole);
 		Informations.add(boussole1);
+		Informations.add(vide3);
 		Informations.add(temps);
+		Informations.add(vide3);
+		Informations.add(nbm);
+		Informations.add(nbm2);
 
 
 
@@ -210,8 +228,17 @@ public class InterfaceGraphique {
 
 
 
-
-
+					
+					int nbMonstre = dessin.jeu.getMonstres().size();
+					int nbaenlever = 0;
+					for (int i = 0; i<nbMonstre; i++){
+						if (dessin.jeu.recupererMonstre(i).etreMort() == true){
+							nbaenlever = nbaenlever + 1;
+						}
+					}
+					nbMonstre = nbMonstre - nbaenlever;
+					
+					
 					int vie = dessin.jeu.getPj().getVie();
 					int attaque = dessin.jeu.getPj().getDegat();
 					int portee = dessin.jeu.getPj().getPortee();
@@ -248,8 +275,15 @@ public class InterfaceGraphique {
 					boussole.setText("Boussole : " + " Position en x : " + posx );
 
 					boussole1.setText(" Position en y : " + posy);
+					 
+					nbm.setText("Nombre de monstres ");
+					
+					JLabel nbm2 = new JLabel();
+					nbm2.setText("restants : " + nbMonstre);
 
 					Total.setBorder(border);
+					vide3.setText("                                                        ");
+					vide4.setText("                                                        ");
 
 					Informations.add(ecriture, BorderLayout.WEST);
 					Informations.add(barre_vie, BorderLayout.CENTER);
@@ -262,7 +296,11 @@ public class InterfaceGraphique {
 					Informations.add(vide1);
 					Informations.add(boussole);
 					Informations.add(boussole1);
+					Informations.add(vide3);
 					Informations.add(temps);
+					Informations.add(vide4);
+					Informations.add(nbm);
+					Informations.add(nbm2);
 					Informations.repaint();
 					Total.add(Informations);
 					Total.revalidate();
