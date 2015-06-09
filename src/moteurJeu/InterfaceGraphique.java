@@ -218,6 +218,19 @@ public class InterfaceGraphique {
 					int posx = dessin.jeu.getPj().getPosX();
 					int posy = dessin.jeu.getPj().getPosY();
 					barre_vie.setValue(vie);
+					
+					if (vie < 80) {
+						barre_vie.setForeground(Color.green);
+					}
+					if(vie < 80){
+						barre_vie.setForeground(Color.yellow);
+					}
+					if(vie<50){
+						barre_vie.setForeground(Color.orange);
+					}
+					if(vie <= 20) {
+						barre_vie.setForeground(Color.RED);
+					}
 
 
 					ecriture.setText("Points de vie : " + vie);
