@@ -82,6 +82,11 @@ public class DessinMonJeu implements DessinJeu {
 			img = ImageIO.read(new File("photo/mortpj.png"));
 			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
+		case "SPAWN":
+			crayon.setColor(new Color(200,140,0));
+			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+					TAILLE_CASE);
+			break;
 		default:
 			throw new AssertionError("objet inexistant");
 		}
@@ -107,8 +112,13 @@ public class DessinMonJeu implements DessinJeu {
 					this.dessinerObjet("MUR",i,k,im);
 				}
 				else{
-					this.dessinerObjet("SOL",i,k,im);
+					if(i<=3 && i>0 && k<=3 && k>0){
+						this.dessinerObjet("SPAWN", i, k, im);
+					}else{
+						this.dessinerObjet("SOL",i,k,im);
+					}
 				}
+				
 			}
 			
 		}
