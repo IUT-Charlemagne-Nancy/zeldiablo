@@ -22,7 +22,7 @@ public class MonJeu implements Jeu {
 	 * le personnage du jeu
 	 */
 	private Personnage pj;
-	public List<Monstre> monstres;
+	protected List<Monstre> monstres;
 	/**
 	 * liste des cases du murs
 	 */
@@ -138,6 +138,21 @@ public class MonJeu implements Jeu {
 		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=p.getPortee() && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= p.getPortee()){
 			this.getPj().subirDegat(p.getDegat());
 		}
+	}
+	/**
+	 * méthode qui sert a ajouter un monstre
+	 * @param m
+	 */
+	public void ajouterMonstre(Monstre m){
+		this.monstres.add(m);
+	}
+	/**
+	 * Méthode qui recupere le monstre de la liste à l'indice passé en paramètre
+	 * @param i
+	 * @return
+	 */
+	public Monstre recupererMonstre(int i){
+		return this.monstres.get(i);
 	}
 }
 
