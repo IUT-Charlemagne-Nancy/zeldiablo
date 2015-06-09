@@ -15,7 +15,7 @@ public class Commande {
 	public boolean droite;
 	public boolean haut;
 	public boolean bas;
-	public boolean attaque;
+	public boolean attaque = false;
 
 	public Commande()
 	{
