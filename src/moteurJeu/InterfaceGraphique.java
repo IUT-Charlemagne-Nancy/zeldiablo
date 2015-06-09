@@ -248,7 +248,7 @@ public class InterfaceGraphique {
 					int posy = dessin.jeu.getPj().getPosY();
 					barre_vie.setValue(vie);
 					
-					if (vie < 80) {
+					if (vie > 80) {
 						barre_vie.setForeground(Color.green);
 					}
 					if(vie < 80){
