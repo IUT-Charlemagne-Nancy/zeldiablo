@@ -89,7 +89,9 @@ public class MonJeu implements Jeu {
 			monstres.get(i).seDeplacer(c);
 			monstres.get(i).attaquer(c);
 		}
+		if (commande.attaque == true){
 		this.getPj().attaquer(commande);
+		}
 	}
 
 	@Override
