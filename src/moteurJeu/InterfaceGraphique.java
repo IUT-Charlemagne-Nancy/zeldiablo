@@ -30,6 +30,8 @@ import jeu.DessinMonJeu;
 
 public class InterfaceGraphique {
 	
+	int nombremonstre;
+	
 	private JPanel Total;
 
 	public double secondes = 0.00;
@@ -229,14 +231,14 @@ public class InterfaceGraphique {
 
 
 					
-					int nbMonstre = dessin.jeu.getMonstres().size();
+					nombremonstre = dessin.jeu.getMonstres().size();
 					int nbaenlever = 0;
-					for (int i = 0; i<nbMonstre; i++){
+					for (int i = 0; i<nombremonstre; i++){
 						if (dessin.jeu.recupererMonstre(i).etreMort() == true){
 							nbaenlever = nbaenlever + 1;
 						}
 					}
-					nbMonstre = nbMonstre - nbaenlever;
+					nombremonstre = nombremonstre - nbaenlever;
 					
 					
 					int vie = dessin.jeu.getPj().getVie();
@@ -279,7 +281,7 @@ public class InterfaceGraphique {
 					nbm.setText("Nombre de monstres ");
 					
 					JLabel nbm2 = new JLabel();
-					nbm2.setText("restants : " + nbMonstre);
+					nbm2.setText("restants : " + nombremonstre);
 
 					Total.setBorder(border);
 					vide3.setText("                                                        ");
