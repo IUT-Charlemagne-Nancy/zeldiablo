@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 /**
  * 
- * @author Benjamin
+ * @author Benjamin Denys
  *
  */
 public class Image{
