@@ -63,7 +63,23 @@ public class DessinMonJeu implements DessinJeu {
 			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "PJg":
-			im = images.mur;
+			im = images.herosgauche;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
+		case "PJd":
+			im = images.herosdroite;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
+		case "PJb":
+			im = images.herosbas;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
+		case "PJh":
+			im = images.heroshaut;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
+		case "MORTPJ":
+			im = images.herosmort;
 			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "ORCS":
@@ -81,10 +97,6 @@ public class DessinMonJeu implements DessinJeu {
 			break;
 		case "MORT":
 			im = images.mort;
-			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
-			break;
-		case "MORTPJ":
-			im = images.mortpj;
 			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "SPAWN":
@@ -115,6 +127,9 @@ public class DessinMonJeu implements DessinJeu {
 		Personnage pj = j.getPj();
 		Orcs orc = new Orcs(j);
 		String gauche = "gauche";
+		String droite = "droite";
+		String haut = "haut";
+		String bas = "bas";
 
 		for (int i = 0; i < j.LIMIT_X; i++) {
 			for (int k = 0; k < j.LIMIT_Y; k++) {
@@ -191,11 +206,27 @@ public class DessinMonJeu implements DessinJeu {
 		}
 		if (!pj.etreMort()) {
 			try {
-				this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
 				String mouv = pj.mouvement();
+				if (mouv.equals("repos")){
+					this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
+				}
 				if (mouv.equals(gauche)){
 					this.dessinerObjet("PJg", pj.getPosX(), pj.getPosY(), im);
+					j.getPj().etreEnMouvement("repos");
 				}
+				if (mouv.equals(droite)){
+					this.dessinerObjet("PJd", pj.getPosX(), pj.getPosY(), im);
+					j.getPj().etreEnMouvement("repos");
+				}
+				if (mouv.equals(bas)){
+					this.dessinerObjet("PJb", pj.getPosX(), pj.getPosY(), im);
+					j.getPj().etreEnMouvement("repos");
+				}
+				if (mouv.equals(haut)){
+					this.dessinerObjet("PJh", pj.getPosX(), pj.getPosY(), im);
+					j.getPj().etreEnMouvement("repos");
+				}
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

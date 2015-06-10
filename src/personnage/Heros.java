@@ -13,6 +13,7 @@ public class Heros extends Personnage{
 	public Heros(MonJeu j) {
 			super(1,1,5,1,100,j);
 			avoirTalisman=false;
+			this.etreEnMouvement("repos");
 	}
 	public String toString(){
 		return("vie: "+this.vie+" portee: "+this.portee+" Degats: "+this.attaque+" le personnage est en position: x:"+this.posX+" y: "+this.posY);
