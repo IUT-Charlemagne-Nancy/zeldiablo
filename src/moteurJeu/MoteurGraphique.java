@@ -133,7 +133,7 @@ public class MoteurGraphique extends JPanel {
 			win.setText("Vous avez gagné !! ");
 			a.add(win);
 			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			a.setPreferredSize(new Dimension(250,70));
+			a.setPreferredSize(new Dimension(600,300));
 			a.setContentPane(win);
 			a.pack();
 			a.setVisible(true);
@@ -141,10 +141,10 @@ public class MoteurGraphique extends JPanel {
 			a.getContentPane().requestFocus();
 		}
 		else {
-			win.setText("Vous avez perdu :(");
+			win.setText("Malheureusement vous n'avez pas survécu...");
 			a.add(win);
 			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			a.setPreferredSize(new Dimension(250,70));
+			a.setPreferredSize(new Dimension(600,300));
 			a.setContentPane(win);
 			a.pack();
 			a.setVisible(true);
