@@ -83,10 +83,35 @@ public class MonJeu implements Jeu {
 	public void evoluer(Commande commande) {
 		this.getPj().seDeplacer(commande);
 		for (int i = 0 ; i<this.monstres.size();i++){
-			Commande c = new Commande((int)Math.round(Math.random()*8));
-			c.attaque =true;
-			monstres.get(i).seDeplacer(c);
-			monstres.get(i).attaquer(c);
+			Commande c = new Commande();
+			if (this.etreAPorteeHeros(this.monstres.get(i))){
+				c.attaque = true;
+				monstres.get(i).attaquer(c);
+			}
+			if (this.sentirPresence(this.monstres.get(i))){
+				int x = this.monstres.get(i).getPosX()-this.getPj().getPosX();
+				int y = this.monstres.get(i).getPosY()-this.getPj().getPosY();
+				if (x<0){
+					c.droite=true;
+					monstres.get(i).seDeplacer(c);
+				}
+				if (x>0){
+					c.gauche=true;
+					monstres.get(i).seDeplacer(c);
+				}
+				if(y<0){
+					c.bas=true;
+					monstres.get(i).seDeplacer(c);
+				}
+				if(y>0){
+					c.haut=true;
+					monstres.get(i).seDeplacer(c);
+				}
+			}
+			else{
+				Commande c2 = new Commande((int)Math.round(Math.random()*8));
+				monstres.get(i).seDeplacer(c2);
+			}			
 		}
 		if (commande.attaque == true){
 		this.getPj().attaquer(commande);
@@ -134,14 +159,26 @@ public class MonJeu implements Jeu {
 		for(int i = 0; i<this.monstres.size() ; i++ ){
 			if ((int)Math.abs(this.monstres.get(i).getPosX()-p.getPosX())<=p.getPortee() && (int) Math.abs(this.monstres.get(i).getPosY()- p.getPosY()) <= p.getPortee()){
 				if (this.labyrinthe[this.monstres.get(i).getPosX()][this.monstres.get(i).getPosY()].etreTraversable()){
-				this.monstres.get(i).subirDegat(p.getDegat());
+				this.monstres.get(i).subirDegat(p.getAttaque());
 				}
 			}
 		}
 	}
-	public void etreAPorteeHeros(Personnage p){
+	public boolean etreAPorteeHeros(Personnage p){
 		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=p.getPortee() && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= p.getPortee()){
-			this.getPj().subirDegat(p.getDegat());
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public boolean sentirPresence(Personnage p){
+		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=5 && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= 5){
+			return true;
+		}
+		else{
+			return false;
 		}
 	}
 	/**
@@ -160,7 +197,6 @@ public class MonJeu implements Jeu {
 		return this.monstres.get(i);
 	}
 	public void donnerObjet(Heros heros) {
-		boolean res=false;
 		for(int i=0;i<objets.size();i++){
 			if(objets.get(i).getPosX()==heros.getPosX() && objets.get(i).getPosY()==heros.getPosY() ){
 				heros.ajouterObjet(objets.get(i));

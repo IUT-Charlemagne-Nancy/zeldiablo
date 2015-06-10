@@ -1,13 +1,14 @@
 package jeu;
 
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 
 import Objet.Talisman;
 import personnage.Ghost;
@@ -24,6 +25,8 @@ import moteurJeu.Jeu;
  */
 public class DessinMonJeu implements DessinJeu {
 
+	public Image images;
+
 	/**
 	 * constante pour gerer la taille des cases
 	 */
@@ -39,68 +42,63 @@ public class DessinMonJeu implements DessinJeu {
 	 * 
 	 * @param j
 	 *            le jeutest a afficher
+	 * @throws IOException 
 	 */
-	public DessinMonJeu(MonJeu j) {
+	public DessinMonJeu(MonJeu j) throws IOException {
 		this.jeu = j;
+		images = new Image();
 	}
 
 	/**
 	 * dessiner un objet consiste a dessiner sur l'image suivante methode
 	 * redefinie de Afficheur
 	 */
-	private void dessinerObjet(String s, int x, int y, BufferedImage im) {
-		try{
-			Graphics2D crayon = (Graphics2D) im.getGraphics();
-			crayon.setColor(Color.DARK_GRAY);
-			crayon.drawLine(200,150, 150,120);
-		
-		Image img =null;
+	private void dessinerObjet(String s, int x, int y, BufferedImage im)
+			throws IOException {
+		Graphics2D crayon = (Graphics2D) im.getGraphics();
+		crayon.setColor(Color.DARK_GRAY);
 		switch (s) {
 		case "PJ":
-			img = ImageIO.read(new File("photo/heros.png"));
-			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			im = images.heros;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "ORCS":
-				img = ImageIO.read(new File("photo/orc.png"));
-				crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			im = images.orcs;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "MUR":
-			img = ImageIO.read(new File("photo/mur.png"));
-			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			im = images.mur;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
-		case"SOL":
+		case "SOL":
 			crayon.setColor(Color.gray);
 			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
 					TAILLE_CASE);
 			break;
-		case"MORT":
-			img = ImageIO.read(new File("photo/mort.png"));
-			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+		case "MORT":
+			im = images.mort;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
-		case"MORTPJ":
-			img = ImageIO.read(new File("photo/mortpj.png"));
-			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
+		case "MORTPJ":
+			im = images.mortpj;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		case "SPAWN":
-			crayon.setColor(new Color(200,140,0));
+			crayon.setColor(new Color(200, 140, 0));
 			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
 					TAILLE_CASE);
 			break;
-		case"TALISMAN":
-			img = ImageIO.read(new File("photo/Gemme.png"));
-			crayon.drawImage(img, x * TAILLE_CASE, y * TAILLE_CASE, null);
-			
+		case "TALISMAN":
+			im = images.talisman;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
+
 			break;
-		case"FANTOMEG":
-			img = ImageIO.read(new File("photo/FantomeGauche.png"));
-			crayon.drawImage(img, x*TAILLE_CASE, y*TAILLE_CASE, null);
+		case "FANTOMEG":
+			im = images.fantomeg;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		default:
 			throw new AssertionError("objet inexistant");
-		}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
@@ -111,52 +109,100 @@ public class DessinMonJeu implements DessinJeu {
 		// no sait que c'est un jeuTest
 		MonJeu j = (MonJeu) jeu;
 		Personnage pj = j.getPj();
+
 		Orcs orc = new Orcs(j);
-		
-		for (int i = 0 ;i<j.LIMIT_X;i++){
-			for (int k = 0; k<j.LIMIT_Y; k++){
-				Case c = j.recupererCase(i,k);
-				if (c instanceof Mur){
-					this.dessinerObjet("MUR",i,k,im);
-				}
-				else{
-					if(i<=3 && i>0 && k<=3 && k>0){
-						this.dessinerObjet("SPAWN", i, k, im);
-					}else{
-						this.dessinerObjet("SOL",i,k,im);
+
+		for (int i = 0; i < j.LIMIT_X; i++) {
+			for (int k = 0; k < j.LIMIT_Y; k++) {
+				Case c = j.recupererCase(i, k);
+				if (c instanceof Mur) {
+					try {
+						this.dessinerObjet("MUR", i, k, im);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else {
+					if (i <= 3 && i > 0 && k <= 3 && k > 0) {
+						try {
+							this.dessinerObjet("SPAWN", i, k, im);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} else {
+						try {
+							this.dessinerObjet("SOL", i, k, im);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}
-				
+
 			}
-			
+
 		}
-		for (int i = 0 ; i < j.monstres.size() ; i++){
-			if (j.monstres.get(i) instanceof Orcs && !j.monstres.get(i).etreMort()){
-				this.dessinerObjet("ORCS",j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+		for (int i = 0; i < j.monstres.size(); i++) {
+			if (j.monstres.get(i) instanceof Orcs
+					&& !j.monstres.get(i).etreMort()) {
+				try {
+					this.dessinerObjet("ORCS", j.monstres.get(i).getPosX(),
+							j.monstres.get(i).getPosY(), im);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			if (j.monstres.get(i) instanceof Ghost && !j.monstres.get(i).etreMort()){
-				this.dessinerObjet("FANTOMEG", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+			if (j.monstres.get(i) instanceof Ghost
+					&& !j.monstres.get(i).etreMort()) {
+				try {
+					this.dessinerObjet("FANTOMEG", j.monstres.get(i).getPosX(),
+							j.monstres.get(i).getPosY(), im);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			if(j.monstres.get(i).etreMort() == true) {
-				this.dessinerObjet("MORT", j.monstres.get(i).getPosX(), j.monstres.get(i).getPosY(), im);
+			if (j.monstres.get(i).etreMort() == true) {
+				try {
+					this.dessinerObjet("MORT", j.monstres.get(i).getPosX(),
+							j.monstres.get(i).getPosY(), im);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
-		for(int i=0;i<j.objets.size();i++){
-			if(j.objets.get(i) instanceof Talisman){
-				this.dessinerObjet("TALISMAN", j.objets.get(i).getPosX(), j.objets.get(i).getPosY(), im);
+		for (int i = 0; i < j.objets.size(); i++) {
+			if (j.objets.get(i) instanceof Talisman) {
+				try {
+					this.dessinerObjet("TALISMAN", j.objets.get(i).getPosX(),
+							j.objets.get(i).getPosY(), im);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
-		if(!pj.etreMort()){
-		this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
+		if (!pj.etreMort()) {
+			try {
+				this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		if(pj.etreMort() == true) {
-			this.dessinerObjet("MORTPJ",pj.getPosX(), pj.getPosY(), im);
-			
+		if (pj.etreMort() == true) {
+			try {
+				this.dessinerObjet("MORTPJ", pj.getPosX(), pj.getPosY(), im);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
-		
-		
-		
-		
+
 	}
 
 }

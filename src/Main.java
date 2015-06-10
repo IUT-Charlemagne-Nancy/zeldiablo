@@ -1,6 +1,8 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.JPanel;
+
 
 
 
@@ -13,7 +15,7 @@ import moteurJeu.MoteurGraphique;
  */
 public class Main extends JPanel {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		/**
 		System.out.println("choissisez votre niveau(entre 1 et 3) :" );
 		Scanner sc=new Scanner(System.in);
