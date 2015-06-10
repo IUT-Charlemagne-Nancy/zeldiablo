@@ -172,7 +172,7 @@ public class MonJeu implements Jeu {
 	}
 	
 	public boolean sentirPresence(Personnage p){
-		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=5 && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= 5){
+		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=3 && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= 3){
 			return true;
 		}
 		else{

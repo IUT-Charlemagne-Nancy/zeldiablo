@@ -134,7 +134,7 @@ public class InterfaceGraphique {
 		vide3.setText("                                                                                                                                                                ");
 		
 		final JLabel vide4 = new JLabel();
-		vide4.setText("                                                                                                                                                                ");
+		vide4.setText("                                                                                                                                                             ");
 
 		final JLabel control = new JLabel();
 		control.setText("Controle : Haut --> Z    Bas --> S ");
