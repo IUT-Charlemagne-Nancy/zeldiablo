@@ -13,10 +13,10 @@ import jeu.MonJeu;
 public class Orcs extends Monstre{
 
 	public Orcs(MonJeu j) {
-		super((int)Math.random()*15+ZONE_INTERDITE_X,  (int)Math.random()*15+ZONE_INTERDITE_Y, 5, 1, 50, j);
+		super((int)Math.random()*30+ZONE_INTERDITE_X*2,  (int)Math.random()*30+ZONE_INTERDITE_Y*2, 5, 1, 50, j);
 		while (jeu.recupererCase(this.posX, this.posY).etreTraversable()==false){
-			this.posX = (int)(Math.random()*15+ZONE_INTERDITE_X);
-			this.posY = (int)(Math.random()*15+ZONE_INTERDITE_Y);
+			this.posX = (int)(Math.random()*30+ZONE_INTERDITE_X*2);
+			this.posY = (int)(Math.random()*30+ZONE_INTERDITE_Y*2);
 		}
 		// TODO Auto-generated constructor stub
 	}
