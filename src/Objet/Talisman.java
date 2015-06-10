@@ -17,7 +17,6 @@ public class Talisman extends Objet{
 	public void appliquerEffet(Heros heros) {
 		heros.setVie(heros.getVie()*2+100);
 		heros.setAttaque(heros.getAttaque()*2);
-		heros.setPortee(heros.getPortee()*2);
 		
 	} 
 
