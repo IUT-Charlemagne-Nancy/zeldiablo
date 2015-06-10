@@ -23,10 +23,12 @@ public class Orcs extends Monstre{
 	public void seDeplacer(Commande c){
 		if(this.etreMort()==false){
 			if (c.gauche){
-				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && !jeu.caseOccuper(this.posX-1, this.posY) && (this.posX-1>ZONE_INTERDITE_X || this.posY>ZONE_INTERDITE_Y)){
-					posX--;
-					if (this.posX<1){
-						posX=1;
+				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && !jeu.caseOccuper(this.posX-1, this.posY)){
+					if (this.posX-1>ZONE_INTERDITE_X||this.posY>ZONE_INTERDITE_Y){
+						posX--;
+						if (this.posX<1){
+							posX=1;
+						}
 					}
 				}
 			}
@@ -39,10 +41,12 @@ public class Orcs extends Monstre{
 				}
 			}
 			if (c.haut){
-				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& !jeu.caseOccuper(this.posX, this.posY-1) && (this.posY-1>ZONE_INTERDITE_Y || this.posX<ZONE_INTERDITE_X)){
-					this.posY--;
-					if(this.posY<1){
-						this.posY=1;
+				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& !jeu.caseOccuper(this.posX, this.posY-1)){
+					if (this.posY>ZONE_INTERDITE_Y || this.posX>ZONE_INTERDITE_X){
+						this.posY--;
+						if(this.posY<1){
+							this.posY=1;
+						}
 					}
 				}
 			}

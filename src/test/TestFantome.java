@@ -8,6 +8,9 @@ import personnage.Orcs;
 
 public class TestFantome {
 
+	/**
+	 * Test qui vérifie le constructeur de Ghost
+	 */
 	@org.junit.Test
 	public void test_Constructeur_Fantome(){
 		MonJeu j = new MonJeu(1);
@@ -17,7 +20,9 @@ public class TestFantome {
 		assertEquals("le fantome doit avoir 2 de degat",2,g.getAttaque());
 	}
 	
-
+	/**
+	 * Test qui vérifie un déplacement du fantome vers le haut
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_1(){
 		MonJeu j = new MonJeu(1);
@@ -30,6 +35,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 7", 7, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 1", 1, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie un déplacement du fantome vers le bas
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_2(){
 		MonJeu j = new MonJeu(1);
@@ -42,6 +50,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 2", 2, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 3", 3, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie un déplacement du fantome vers la droite
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_3(){
 		MonJeu j = new MonJeu(1);
@@ -54,6 +65,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 3", 3, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 2", 2, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie un déplacement du fantome vers la gauche
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_4(){
 		MonJeu j = new MonJeu(1);
@@ -66,6 +80,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 7", 7, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 2", 2, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie un déplacement du fantome en haut à droite
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_5(){
 		MonJeu j = new MonJeu(1);
@@ -79,6 +96,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 6", 6, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 2", 2, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie un déplacement du fantome en haut à gauche
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_6(){
 		MonJeu j = new MonJeu(1);
@@ -92,6 +112,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 7", 7, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 2", 2, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie un déplacement du fantome en bas à gauche
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_7(){
 		MonJeu j = new MonJeu(1);
@@ -105,6 +128,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 6", 6, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 3", 3, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie un déplacement du fantome en bas à droite
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_8(){
 		MonJeu j = new MonJeu(1);
@@ -118,6 +144,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 3", 3, g.getPosX());
 		assertEquals("le fantome doit etre en position y = 3", 3, g.getPosY());
 	}
+	/**
+	 * Test qui vérifie qu'un fantome attaque bien le heros
+	 */
 	@org.junit.Test
 	public void test_attaque_Heros(){
 		MonJeu j = new MonJeu(1);
@@ -130,6 +159,9 @@ public class TestFantome {
 		g.attaquer(c);
 		assertEquals("le heros doit avoir 98pv",98 ,j.getPj().getVie());
 	}
+	/**
+	 * Test qui verifie qu'un fantome n'attaque pas un autre fantome
+	 */
 	@org.junit.Test
 	public void test_attaque_Fantome(){
 		MonJeu j = new MonJeu(1);
@@ -146,6 +178,9 @@ public class TestFantome {
 		g.attaquer(c);
 		assertEquals("le fantome doit avoir 30pv",30 ,h.getVie());
 	}
+	/**
+	 * Test qui vérifie qu'un fantome n'attaque pas un orc
+	 */
 	@org.junit.Test
 	public void test_attaque_Orcs(){
 		MonJeu j = new MonJeu(1);
@@ -162,6 +197,9 @@ public class TestFantome {
 		g.attaquer(c);
 		assertEquals("l'orc doit avoir 50pv",50 ,o.getVie());
 	}
+	/**
+	 * Test qui vérifie qu'un fantome peut se déplacer sur la case d'un autre fantome
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_Fantome(){
 		MonJeu j = new MonJeu(1);
@@ -179,6 +217,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 6", 6, g2.getPosX());
 		assertEquals("le fantome doit etre en position y = 2", 2, g2.getPosY());
 	}
+	/**
+	 * Test qui vérifie qu'un fantome peut aller sur la case d'un orc
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_Orcs(){
 		MonJeu j = new MonJeu(1);
@@ -196,6 +237,9 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 6", 6, g1.getPosX());
 		assertEquals("le fantome doit etre en position y = 2", 2, g1.getPosY());
 	}
+	/**
+	 * Test qui vérifie qu'un fantome peut aller sur la case du heros
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Fantome_Heros(){
 		MonJeu j = new MonJeu(1);
@@ -216,19 +260,25 @@ public class TestFantome {
 		assertEquals("le fantome doit etre en position x = 6", 6, g1.getPosX());
 		assertEquals("le fantome doit etre en position y = 1", 1, g1.getPosY());
 	}
+	/**
+	 * Test qui verifie qu'un fantome ne peut pas aller en zone interdite
+	 */
 	@org.junit.Test
 	public void test_Deplacement_Sanctuaire(){
 		MonJeu j = new MonJeu(1);
 		Ghost g = new Ghost(j);
 		j.ajouterMonstre(g);
-		g.setPosX(5);
-		g.setPosY(3);
+		g.setPosX(6);
+		g.setPosY(1);
 		Commande c = new Commande();
 		c.gauche = true;
 		g.seDeplacer(c);
 		g.seDeplacer(c);
-		assertEquals("le fantome doit être en position x = 4", 4, j.recupererMonstre(0).getPosX());
+		assertEquals("le fantome doit être en position x = 5", 5, g.getPosX());
 	}
+	/**
+	 * Test qui verifie qu'un fantome ne peut pas attaquer s'il est mort
+	 */
 	@org.junit.Test
 	public void test_attaquer_etreMort(){
 		MonJeu j = new MonJeu(1);
@@ -241,5 +291,22 @@ public class TestFantome {
 		c.attaque=true;
 		g.attaquer(c);
 		assertEquals("le heros doit avoir 100pdv", 100,j.getPj().getVie());
+	}
+	/**
+	 * Test qui vérifie qu'un fantome peut traverser un mur
+	 */
+	@org.junit.Test
+	public void test_Deplacement_Mur(){
+		MonJeu j = new MonJeu(1);
+		Ghost g = new Ghost(j);
+		j.ajouterMonstre(g);
+		g.setPosX(7);
+		g.setPosY(1);
+		Commande c = new Commande();
+		c.droite=true;
+		for (int i=0;i<30;i++){
+			g.seDeplacer(c);
+		}
+		assertEquals("le fantome doit traverser le mur", 24, g.getPosX());
 	}
 }

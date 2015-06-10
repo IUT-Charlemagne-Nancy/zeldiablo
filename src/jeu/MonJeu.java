@@ -198,9 +198,11 @@ public class MonJeu implements Jeu {
 	public void donnerObjet(Heros heros) {
 		for(int i=0;i<objets.size();i++){
 			if(objets.get(i).getPosX()==heros.getPosX() && objets.get(i).getPosY()==heros.getPosY() ){
-				heros.ajouterObjet(objets.get(i));
 				if(objets.get(i)  instanceof Talisman){
 					heros.avoirPrisTalisman();
+					objets.get(i).appliquerEffet(heros);
+				}
+				else{
 					objets.get(i).appliquerEffet(heros);
 				}
 				objets.remove(i);
