@@ -47,8 +47,10 @@ public class MonJeu implements Jeu {
 		genererNiveau(i);
 		this.monstres=new ArrayList<Monstre>();
 		this.monstres.add(new Ghost(this));
+		/**
 		this.monstres.add(new Orcs(this));
 		this.monstres.add(new Orcs(this));
+		*/
 		this.monstres.add(new Ghost(this));
 		
 		
@@ -211,7 +213,7 @@ public class MonJeu implements Jeu {
 		}
 	}
 	private  void genererNiveau(int num){
-		String res="./document/level"+num+".txt";
+		String res="./level/level"+num+".txt";
 		try{
 		BufferedReader fichier=new BufferedReader(new FileReader(res));
 		for(int i=0;i<LIMIT_Y;i++){
