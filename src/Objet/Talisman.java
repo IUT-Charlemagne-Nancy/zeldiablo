@@ -2,7 +2,11 @@ package Objet;
 
 import personnage.Heros;
 import jeu.MonJeu;
-
+/**
+ * 
+ * @author Benjamin
+ *
+ */
 public class Talisman extends Objet{
 
 	public Talisman(int x,int y) {
