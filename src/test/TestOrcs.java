@@ -4,14 +4,13 @@ import static org.junit.Assert.assertEquals;
 import moteurJeu.Commande;
 import jeu.MonJeu;
 import personnage.Ghost;
-import personnage.Heros;
 import personnage.Orcs;
 
 public class TestOrcs {
 
 	@org.junit.Test
 	public void test_Constructeur_Orc(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		assertEquals("l'orc doit avoir 50 de vie",50,o.getVie() );
 		assertEquals("l'orc doit avoir 1 de portee",1,o.getPortee());
@@ -19,7 +18,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_1(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(2);
 		o.setPosY(2);
@@ -32,7 +31,7 @@ public class TestOrcs {
 	
 	@org.junit.Test
 	public void test_Deplacement_Orcs_2(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(2);
 		o.setPosY(2);
@@ -45,7 +44,7 @@ public class TestOrcs {
 	
 	@org.junit.Test
 	public void test_Deplacement_Orcs_3(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(2);
 		o.setPosY(2);
@@ -58,7 +57,7 @@ public class TestOrcs {
 	
 	@org.junit.Test
 	public void test_Deplacement_Orcs_4(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(8);
 		o.setPosY(2);
@@ -70,7 +69,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_5(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(2);
 		o.setPosY(2);
@@ -83,20 +82,20 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_6(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
-		o.setPosX(8);
-		o.setPosY(7);
+		o.setPosX(12);
+		o.setPosY(10);
 		Commande c = new Commande();
 		c.gauche=true;
 		c.haut=true;
 		o.seDeplacer(c);
-		assertEquals("l'orc doit etre en position x = 7", 7, o.getPosX());
-		assertEquals("l'orc doit etre en position y = 6", 6, o.getPosY());
+		assertEquals("l'orc doit etre en position x = 11", 11, o.getPosX());
+		assertEquals("l'orc doit etre en position y = 9", 9, o.getPosY());
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_7(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(2);
 		o.setPosY(2);
@@ -109,7 +108,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_8(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(8);
 		o.setPosY(2);
@@ -122,7 +121,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_Mur(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(2);
 		o.setPosY(1);
@@ -134,7 +133,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_Heros(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		o.setPosX(1);
 		o.setPosY(2);
@@ -146,8 +145,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_attaque_Heros(){
-		MonJeu j = new MonJeu();
-		Heros h = new Heros(j);
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		j.ajouterMonstre(o);
 		o.setPosX(2);
@@ -159,7 +157,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_attaque_Orcs(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		Orcs g = new Orcs(j);
 		j.ajouterMonstre(g);
@@ -175,7 +173,7 @@ public class TestOrcs {
 	}	
 	@org.junit.Test
 	public void test_attaque_Fantome(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		Ghost g = new Ghost(j);
 		j.ajouterMonstre(g);
@@ -192,7 +190,7 @@ public class TestOrcs {
 	
 	@org.junit.Test
 	public void test_Deplacement_Orcs_Orcs(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o1 = new Orcs(j);
 		Orcs o2 = new Orcs(j);
 		j.ajouterMonstre(o1);
@@ -209,7 +207,7 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_Fantome(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Ghost g1 = new Ghost(j);
 		Orcs o = new Orcs(j);
 		j.ajouterMonstre(g1);
@@ -226,22 +224,22 @@ public class TestOrcs {
 	}
 	@org.junit.Test
 	public void test_Deplacement_Sanctuaire(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
 		j.ajouterMonstre(o);
 		o.setPosX(6);
-		o.setPosY(3);
+		o.setPosY(1);
 		Commande c = new Commande();
 		c.gauche = true;
 		o.seDeplacer(c);
 		o.seDeplacer(c);
-		assertEquals("l'orc doit être en position x = 5", 5, j.recupererMonstre(0).getPosX());
+		assertEquals("l'orc doit être en position x = 5", 5, o.getPosX());
+		assertEquals("l'orc doit être en position y = 1", 1, o.getPosY());
 	}
 	@org.junit.Test
 	public void test_attaquer_etreMort(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		Orcs o = new Orcs(j);
-		Heros h = new Heros (j);
 		j.ajouterMonstre(o);
 		o.setPosX(2);
 		o.setPosY(2);

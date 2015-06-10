@@ -3,10 +3,7 @@ package test;
 import static org.junit.Assert.*;
 import jeu.MonJeu;
 import jeu.Mur;
-import moteurJeu.Commande;
-import personnage.Ghost;
-import personnage.Heros;
-import personnage.Orcs;
+
 
 public class Test {
 	
@@ -18,19 +15,19 @@ public class Test {
 	}
 	@org.junit.Test
 	public void test_Case_Occupee_Constructeur(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		boolean res = j.caseOccuper(1,1);
 		assertEquals("la case doit être occupée", true, res);
 	}
 	@org.junit.Test
 	public void test_Fin_Jeu_Perdu(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		j.getPj().subirDegat(100);  
 		assertEquals("le jeu doit etre fini", true, j.etreFini());
 	}
 	@org.junit.Test
 	public void test_Fin_Jeu_Gagne(){
-		MonJeu j = new MonJeu();
+		MonJeu j = new MonJeu(1);
 		j.getPj().setPosX(14);
 		j.getPj().setPosY(9);
 		j.getPj().avoirPrisTalisman();
