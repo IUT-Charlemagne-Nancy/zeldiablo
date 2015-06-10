@@ -63,7 +63,7 @@ public class MoteurGraphique extends JPanel {
 		// creation de l'interface graphique
 		this.gui = new InterfaceGraphique(this.dessin,width,height);
 		Controleur controle = this.gui.getControleur();
-		JFrame premierepage = new JFrame();
+		final JFrame premierepage = new JFrame();
 		premierepage.setBackground(Color.gray);
 		JPanel affiche = new JPanel();
 		
@@ -94,6 +94,7 @@ public class MoteurGraphique extends JPanel {
 		b1.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 				ouvert = true;
+				premierepage.dispose();
 					
 			}
 		});
