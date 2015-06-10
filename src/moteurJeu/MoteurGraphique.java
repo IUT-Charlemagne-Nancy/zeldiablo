@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -129,26 +130,35 @@ public class MoteurGraphique extends JPanel {
 		}
 		JFrame a = new JFrame();
 		a.setBackground(Color.gray);
-		JLabel win = new JLabel();
+		
+		JLabel win/** = new JLabel()*/;
 		a.setAlwaysOnTop(true);
 		if(this.gui.nombremonstre == 0 || this.jeu.etreFini() && !dessin.jeu.getPj().etreMort()){
+			win=new JLabel(new ImageIcon("./photo/jcvd-volvo.jpg"));
+			/**
 			win.setText("Vous avez gagné !! ");
+			*/
 			a.add(win);
 			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			a.setPreferredSize(new Dimension(600,300));
 			a.setContentPane(win);
 			a.pack();
+			a.setExtendedState(Frame.MAXIMIZED_BOTH);
 			a.setVisible(true);
 			a.getContentPane().setFocusable(true);
 			a.getContentPane().requestFocus();
 		}
 		else {
+			win=new JLabel(new ImageIcon("./photo/7dd.png"));
+			/**
 			win.setText("Malheureusement vous n'avez pas survécu...");
+			*/
 			a.add(win);
 			a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			a.setPreferredSize(new Dimension(600,300));
 			a.setContentPane(win);
 			a.pack();
+			a.setExtendedState(Frame.MAXIMIZED_BOTH);
 			a.setVisible(true);
 			a.getContentPane().setFocusable(true);
 			a.getContentPane().requestFocus();
