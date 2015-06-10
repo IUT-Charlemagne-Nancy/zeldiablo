@@ -52,6 +52,7 @@ public class MonJeu implements Jeu {
 		this.monstres.add(new Ghost(this));
 		
 		
+		
 	}
 	public Case recupererCase(int x,int y){
 		return this.labyrinthe[x][y];
@@ -212,6 +213,9 @@ public class MonJeu implements Jeu {
 		switch(num){
 		case 1:
 			res="./document/level1.txt";
+			break;
+		case 2:
+			res="./document/level2.txt";
 			break;
 		}
 		try{

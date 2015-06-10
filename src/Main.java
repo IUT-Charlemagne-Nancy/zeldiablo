@@ -22,7 +22,7 @@ public class Main extends JPanel {
 		int i=sc.nextInt();
 		*/
 		// creation du jeu particulier et de son afficheur
-		MonJeu jeu = new MonJeu(1);
+		MonJeu jeu = new MonJeu(2);
 		DessinMonJeu aff = new DessinMonJeu(jeu);
 
 		// classe qui lance le moteur de jeu generique
