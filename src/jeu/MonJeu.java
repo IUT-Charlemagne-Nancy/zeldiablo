@@ -46,6 +46,7 @@ public class MonJeu implements Jeu {
 		this.objets=new ArrayList<Objet>();
 		genererNiveau(i);
 		this.monstres=new ArrayList<Monstre>();
+		
 		this.monstres.add(new Ghost(this));
 		/**
 		this.monstres.add(new Orcs(this));
