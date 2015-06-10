@@ -14,7 +14,7 @@ public class TestOrcs {
 		Orcs o = new Orcs(j);
 		assertEquals("l'orc doit avoir 50 de vie",50,o.getVie() );
 		assertEquals("l'orc doit avoir 1 de portee",1,o.getPortee());
-		assertEquals("l'orc doit avoir 5 de degat",5,o.getDegat());
+		assertEquals("l'orc doit avoir 5 de degat",5,o.getAttaque());
 	}
 	@org.junit.Test
 	public void test_Deplacement_Orcs_1(){

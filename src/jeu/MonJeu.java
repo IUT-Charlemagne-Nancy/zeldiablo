@@ -34,10 +34,8 @@ public class MonJeu implements Jeu {
 	 * liste des cases du murs
 	 */
 	protected Case[][]labyrinthe;
-	
 	public final static int LIMIT_X=25;
 	public final static int LIMIT_Y=25; 
-
 	/**
 	 * constructeur de jeu avec un Personnage
 	 * @throws IOException 
@@ -182,14 +180,14 @@ public class MonJeu implements Jeu {
 		}
 	}
 	/**
-	 * méthode qui sert a ajouter un monstre
+	 * mï¿½thode qui sert a ajouter un monstre
 	 * @param m
 	 */
 	public void ajouterMonstre(Monstre m){
 		this.monstres.add(m);
 	}
 	/**
-	 * Méthode qui recupere le monstre de la liste à l'indice passé en paramètre
+	 * Mï¿½thode qui recupere le monstre de la liste ï¿½ l'indice passï¿½ en paramï¿½tre
 	 * @param i
 	 * @return
 	 */

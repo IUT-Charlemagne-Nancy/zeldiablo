@@ -58,8 +58,9 @@ public class InterfaceGraphique {
 	{
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setExtendedState(f.MAXIMIZED_BOTH);
-		
+		f.setAlwaysOnTop(true);
+		f.setUndecorated(true);
+		f.setExtendedState(Frame.MAXIMIZED_BOTH);
 		final JProgressBar barre_vie;
 		int MINIMUM=0;
 		int MAXIMUM=100;

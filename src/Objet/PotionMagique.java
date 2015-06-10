@@ -15,8 +15,8 @@ public class PotionMagique extends Objet{
 
 	@Override
 	public void appliquerEffet(Heros heros) {
-		heros.setAttaque(heros.getDegat()+4);
-		heros.setVie(heros.getDegat()+30);
+		heros.setAttaque(heros.getAttaque()+4);
+		heros.setVie(heros.getVie()+30);
 	}
 
 }

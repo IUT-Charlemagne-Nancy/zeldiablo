@@ -108,6 +108,7 @@ public class MoteurGraphique extends JPanel {
 			premierepage.setPreferredSize(new Dimension(600,300));
 			premierepage.setContentPane(affiche);
 			premierepage.pack();
+			premierepage.setAlwaysOnTop(true);
 			premierepage.setVisible(true);
 			premierepage.getContentPane().requestFocus();
 		}
