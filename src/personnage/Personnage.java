@@ -9,6 +9,7 @@ import jeu.MonJeu;
 public abstract class Personnage {
 	protected MonJeu jeu;
 	protected int posX,posY,attaque,portee,vie;
+	protected String mouvement;
 	public final static int LIMIT_X=24;
 	public final static int LIMIT_Y=24; 
 	public Personnage(int x, int y, int attack, int porte, int pv, MonJeu j) {
@@ -18,33 +19,11 @@ public abstract class Personnage {
 		this.portee=porte;
 		this.vie=pv;
 		this.jeu =j;
+		this.mouvement="banane";
 		
 	}
 
-	public void seDeplacer(Commande c){
-		if(this.etreMort()==false){
-			if (c.gauche){
-				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && !jeu.caseOccuper(this.posX-1, this.posY) ){
-					posX--;	
-				}
-			}
-			if (c.droite ){
-				if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()&& !jeu.caseOccuper(this.posX+1, this.posY)){
-					this.posX++;
-				}
-			}
-			if (c.haut){
-				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& !jeu.caseOccuper(this.posX, this.posY-1)){
-					this.posY--;
-									}
-			}
-			if (c.bas){
-				if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()&&!jeu.caseOccuper(this.posX, this.posY+1)){
-					this.posY++;
-				}
-			}
-		}
-	}
+	public abstract void seDeplacer(Commande c);
 
 	public void subirDegat(int x) {
 		if (!this.etreMort()){
@@ -108,5 +87,11 @@ public abstract class Personnage {
 	}
 
 	public abstract void attaquer(Commande c);
-		
+
+	public void etreEnMouvement(String mouv){
+		this.mouvement = mouv;
+	}
+	public String mouvement(){
+		return mouvement;
+	}
  }

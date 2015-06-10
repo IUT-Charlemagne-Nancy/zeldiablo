@@ -62,6 +62,10 @@ public class DessinMonJeu implements DessinJeu {
 			im = images.heros;
 			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
+		case "PJg":
+			im = images.mur;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
+			break;
 		case "ORCS":
 			im = images.orcs;
 			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
@@ -109,8 +113,8 @@ public class DessinMonJeu implements DessinJeu {
 		// no sait que c'est un jeuTest
 		MonJeu j = (MonJeu) jeu;
 		Personnage pj = j.getPj();
-
 		Orcs orc = new Orcs(j);
+		String gauche = "gauche";
 
 		for (int i = 0; i < j.LIMIT_X; i++) {
 			for (int k = 0; k < j.LIMIT_Y; k++) {
@@ -188,6 +192,10 @@ public class DessinMonJeu implements DessinJeu {
 		if (!pj.etreMort()) {
 			try {
 				this.dessinerObjet("PJ", pj.getPosX(), pj.getPosY(), im);
+				String mouv = pj.mouvement();
+				if (mouv.equals(gauche)){
+					this.dessinerObjet("PJg", pj.getPosX(), pj.getPosY(), im);
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

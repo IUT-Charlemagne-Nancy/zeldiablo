@@ -3,7 +3,7 @@ package personnage;
 import moteurJeu.Commande;
 import jeu.MonJeu;
 	
-public class Monstre extends Personnage {
+public abstract class Monstre extends Personnage {
 	protected static final int ZONE_INTERDITE_X=4;
 	protected static final int ZONE_INTERDITE_Y=4;
 	public Monstre(int x, int y, int attack, int porte, int pv, MonJeu j) {
@@ -15,5 +15,7 @@ public class Monstre extends Personnage {
 			jeu.getPj().subirDegat(this.getAttaque());;
 		}
 	}
+	@Override
+	public abstract void seDeplacer(Commande c);
 
 }

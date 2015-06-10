@@ -26,6 +26,8 @@ public class Image{
 	public static BufferedImage talisman;
 	
 	public static BufferedImage fantomeg;
+
+	public static BufferedImage ghost;
 	
 	
 	public Image() throws IOException {
