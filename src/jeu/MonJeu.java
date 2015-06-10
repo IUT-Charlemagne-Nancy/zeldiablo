@@ -35,8 +35,8 @@ public class MonJeu implements Jeu {
 	 */
 	protected Case[][]labyrinthe;
 	
-	public final static int LIMIT_X=35;
-	public final static int LIMIT_Y=35; 
+	public final static int LIMIT_X=30;
+	public final static int LIMIT_Y=30; 
 
 	/**
 	 * constructeur de jeu avec un Personnage
@@ -145,14 +145,14 @@ public class MonJeu implements Jeu {
 		}
 	}
 	/**
-	 * méthode qui sert a ajouter un monstre
+	 * mï¿½thode qui sert a ajouter un monstre
 	 * @param m
 	 */
 	public void ajouterMonstre(Monstre m){
 		this.monstres.add(m);
 	}
 	/**
-	 * Méthode qui recupere le monstre de la liste à l'indice passé en paramètre
+	 * Mï¿½thode qui recupere le monstre de la liste ï¿½ l'indice passï¿½ en paramï¿½tre
 	 * @param i
 	 * @return
 	 */
@@ -185,7 +185,7 @@ public class MonJeu implements Jeu {
 		int j=0;
 		String ligne;
 		while((ligne=fichier.readLine()) != null ){
-		for(int i=0;i<LIMIT_Y;i++){
+		for(int i=0;i<LIMIT_X;i++){
 				char la_case=ligne.charAt(i);
 				Case c=null;
 				if(la_case=='M'){

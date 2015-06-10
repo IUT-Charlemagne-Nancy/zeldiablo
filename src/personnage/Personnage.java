@@ -9,8 +9,8 @@ import jeu.MonJeu;
 public abstract class Personnage {
 	protected MonJeu jeu;
 	protected int posX,posY,attaque,portee,vie;
-	public final static int LIMIT_X=35;
-	public final static int LIMIT_Y=35; 
+	public final static int LIMIT_X=29;
+	public final static int LIMIT_Y=29; 
 	public Personnage(int x, int y, int attack, int porte, int pv, MonJeu j) {
 		this.posX=x;
 		this.posY=y;
