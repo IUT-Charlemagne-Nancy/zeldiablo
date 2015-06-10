@@ -64,7 +64,6 @@ public class InterfaceGraphique {
 		final JProgressBar barre_vie;
 		int MINIMUM=0;
 		int MAXIMUM=100;
-
 		int vie;
 		vie = dessin.jeu.getPj().getVie();
 		int attaque = dessin.jeu.getPj().getAttaque();
