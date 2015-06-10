@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.*;
+import moteurJeu.Commande;
 import personnage.Heros;
 import Objet.Talisman;
 import jeu.MonJeu;
@@ -35,5 +36,4 @@ public class TestTalisman {
 		assertEquals("Le heros doit avoir 1 de portee", 1, h.getPortee());
 	}
 
-	
 }
