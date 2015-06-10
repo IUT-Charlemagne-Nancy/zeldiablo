@@ -35,8 +35,8 @@ public class MonJeu implements Jeu {
 	 */
 	protected Case[][]labyrinthe;
 	
-	public final static int LIMIT_X=16;
-	public final static int LIMIT_Y=16; 
+	public final static int LIMIT_X=25;
+	public final static int LIMIT_Y=25; 
 
 	/**
 	 * constructeur de jeu avec un Personnage
@@ -193,7 +193,7 @@ public class MonJeu implements Jeu {
 				if(la_case=='C'){
 					c=new Case(j,i);
 				}
-				if(la_case=='G'){
+				if(la_case=='T'){
 					c=new Case(j,i);
 					this.objets.add(new Talisman(j,i));
 				}

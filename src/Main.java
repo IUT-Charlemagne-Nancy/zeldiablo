@@ -14,11 +14,13 @@ import moteurJeu.MoteurGraphique;
 public class Main extends JPanel {
 
 	public static void main(String[] args) throws InterruptedException {
+		/**
 		System.out.println("choissisez votre niveau(entre 1 et 3) :" );
 		Scanner sc=new Scanner(System.in);
 		int i=sc.nextInt();
+		*/
 		// creation du jeu particulier et de son afficheur
-		MonJeu jeu = new MonJeu(i);
+		MonJeu jeu = new MonJeu(1);
 		DessinMonJeu aff = new DessinMonJeu(jeu);
 
 		// classe qui lance le moteur de jeu generique
