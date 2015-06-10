@@ -95,9 +95,6 @@ public abstract class Personnage {
 		return this.portee;
 		
 	}
-	public int getDegat(){
-		return this.attaque;
-	}
 	public int getVie(){
 		return this.vie;
 	}

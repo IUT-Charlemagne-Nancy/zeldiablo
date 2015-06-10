@@ -71,7 +71,7 @@ public class InterfaceGraphique {
 
 		int vie;
 		vie = dessin.jeu.getPj().getVie();
-		int attaque = dessin.jeu.getPj().getDegat();
+		int attaque = dessin.jeu.getPj().getAttaque();
 		int portee = dessin.jeu.getPj().getPortee();
 		int posx = dessin.jeu.getPj().getPosX();
 		int posy = dessin.jeu.getPj().getPosY();
@@ -246,7 +246,7 @@ public class InterfaceGraphique {
 					
 					
 					int vie = dessin.jeu.getPj().getVie();
-					int attaque = dessin.jeu.getPj().getDegat();
+					int attaque = dessin.jeu.getPj().getAttaque();
 					int portee = dessin.jeu.getPj().getPortee();
 					int posx = dessin.jeu.getPj().getPosX();
 					int posy = dessin.jeu.getPj().getPosY();
