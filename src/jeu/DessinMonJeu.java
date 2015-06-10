@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 
 import Objet.Talisman;
 import personnage.Ghost;
@@ -52,7 +53,7 @@ public class DessinMonJeu implements DessinJeu {
 		try{
 			Graphics2D crayon = (Graphics2D) im.getGraphics();
 			crayon.setColor(Color.DARK_GRAY);
-			crayon.drawLine(200,150, 150,120);
+			
 		
 		Image img =null;
 		switch (s) {
@@ -111,6 +112,7 @@ public class DessinMonJeu implements DessinJeu {
 		// no sait que c'est un jeuTest
 		MonJeu j = (MonJeu) jeu;
 		Personnage pj = j.getPj();
+		
 		Orcs orc = new Orcs(j);
 		
 		for (int i = 0 ;i<j.LIMIT_X;i++){
