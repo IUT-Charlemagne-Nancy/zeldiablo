@@ -211,15 +211,7 @@ public class MonJeu implements Jeu {
 		}
 	}
 	private  void genererNiveau(int num){
-		String res=null;
-		switch(num){
-		case 1:
-			res="./document/level1.txt";
-			break;
-		case 2:
-			res="./document/level2.txt";
-			break;
-		}
+		String res="./document/level"+num+".txt";
 		try{
 		BufferedReader fichier=new BufferedReader(new FileReader(res));
 		for(int i=0;i<LIMIT_Y;i++){
