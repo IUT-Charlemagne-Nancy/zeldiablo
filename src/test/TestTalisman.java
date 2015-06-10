@@ -1,7 +1,6 @@
 package test;
 
 import static org.junit.Assert.*;
-import moteurJeu.Commande;
 import personnage.Heros;
 import Objet.Talisman;
 import jeu.MonJeu;

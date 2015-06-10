@@ -1,10 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import moteurJeu.Commande;
 import jeu.MonJeu;
-import Objet.Objet;
 import Objet.PotionDegat;
 import Objet.PotionMagique;
 import Objet.PotionPoison;
