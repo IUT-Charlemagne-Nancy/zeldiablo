@@ -122,19 +122,19 @@ public class InterfaceGraphique {
 		po.setText("Portee : " + portee);
 
 		final JLabel vide = new JLabel();
-		vide.setText("                    ");
+		vide.setText("                                                                                                                                                                 ");
 
 		final JLabel vide2 = new JLabel();
-		vide2.setText("                                                        ");
+		vide2.setText("                                                                                                                                                                ");
 
 		final JLabel vide1 = new JLabel();
-		vide1.setText("                                                        ");
+		vide1.setText("                                                                                                                                                                ");
 		
 		final JLabel vide3 = new JLabel();
-		vide3.setText("                                                        ");
+		vide3.setText("                                                                                                                                                                ");
 		
 		final JLabel vide4 = new JLabel();
-		vide4.setText("                                                        ");
+		vide4.setText("                                                                                                                                                                ");
 
 		final JLabel control = new JLabel();
 		control.setText("Controle : Haut --> Z    Bas --> S ");
