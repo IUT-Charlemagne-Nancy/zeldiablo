@@ -35,8 +35,8 @@ public class MonJeu implements Jeu {
 	 */
 	protected Case[][]labyrinthe;
 	
-	public final static int LIMIT_X=25;
-	public final static int LIMIT_Y=25; 
+	public final static int LIMIT_X=35;
+	public final static int LIMIT_Y=35; 
 
 	/**
 	 * constructeur de jeu avec un Personnage
@@ -182,24 +182,25 @@ public class MonJeu implements Jeu {
 		}
 		try{
 		BufferedReader fichier=new BufferedReader(new FileReader(res));
+		int j=0;
+		String ligne;
+		while((ligne=fichier.readLine()) != null ){
 		for(int i=0;i<LIMIT_Y;i++){
-			String line= fichier.readLine();
-			for(int j=0 ;j<LIMIT_X;j++){
-				char la_case=(char)fichier.read();
+				char la_case=ligne.charAt(i);
 				Case c=null;
 				if(la_case=='M'){
-					c= new Mur(j,i);
+					c= new Mur(i,j);
 				}
 				if(la_case=='C'){
-					c=new Case(j,i);
+					c=new Case(i,j);
 				}
 				if(la_case=='T'){
-					c=new Case(j,i);
-					this.objets.add(new Talisman(j,i));
+					c=new Case(i,j);
+					this.objets.add(new Talisman(i,j));
 				}
-				labyrinthe[j][i]=c;
+				labyrinthe[i][j]=c;
 			}
-			
+		j++;
 		}
 		fichier.close();
 	}catch(IOException e){
