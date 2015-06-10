@@ -12,7 +12,7 @@ public class Monstre extends Personnage {
 	}
 	public void attaquer(Commande c){
 		if(this.etreMort()==false){
-			jeu.etreAPorteeHeros(this);
+			jeu.getPj().subirDegat(this.getAttaque());;
 		}
 	}
 

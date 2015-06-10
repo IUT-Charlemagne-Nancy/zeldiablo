@@ -34,10 +34,8 @@ public class MonJeu implements Jeu {
 	 * liste des cases du murs
 	 */
 	protected Case[][]labyrinthe;
-	
-	public final static int LIMIT_X=30;
-	public final static int LIMIT_Y=30; 
-
+	public final static int LIMIT_X=25;
+	public final static int LIMIT_Y=25; 
 	/**
 	 * constructeur de jeu avec un Personnage
 	 * @throws IOException 
@@ -84,9 +82,12 @@ public class MonJeu implements Jeu {
 		this.getPj().seDeplacer(commande);
 		for (int i = 0 ; i<this.monstres.size();i++){
 			Commande c = new Commande((int)Math.round(Math.random()*8));
-			c.attaque =true;
+			if (this.etreAPorteeHeros(this.monstres.get(i))){
+				c.attaque = true;
+				monstres.get(i).attaquer(c);
+			}
 			monstres.get(i).seDeplacer(c);
-			monstres.get(i).attaquer(c);
+			
 		}
 		if (commande.attaque == true){
 		this.getPj().attaquer(commande);
@@ -134,14 +135,17 @@ public class MonJeu implements Jeu {
 		for(int i = 0; i<this.monstres.size() ; i++ ){
 			if ((int)Math.abs(this.monstres.get(i).getPosX()-p.getPosX())<=p.getPortee() && (int) Math.abs(this.monstres.get(i).getPosY()- p.getPosY()) <= p.getPortee()){
 				if (this.labyrinthe[this.monstres.get(i).getPosX()][this.monstres.get(i).getPosY()].etreTraversable()){
-				this.monstres.get(i).subirDegat(p.getDegat());
+				this.monstres.get(i).subirDegat(p.getAttaque());
 				}
 			}
 		}
 	}
-	public void etreAPorteeHeros(Personnage p){
+	public boolean etreAPorteeHeros(Personnage p){
 		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=p.getPortee() && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= p.getPortee()){
-			this.getPj().subirDegat(p.getDegat());
+			return true;
+		}
+		else{
+			return false;
 		}
 	}
 	/**
@@ -182,25 +186,24 @@ public class MonJeu implements Jeu {
 		}
 		try{
 		BufferedReader fichier=new BufferedReader(new FileReader(res));
-		int j=0;
-		String ligne;
-		while((ligne=fichier.readLine()) != null ){
-		for(int i=0;i<LIMIT_X;i++){
-				char la_case=ligne.charAt(i);
+		for(int i=0;i<LIMIT_Y;i++){
+			String line= fichier.readLine();
+			for(int j=0 ;j<LIMIT_X;j++){
+				char la_case=(char)fichier.read();
 				Case c=null;
 				if(la_case=='M'){
-					c= new Mur(i,j);
+					c= new Mur(j,i);
 				}
 				if(la_case=='C'){
-					c=new Case(i,j);
+					c=new Case(j,i);
 				}
 				if(la_case=='T'){
-					c=new Case(i,j);
-					this.objets.add(new Talisman(i,j));
+					c=new Case(j,i);
+					this.objets.add(new Talisman(j,i));
 				}
-				labyrinthe[i][j]=c;
+				labyrinthe[j][i]=c;
 			}
-		j++;
+			
 		}
 		fichier.close();
 	}catch(IOException e){

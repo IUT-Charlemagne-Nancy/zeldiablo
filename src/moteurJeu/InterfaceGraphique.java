@@ -58,20 +58,16 @@ public class InterfaceGraphique {
 	{
 		JFrame f=new JFrame();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setPreferredSize(new Dimension(1000,1000));
-		f.setResizable(false);
-		f.setDefaultLookAndFeelDecorated(false);
-		f.setUndecorated(true);
 		f.setAlwaysOnTop(true);
-		f.setExtendedState(f.MAXIMIZED_BOTH);
-		
+		f.setUndecorated(true);
+		f.setExtendedState(Frame.MAXIMIZED_BOTH);
 		final JProgressBar barre_vie;
 		int MINIMUM=0;
 		int MAXIMUM=100;
 
 		int vie;
 		vie = dessin.jeu.getPj().getVie();
-		int attaque = dessin.jeu.getPj().getDegat();
+		int attaque = dessin.jeu.getPj().getAttaque();
 		int portee = dessin.jeu.getPj().getPortee();
 		int posx = dessin.jeu.getPj().getPosX();
 		int posy = dessin.jeu.getPj().getPosY();
@@ -246,7 +242,7 @@ public class InterfaceGraphique {
 					
 					
 					int vie = dessin.jeu.getPj().getVie();
-					int attaque = dessin.jeu.getPj().getDegat();
+					int attaque = dessin.jeu.getPj().getAttaque();
 					int portee = dessin.jeu.getPj().getPortee();
 					int posx = dessin.jeu.getPj().getPosX();
 					int posy = dessin.jeu.getPj().getPosY();
