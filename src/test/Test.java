@@ -8,6 +8,12 @@ import jeu.Mur;
 public class Test {
 	
 	@org.junit.Test
+	public void test_Jeu_Constructeur(){
+		MonJeu j = new MonJeu(1);
+		assertEquals("Le heros doit se trouver en x = 1",1,j.getPj().getPosX());
+		assertEquals("Le heros doit se trouver en y = 1",1,j.getPj().getPosY());
+	}
+	@org.junit.Test
 	public void test_Mur_Constructeur(){
 		Mur m = new Mur (0,0);
 		assertEquals("Le mur doit se trouver en x = 0",0,m.getPosX());

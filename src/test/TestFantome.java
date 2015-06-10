@@ -14,7 +14,7 @@ public class TestFantome {
 		Ghost g = new Ghost(j);
 		assertEquals("le fantome doit avoir 30 de vie",30,g.getVie() );
 		assertEquals("le fantome doit avoir 1 de portee",1,g.getPortee());
-		assertEquals("le fantome doit avoir 2 de degat",2,g.getDegat());
+		assertEquals("le fantome doit avoir 2 de degat",2,g.getAttaque());
 	}
 	
 
