@@ -268,13 +268,13 @@ public class TestFantome {
 		MonJeu j = new MonJeu(1);
 		Ghost g = new Ghost(j);
 		j.ajouterMonstre(g);
-		g.setPosX(5);
-		g.setPosY(3);
+		g.setPosX(6);
+		g.setPosY(1);
 		Commande c = new Commande();
 		c.gauche = true;
 		g.seDeplacer(c);
 		g.seDeplacer(c);
-		assertEquals("le fantome doit être en position x = 4", 4, j.recupererMonstre(0).getPosX());
+		assertEquals("le fantome doit être en position x = 5", 5, g.getPosX());
 	}
 	/**
 	 * Test qui verifie qu'un fantome ne peut pas attaquer s'il est mort
@@ -304,17 +304,9 @@ public class TestFantome {
 		g.setPosY(1);
 		Commande c = new Commande();
 		c.droite=true;
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		g.seDeplacer(c);
-		assertEquals("le fantome doit traverser le mur", 25, g.getPosX());
+		for (int i=0;i<30;i++){
+			g.seDeplacer(c);
+		}
+		assertEquals("le fantome doit traverser le mur", 24, g.getPosX());
 	}
 }
