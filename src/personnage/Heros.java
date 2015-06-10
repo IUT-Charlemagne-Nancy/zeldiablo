@@ -12,7 +12,7 @@ public class Heros extends Personnage{
 	private ArrayList<Objet> inventaire;
 	private final static int MAX_INVENTAIRE=10;
 	public Heros(MonJeu j) {
-			super(1,1,5,1,10000,j);
+			super(1,1,5,1,100,j);
 			avoirTalisman=false;
 			inventaire=new ArrayList<Objet>();
 	}
