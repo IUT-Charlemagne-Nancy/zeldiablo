@@ -231,7 +231,7 @@ public class MonJeu implements Jeu {
 					c=new Case(j,i);
 					this.objets.add(new PotionSoin(j,i));
 				}
-				if(la_case=='D'){
+				if(la_case=='P'){
 					c=new Case(j,i);
 					this.objets.add(new PotionPoison(j,i));
 				}
