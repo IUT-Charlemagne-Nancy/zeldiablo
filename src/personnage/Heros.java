@@ -54,7 +54,8 @@ public class Heros extends Personnage{
 			jeu.etreAPortee(this);
 			this.etreEnMouvement("attaque");
 		}
-	}
+	}	
+	
 	public void prendre(Commande c){
 		
 		if (!this.etreMort()){

@@ -16,6 +16,7 @@ public class Orcs extends Monstre{
 		super(x,y, 5, 1, 50, j);
 	}
 	public void seDeplacer(Commande c){
+		this.lancer = true;
 		if(this.etreMort()==false){
 			if (c.gauche){
 				if (jeu.recupererCase(this.posX-1,this.posY).etreTraversable() && !jeu.caseOccuper(this.posX-1, this.posY)){

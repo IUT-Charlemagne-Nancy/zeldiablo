@@ -208,7 +208,7 @@ public class InterfaceGraphique {
 			@Override
 			public void keyPressed(KeyEvent e) {
 
-				if (e.getKeyChar() == 'q' || e.getKeyChar() == 'z' || e.getKeyChar() == 'd' || e.getKeyChar() == 's' || secondes >= 0.00) {
+				if (e.getKeyChar() == 'q' || e.getKeyChar() == 'z' || e.getKeyChar() == 'd' || e.getKeyChar() == 's') {
 					Informations.removeAll();
 					Informations.repaint();
 					

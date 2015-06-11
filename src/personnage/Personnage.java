@@ -10,6 +10,8 @@ public abstract class Personnage {
 	protected MonJeu jeu;
 	protected int posX,posY,attaque,portee,vie;
 	protected String mouvement;
+	
+	public boolean lancer = false;
 	public final static int LIMIT_X=24;
 	public final static int LIMIT_Y=24; 
 	public Personnage(int x, int y, int attack, int porte, int pv, MonJeu j) {
@@ -26,6 +28,7 @@ public abstract class Personnage {
 	public abstract void seDeplacer(Commande c);
 
 	public void subirDegat(int x) {
+		lancer = true;
 		if (!this.etreMort()){
 			if(x<0){
 				x=0;
