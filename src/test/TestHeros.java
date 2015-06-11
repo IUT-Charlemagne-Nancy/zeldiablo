@@ -220,10 +220,8 @@ public class TestHeros {
 	@org.junit.Test
 	public void test_attaque_Fantome(){
 		MonJeu j = new MonJeu(1);
-		Ghost g = new Ghost(j);
+		Ghost g = new Ghost(2,2,j);
 		j.ajouterMonstre(g);
-		g.setPosX(2);
-		g.setPosY(2);
 		Commande c = new Commande();
 		c.attaque = true;
 		j.getPj().attaquer(c);
@@ -235,10 +233,8 @@ public class TestHeros {
 	@org.junit.Test
 	public void test_attaque_Orcs(){
 		MonJeu j = new MonJeu(1);
-		Orcs o = new Orcs(j);
+		Orcs o = new Orcs(2,2,j);
 		j.ajouterMonstre(o);
-		o.setPosX(2);
-		o.setPosY(2);
 		Commande c = new Commande();
 		c.attaque=true;
 		j.getPj().attaquer(c);
@@ -262,10 +258,8 @@ public class TestHeros {
 	@org.junit.Test
 	public void test_attaquer_etreMort(){
 		MonJeu j = new MonJeu(1);
-		Orcs o = new Orcs(j);
+		Orcs o = new Orcs(2,2,j);
 		j.ajouterMonstre(o);
-		o.setPosX(2);
-		o.setPosY(2);
 		j.getPj().subirDegat(100);
 		Commande c = new Commande();
 		c.attaque=true;
@@ -278,14 +272,10 @@ public class TestHeros {
 	@org.junit.Test
 	public void test_attaquer_plusieurs_Monstres(){
 		MonJeu j = new MonJeu(1);
-		Orcs o = new Orcs(j);
-		Ghost g = new Ghost(j);
+		Orcs o = new Orcs(2,2,j);
+		Ghost g = new Ghost(2,1,j);
 		j.ajouterMonstre(o);
 		j.ajouterMonstre(g);
-		o.setPosX(2);
-		o.setPosY(2);
-		g.setPosX(2);
-		g.setPosY(1);
 		Commande c = new Commande();
 		c.attaque=true;
 		j.getPj().attaquer(c);
@@ -298,10 +288,8 @@ public class TestHeros {
 	@org.junit.Test
 	public void test_attaquer_Fantome_dans_Mur(){
 		MonJeu j = new MonJeu(1);
-		Ghost g = new Ghost(j);
+		Ghost g = new Ghost(0,0,j);
 		j.ajouterMonstre(g);
-		g.setPosX(0);
-		g.setPosY(0);
 		Commande c = new Commande();
 		c.attaque=true;
 		j.getPj().attaquer(c);
