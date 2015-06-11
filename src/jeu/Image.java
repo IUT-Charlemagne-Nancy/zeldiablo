@@ -40,13 +40,10 @@ public class Image{
 	
 	public static BufferedImage mur;
 	
-	public static BufferedImage mort;
+	public static BufferedImage talisman;
+	public static  BufferedImage potion;
 	
 
-	
-	public static BufferedImage talisman;
-	
-	public static BufferedImage fantomeg;
 
 
 
@@ -80,9 +77,10 @@ public class Image{
 		this.orcsattaque = ImageIO.read(new File("photo/orcs/orcsattaque.png"));
 		
 		this.mur = ImageIO.read(new File("photo/mur.png"));
-		this.mort = ImageIO.read(new File("photo/mort.png"));
-		this.talisman = ImageIO.read(new File("photo/Gemme.png"));
-		this.fantomeg = ImageIO.read(new File("photo/FantomeGauche.png"));
+
+		this.talisman = ImageIO.read(new File("photo/objets/talisman.png"));
+		this.potion = ImageIO.read(new File("photo/objets/potion.png"));
+
 	}
 
 }

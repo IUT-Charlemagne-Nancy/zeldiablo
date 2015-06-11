@@ -155,10 +155,6 @@ public class DessinMonJeu implements DessinJeu {
 			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
 					TAILLE_CASE);
 			break;
-		case "MORT":
-			im = images.mort;
-			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
-			break;
 		case "SPAWN":
 			crayon.setColor(new Color(200, 140, 0));
 			crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
@@ -167,7 +163,10 @@ public class DessinMonJeu implements DessinJeu {
 		case "TALISMAN":
 			im = images.talisman;
 			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
-
+			break;
+		case "POTION":
+			im = images.potion;
+			crayon.drawImage(im, x * TAILLE_CASE, y * TAILLE_CASE, null);
 			break;
 		default:
 			throw new AssertionError("objet inexistant");
@@ -217,7 +216,26 @@ public class DessinMonJeu implements DessinJeu {
 				}
 
 			}
-
+		}
+		for (int i = 0; i < j.objets.size(); i++) {
+			if (j.objets.get(i) instanceof Talisman) {
+				try {
+					this.dessinerObjet("TALISMAN", j.objets.get(i).getPosX(),
+							j.objets.get(i).getPosY(), im);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else{
+				try {
+					this.dessinerObjet("POTION", j.objets.get(i).getPosX(),
+							j.objets.get(i).getPosY(), im);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 		for (int i = 0; i < j.monstres.size(); i++) {
 			if (j.monstres.get(i) instanceof Orcs){
@@ -301,17 +319,6 @@ public class DessinMonJeu implements DessinJeu {
 					catch (IOException e){
 						e.printStackTrace();
 					}
-				}
-			}
-		}
-		for (int i = 0; i < j.objets.size(); i++) {
-			if (j.objets.get(i) instanceof Talisman) {
-				try {
-					this.dessinerObjet("TALISMAN", j.objets.get(i).getPosX(),
-							j.objets.get(i).getPosY(), im);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 			}
 		}
