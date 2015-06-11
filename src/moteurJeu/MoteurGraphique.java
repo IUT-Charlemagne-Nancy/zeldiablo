@@ -124,7 +124,8 @@ public class MoteurGraphique extends JPanel {
 			this.jeu.evoluer(c);
 			// affiche le jeu
 			this.gui.dessiner();
-			this.gui.secondes = this.gui.secondes + 0.1;
+			this.gui.secondes = Math.ceil(this.gui.secondes*1)/1 + 0.1;
+			
 			// met en attente
 			Thread.sleep(100);
 		}

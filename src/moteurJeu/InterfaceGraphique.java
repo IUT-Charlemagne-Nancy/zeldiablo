@@ -258,12 +258,6 @@ public class InterfaceGraphique {
 
 					po.setText("Portee : " + portee);
 
-					vide.setText("                    ");
-
-					vide2.setText("                                                        ");
-
-					vide1.setText("                                                        ");
-
 					boussole.setText("Boussole : " + " Position en x : " + posx );
 
 					boussole1.setText(" Position en y : " + posy);
@@ -274,8 +268,7 @@ public class InterfaceGraphique {
 					nbm2.setText("restants : " + nombremonstre);
 
 					Total.setBorder(border);
-					vide3.setText("                                                        ");
-					vide4.setText("                                                        ");
+                                                   
 
 					Informations.add(ecriture, BorderLayout.WEST);
 					Informations.add(barre_vie, BorderLayout.CENTER);
@@ -287,7 +280,7 @@ public class InterfaceGraphique {
 					Informations.add(boussole1);
 					Informations.add(vide3);
 					Informations.add(temps);
-					Informations.add(vide4);
+					Informations.add(vide3);
 					Informations.add(nbm);
 					Informations.add(nbm2);
 					Informations.repaint();
