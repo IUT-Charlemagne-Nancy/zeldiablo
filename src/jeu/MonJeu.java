@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Objet.Objet;
+import Objet.PotionPoison;
+import Objet.PotionSoin;
 import Objet.Talisman;
 import personnage.Ghost;
 import personnage.Heros;
@@ -44,14 +46,8 @@ public class MonJeu implements Jeu {
 		this.pj=new Heros(this);
 		this.labyrinthe = new Case[LIMIT_X][LIMIT_Y];
 		this.objets=new ArrayList<Objet>();
-		genererNiveau(i);
 		this.monstres=new ArrayList<Monstre>();
-		
-		this.monstres.add(new Ghost(this));
-		this.monstres.add(new Orcs(this));
-		this.monstres.add(new Orcs(this));
-		this.monstres.add(new Ghost(this));
-		
+		genererNiveau(i);
 		
 		
 	}
@@ -230,6 +226,22 @@ public class MonJeu implements Jeu {
 				if(la_case=='T'){
 					c=new Case(j,i);
 					this.objets.add(new Talisman(j,i));
+				}
+				if(la_case=='V'){
+					c=new Case(j,i);
+					this.objets.add(new PotionSoin(j,i));
+				}
+				if(la_case=='D'){
+					c=new Case(j,i);
+					this.objets.add(new PotionPoison(j,i));
+				}
+				if(la_case=='G'){
+					c=new Case(j,i);
+					this.monstres.add(new Ghost(j,i,this));
+				}
+				if(la_case=='O'){
+					c=new Case(j,i);
+					this.monstres.add(new Orcs(j,i,this));
 				}
 				labyrinthe[j][i]=c;
 			}

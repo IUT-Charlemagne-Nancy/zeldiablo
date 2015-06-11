@@ -79,7 +79,7 @@ public class Image{
 		this.mur = ImageIO.read(new File("photo/mur.png"));
 
 		this.talisman = ImageIO.read(new File("photo/objets/talisman.png"));
-		this.potion = ImageIO.read(new File("photo/objets/potion.png"));
+		this.potion = ImageIO.read(new File("photo/objets/potion.gif"));
 
 	}
 

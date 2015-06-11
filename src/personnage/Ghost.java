@@ -5,8 +5,8 @@ import moteurJeu.Commande;
 
 public class Ghost extends Monstre {
 	
-	public Ghost(MonJeu j) {
-		super((int)Math.random()*30+ZONE_INTERDITE_X*2,((int)Math.random()*30+ZONE_INTERDITE_Y*2),2,1,30,j);
+	public Ghost(int x,int y,MonJeu j) {
+		super(x,y,2,1,30,j);
 	}
 
 	@Override
