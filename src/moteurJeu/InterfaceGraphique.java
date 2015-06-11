@@ -135,12 +135,6 @@ public class InterfaceGraphique {
 		final JLabel vide4 = new JLabel();
 		vide4.setText("                                                                                                                                                             ");
 
-		final JLabel control = new JLabel();
-		control.setText("Controle : Haut --> Z    Bas --> S ");
-
-		final JLabel control2 = new JLabel();
-		control2.setText("Gauche --> Q   Droite --> D");
-
 		final JLabel boussole = new JLabel();
 		boussole.setText("Boussole : " + " Position en x : " + posx );
 
@@ -174,9 +168,6 @@ public class InterfaceGraphique {
 		Informations.add(vide2);
 		Informations.add(pointA, BorderLayout.SOUTH);
 		Informations.add(po,BorderLayout.SOUTH);
-		Informations.add(vide);
-		Informations.add(control, BorderLayout.SOUTH);
-		Informations.add(control2, BorderLayout.SOUTH);
 		Informations.add(vide1);
 		Informations.add(boussole);
 		Informations.add(boussole1);
@@ -291,9 +282,6 @@ public class InterfaceGraphique {
 					Informations.add(vide2);
 					Informations.add(pointA, BorderLayout.SOUTH);
 					Informations.add(po,BorderLayout.SOUTH);
-					Informations.add(vide);
-					Informations.add(control, BorderLayout.SOUTH);
-					Informations.add(control2, BorderLayout.SOUTH);
 					Informations.add(vide1);
 					Informations.add(boussole);
 					Informations.add(boussole1);
