@@ -9,12 +9,26 @@ import java.util.List;
 import moteurJeu.Commande;
 import jeu.MonJeu;
 
-
+/**
+ * classe qui definit les orcs
+ * @author Benjamin
+ *
+ */
 public class Orcs extends Monstre{
 
+	/**
+	 * constructeur d'orcs
+	 * @param x
+	 * @param y
+	 * @param j
+	 */
 	public Orcs(int x,int y,MonJeu j) {
 		super(x,y, 5, 1, 50, j);
 	}
+	
+	/**
+	 * methode qui permet à l'orc de se deplacer
+	 */
 	public void seDeplacer(Commande c){
 		if(this.etreMort()==false){
 			if (c.gauche){

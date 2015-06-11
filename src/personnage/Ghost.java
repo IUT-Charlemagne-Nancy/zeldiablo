@@ -2,13 +2,25 @@ package personnage;
 
 import jeu.MonJeu;
 import moteurJeu.Commande;
-
+/**
+ * Classe qui permet de creer un fantome
+ * @author Benjamin
+ *
+ */
 public class Ghost extends Monstre {
-	
+	/**
+	 * Constructeur du fantome
+	 * @param x
+	 * @param y
+	 * @param j
+	 */
 	public Ghost(int x,int y,MonJeu j) {
 		super(x,y,2,1,30,j);
 	}
 
+	/**
+	 * methode qui permet au fantome de se deplacer
+	 */
 	@Override
 	public void seDeplacer(Commande c) {
 		if (this.etreMort() == false){

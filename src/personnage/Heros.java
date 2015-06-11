@@ -6,19 +6,33 @@ import java.util.List;
 import Objet.Objet;
 import jeu.MonJeu;
 import moteurJeu.Commande;
+
+/**
+ * Classe qui permet de creer un heros
+ * @author Benjamin
+ *
+ */
 public class Heros extends Personnage{
 
 	private boolean avoirTalisman;
-	private final static int MAX_INVENTAIRE=10;
+	
+	/**
+	 * Constructeurv d'un heros
+	 * @param j
+	 */
 	public Heros(MonJeu j) {
 			super(1,1,5,1,100,j);
 			avoirTalisman=false;
 			this.etreEnMouvement("repos");
 	}
+	
 	public String toString(){
 		return("vie: "+this.vie+" portee: "+this.portee+" Degats: "+this.attaque+" le personnage est en position: x:"+this.posX+" y: "+this.posY);
 	}
 	
+	/**
+	 * methode qui permet au heros de se deplacer
+	 */
 	public void seDeplacer(Commande c){
 		if(this.etreMort()==false){
 			if (c.gauche){
@@ -49,12 +63,20 @@ public class Heros extends Personnage{
 	}
 	
 
+	/**
+	 * methode qui permet au heros d'attaquer
+	 */
 	public void attaquer(Commande c){
 		if(this.etreMort()==false){
 			jeu.etreAPortee(this);
 			this.etreEnMouvement("attaque");
 		}
 	}
+	
+	/**
+	 * methode qui permet au heros de prendre un objet
+	 * @param c
+	 */
 	public void prendre(Commande c){
 		
 		if (!this.etreMort()){
@@ -62,6 +84,10 @@ public class Heros extends Personnage{
 			this.etreEnMouvement("prendre");				
 		}
 	}
+	
+	/**
+	 * methode qui indique que le heros a le talisman
+	 */
 	public void avoirPrisTalisman() {
 		avoirTalisman=true;
 		

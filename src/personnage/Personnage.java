@@ -5,13 +5,27 @@ import java.util.ArrayList;
 
 import moteurJeu.Commande;
 import jeu.MonJeu;
-
+/**
+ * Classe abstraite qui definit tout les personnages
+ * @author Benjamin
+ *
+ */
 public abstract class Personnage {
 	protected MonJeu jeu;
 	protected int posX,posY,attaque,portee,vie;
 	protected String mouvement;
 	public final static int LIMIT_X=24;
-	public final static int LIMIT_Y=24; 
+	public final static int LIMIT_Y=24;
+	
+	/**
+	 * constructeur d'un personnage
+	 * @param x
+	 * @param y
+	 * @param attack
+	 * @param porte
+	 * @param pv
+	 * @param j
+	 */
 	public Personnage(int x, int y, int attack, int porte, int pv, MonJeu j) {
 		this.posX=x;
 		this.posY=y;
@@ -22,9 +36,16 @@ public abstract class Personnage {
 		this.mouvement="banane";
 		
 	}
-
+	/**
+	 * methode qui permet de deplacer le personnage
+	 * @param c
+	 */
 	public abstract void seDeplacer(Commande c);
 
+	/**
+	 * methode qui inflige des degats au personnage
+	 * @param x
+	 */
 	public void subirDegat(int x) {
 		if (!this.etreMort()){
 			if(x<0){
@@ -37,6 +58,11 @@ public abstract class Personnage {
 		}
 		
 	}
+	
+	/**
+	 * methode qui indique si un personnage est mort ou non
+	 * @return
+	 */
 	public boolean etreMort(){
 		boolean res=false;
 		if(this.vie<=0){
@@ -85,7 +111,11 @@ public abstract class Personnage {
 	public void setPosY(int posY) {
 		this.posY = posY;
 	}
-
+	
+	/**
+	 * methode qui permet d'attaquer
+	 * @param c
+	 */
 	public abstract void attaquer(Commande c);
 
 	public void etreEnMouvement(String mouv){

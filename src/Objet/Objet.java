@@ -3,7 +3,7 @@ package Objet;
 import personnage.Heros;
 import jeu.MonJeu;
 /**
- * 
+ * Classe abstraite qui definit les objets
  * @author Benjamin
  *
  */
@@ -24,10 +24,6 @@ public abstract class Objet {
 		this.posX = x;
 		this.posY = y;
 		}
-	
-	/**
-	 * methode qui indique qu'un objet est pris.
-	 */
 	
 	public String getNomObjet() {
 		return nomObjet;

@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * 
+ * Classe qui definit les images des animations
  * @author Benjamin Denys
  *
  */
@@ -48,7 +48,10 @@ public class Image{
 
 
 	
-	
+	/**
+	 * Constructeur des Images
+	 * @throws IOException
+	 */
 	public Image() throws IOException {
 		// Images des animations du heros
 		this.heros = ImageIO.read(new File("photo/heros/heros.png"));
@@ -59,7 +62,7 @@ public class Image{
 		this.herosmort = ImageIO.read(new File("photo/heros/herosmort.png"));
 		this.herosattaque = ImageIO.read(new File("photo/heros/herosattaque.png"));
 		this.herosprendre = ImageIO.read(new File("photo/heros/herosprendre.png"));
-		
+		// Images des animations du fantome
 		this.ghost = ImageIO.read(new File("photo/ghost/ghost.png"));
 		this.ghostgauche = ImageIO.read(new File("photo/ghost/ghostgauche.png"));
 		this.ghostdroite = ImageIO.read(new File("photo/ghost/ghostdroite.png"));
@@ -67,7 +70,7 @@ public class Image{
 		this.ghosthaut = ImageIO.read(new File("photo/ghost/ghosthaut.png"));
 		this.ghostmort = ImageIO.read(new File("photo/ghost/ghostmort.png"));
 		this.ghostattaque = ImageIO.read(new File("photo/ghost/ghostattaque.png"));
-		
+		// Images des animations de l'orc
 		this.orcs = ImageIO.read(new File("photo/orcs/orcs.png"));
 		this.orcsgauche = ImageIO.read(new File("photo/orcs/orcsgauche.png"));
 		this.orcsdroite = ImageIO.read(new File("photo/orcs/orcsdroite.png"));
@@ -75,9 +78,9 @@ public class Image{
 		this.orcshaut = ImageIO.read(new File("photo/orcs/orcshaut.png"));
 		this.orcsmort = ImageIO.read(new File("photo/orcs/orcsmort.png"));
 		this.orcsattaque = ImageIO.read(new File("photo/orcs/orcsattaque.png"));
-		
+		// Image du mur
 		this.mur = ImageIO.read(new File("photo/mur.png"));
-
+		// Images des objets
 		this.talisman = ImageIO.read(new File("photo/objets/talisman.png"));
 		this.potion = ImageIO.read(new File("photo/objets/potion.gif"));
 
