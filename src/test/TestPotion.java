@@ -2,53 +2,12 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 import jeu.MonJeu;
-import Objet.PotionDegat;
-import Objet.PotionMagique;
 import Objet.PotionPoison;
 import Objet.PotionSoin;
 
 
 public class TestPotion {
 
-	/**
-	 * Test qui vérifie le constructeur de PotionDegat
-	 */
-	@org.junit.Test
-	public void test_Constructeur_PotionDegat(){
-		PotionDegat pd = new PotionDegat(1,1);
-		assertEquals("La potion doit etre en position x=1", 1, pd.getPosX());
-		assertEquals("la potion doit etre en position y=1", 1, pd.getPosY());
-	}
-	/**
-	 * Test qui vérifie les effets de d'une potion degat
-	 */
-	@org.junit.Test
-	public void test_Effet_PotionDegat(){
-		MonJeu j = new MonJeu(1);
-		PotionDegat pd = new PotionDegat(1,1);
-		pd.appliquerEffet(j.getPj());
-		assertEquals("l'attaque du heros doit augmenter de 2 points", 7, j.getPj().getAttaque());
-	}
-	/**
-	 * Test qui vérifie le constructeur de PotionMagique
-	 */
-	@org.junit.Test
-	public void test_Constructeur_PotionMagique(){
-		PotionMagique pm = new PotionMagique(1,1);
-		assertEquals("La potion doit etre en position x=1", 1, pm.getPosX());
-		assertEquals("la potion doit etre en position y=1", 1, pm.getPosY());
-	}
-	/**
-	 * Test qui vérifie les effets d'une potion magique
-	 */
-	@org.junit.Test
-	public void test_Effet_PotionMagique(){
-		MonJeu j = new MonJeu(1);
-		PotionMagique pm = new PotionMagique(1,1);
-		pm.appliquerEffet(j.getPj());
-		assertEquals("l'attaque du heros doit augmenter de 4 points", 9, j.getPj().getAttaque());
-		assertEquals("le heros doit se soigner de 30pdv", 130, j.getPj().getVie());
-	}
 	/**
 	 * Test qui vérifie le constructeur de PotionPoison
 	 */
