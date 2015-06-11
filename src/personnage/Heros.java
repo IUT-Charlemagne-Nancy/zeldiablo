@@ -52,13 +52,14 @@ public class Heros extends Personnage{
 	public void attaquer(Commande c){
 		if(this.etreMort()==false){
 			jeu.etreAPortee(this);
+			this.etreEnMouvement("attaque");
 		}
 	}
 	public void prendre(Commande c){
 		
 		if (!this.etreMort()){
 			jeu.donnerObjet(this);
-				
+			this.etreEnMouvement("prendre");				
 		}
 	}
 	public void avoirPrisTalisman() {

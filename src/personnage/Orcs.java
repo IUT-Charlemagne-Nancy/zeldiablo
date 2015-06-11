@@ -31,6 +31,7 @@ public class Orcs extends Monstre{
 						}
 					}
 				}
+				this.etreEnMouvement("gauche");
 			}
 			if (c.droite ){
 				if (jeu.recupererCase(this.posX+1,this.posY).etreTraversable()&& !jeu.caseOccuper(this.posX+1, this.posY)){
@@ -39,6 +40,7 @@ public class Orcs extends Monstre{
 						this.posX=LIMIT_X-1;
 					}
 				}
+				this.etreEnMouvement("droite");
 			}
 			if (c.haut){
 				if (jeu.recupererCase(this.posX,this.posY-1).etreTraversable()&& !jeu.caseOccuper(this.posX, this.posY-1)){
@@ -49,6 +51,7 @@ public class Orcs extends Monstre{
 						}
 					}
 				}
+				this.etreEnMouvement("haut");
 			}
 			if (c.bas){
 				if (jeu.recupererCase(this.posX,this.posY+1).etreTraversable()&&!jeu.caseOccuper(this.posX, this.posY+1)){
@@ -57,6 +60,7 @@ public class Orcs extends Monstre{
 						this.posY=LIMIT_Y-1;
 					}
 				}
+				this.etreEnMouvement("bas");
 			}
 		}
 	}

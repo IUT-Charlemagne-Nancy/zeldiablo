@@ -48,10 +48,8 @@ public class MonJeu implements Jeu {
 		this.monstres=new ArrayList<Monstre>();
 		
 		this.monstres.add(new Ghost(this));
-		/**
 		this.monstres.add(new Orcs(this));
 		this.monstres.add(new Orcs(this));
-		*/
 		this.monstres.add(new Ghost(this));
 		
 		
@@ -168,6 +166,7 @@ public class MonJeu implements Jeu {
 	}
 	public boolean etreAPorteeHeros(Personnage p){
 		if ((int)Math.abs(p.getPosX()-this.getPj().getPosX())<=p.getPortee() && (int) Math.abs(p.getPosY()-this.getPj().getPosY()) <= p.getPortee()){
+			p.etreEnMouvement("attaque");
 			return true;
 		}
 		else{

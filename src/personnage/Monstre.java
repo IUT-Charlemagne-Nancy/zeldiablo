@@ -12,7 +12,8 @@ public abstract class Monstre extends Personnage {
 	}
 	public void attaquer(Commande c){
 		if(this.etreMort()==false){
-			jeu.getPj().subirDegat(this.getAttaque());;
+			jeu.getPj().subirDegat(this.getAttaque());
+			this.etreEnMouvement("attaque");
 		}
 	}
 	@Override
