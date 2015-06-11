@@ -14,6 +14,8 @@ public abstract class Personnage {
 	protected MonJeu jeu;
 	protected int posX,posY,attaque,portee,vie;
 	protected String mouvement;
+	
+	public boolean lancer = false;
 	public final static int LIMIT_X=24;
 	public final static int LIMIT_Y=24;
 	
@@ -47,6 +49,7 @@ public abstract class Personnage {
 	 * @param x
 	 */
 	public void subirDegat(int x) {
+		lancer = true;
 		if (!this.etreMort()){
 			if(x<0){
 				x=0;

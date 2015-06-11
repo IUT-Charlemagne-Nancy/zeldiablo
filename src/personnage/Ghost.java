@@ -23,6 +23,7 @@ public class Ghost extends Monstre {
 	 */
 	@Override
 	public void seDeplacer(Commande c) {
+		this.lancer = true;
 		if (this.etreMort() == false){
 			if (c.gauche){
 				if (this.posX-1>ZONE_INTERDITE_X||this.posY>ZONE_INTERDITE_Y){
